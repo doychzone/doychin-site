@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Making Sense Privacy Notice - Doychin Karshovski</title>
+<meta name="description" content="Privacy and Data Protection Notice for Making Sense programs.">
+<meta name="robots" content="noindex, nofollow">
+<style>
+  :root {
+    --bg: #141414;
+    --bg-alt: #1c1c1c;
+    --text: #f2f0ec;
+    --text-dim: #b7b3ab;
+    --accent: #c8531d;
+    --border: #2c2c2c;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  header {
+    background: #0d0d0d;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  header a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  header a span { color: var(--accent); }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.2em;
+  }
+  h2 {
+    font-size: 1.15rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2.4em;
+    border-top: 1px solid var(--border);
+    padding-top: 1.4em;
+  }
+  p, li { color: var(--text-dim); }
+  strong { color: var(--text); }
+  a { color: var(--accent); }
+  .updated {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-bottom: 2.5em;
+  }
+  .intro {
+    color: var(--text);
+    font-size: 1.05rem;
+  }
+  ul { padding-left: 1.2em; }
+  .contact-box {
+    background: var(--bg-alt);
+    border: 1px solid var(--border);
+    padding: 20px 24px;
+    border-radius: 4px;
+    margin-top: 1em;
+  }
+  footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/">DOYCHIN <span>KARSHOVSKI</span></a>
+</header>
+
+<main>
+  <h1>Making Sense</h1>
+  <p class="intro">Privacy and Data Protection Notice</p>
+  <p class="updated">Draft - last updated [DATE]</p>
+
+  <p>This notice explains how Want2goFit LLC, operating as Making Sense ("we," "us," "the Program"), collects, uses, and protects personal data belonging to participants, in accordance with the EU General Data Protection Regulation (GDPR) and applicable United States data protection law. It applies to all Making Sense programs, current and future.</p>
+
+  <p>This notice is referenced in, and forms part of, the Agreement you sign for any Making Sense program. If anything here conflicts with that Agreement on data handling specifically, this notice governs.</p>
+
+  <h2>1. Who is responsible for your data</h2>
+  <p>Want2goFit LLC, an Ohio limited liability company operating as Making Sense, is the data controller for the personal data described in this notice.</p>
+  <div class="contact-box">
+    <strong>Contact for data protection matters</strong><br>
+    Doych Karshovski &mdash; <a href="mailto:doych@doychzone.com">doych@doychzone.com</a>
+  </div>
+
+  <h2>2. What data we collect</h2>
+  <ul>
+    <li><strong>Identity and contact data</strong> - name, age, location, contact details.</li>
+    <li><strong>Health and biometric data</strong> (special category data under GDPR Article 9) - intake responses, biological test results from testing providers and panels selected by the Program, functional assessment results, and TEMELI behavioral assessment scores.</li>
+    <li><strong>Any other personal data</strong> you choose to share with us as relevant to your personal coaching experience.</li>
+  </ul>
+
+  <h2>3. Why we process your data, and our legal basis</h2>
+  <p><strong>Building your personal Intelligence Map and delivering coaching:</strong> performance of the Agreement (contract).</p>
+  <p><strong>Processing health and biometric data specifically:</strong> your explicit consent (GDPR Article 9(2)(a)).</p>
+  <p><strong>Scientific review of your raw biological data with our scientific partner(s):</strong> your explicit consent.</p>
+  <p><strong>Contribution to aggregated or de-identified research:</strong> your explicit consent, and our legitimate interest in advancing the methodology.</p>
+  <p><strong>Case study use in educational or marketing material:</strong> your separate, optional explicit consent.</p>
+  <p><strong>Legal and financial recordkeeping:</strong> legal obligation.</p>
+  <p>Where processing relies on consent, you may withdraw that consent at any time. Withdrawal does not affect processing already carried out, and may affect our ability to continue providing the program to you.</p>
+
+  <h2>4. Who we share your data with</h2>
+  <ul>
+    <li><strong>Program team members</strong> at Want2goFit LLC, on a need-to-know basis.</li>
+    <li><strong>Our scientific partner(s)</strong>, including Dr. Jin-Xiong She, PhD, who may receive raw, identified biological test data for scientific review and research purposes.</li>
+    <li><strong>Testing providers and laboratories</strong> selected by the Program to conduct biological and functional testing. The specific providers we work with may vary by program and over time.</li>
+    <li><strong>AI tools</strong> used to assist in analyzing and synthesizing your data into your Intelligence Map. The specific tools in use may change over time as the Program tests different tools for different tasks. A current list is available on request. A human team member reviews and approves all output before it reaches you - no AI tool makes final decisions about your protocol.</li>
+  </ul>
+  <p>We do not sell your data, and we do not share it for purposes unrelated to the program without your separate consent.</p>
+
+  <h2>5. International data transfers</h2>
+  <p>Some of the parties listed in Section 4 are based in or operate infrastructure outside your country of residence, including the United States. This means your data, including health data, may be transferred to and processed there.</p>
+  <p>We rely on the data protection commitments offered by each provider for this purpose, including standard contractual clauses or equivalent safeguards where available. If you would like details of the specific safeguard relied on for a particular provider, contact us using the details in Section 1.</p>
+
+  <h2>6. How long we keep your data</h2>
+  <p>We retain your personal data, including test results, for a minimum of five years following your participation, for scientific integrity and recordkeeping purposes. You may request deletion after the program concludes, subject to legal and scientific retention requirements that may require us to retain certain records longer.</p>
+
+  <h2>7. Your rights</h2>
+  <p>Under GDPR, and to the extent applicable under U.S. state privacy law, you have the right to:</p>
+  <ul>
+    <li>Access the personal data we hold about you.</li>
+    <li>Correct inaccurate data.</li>
+    <li>Request erasure of your data, subject to our retention obligations.</li>
+    <li>Restrict or object to certain processing.</li>
+    <li>Receive a copy of your data in a portable format.</li>
+    <li>Withdraw consent at any time, without affecting processing already carried out.</li>
+    <li>Lodge a complaint with your local data protection supervisory authority.</li>
+  </ul>
+  <p>To exercise any of these rights, contact us using the details in Section 1. We will respond within the timeframe required by applicable law.</p>
+
+  <h2>8. Security</h2>
+  <p>We take reasonable technical and organizational measures to protect your data against unauthorized access, loss, or misuse, including limiting access to data on a need-to-know basis and using providers that maintain their own data protection commitments.</p>
+
+  <h2>9. If something goes wrong</h2>
+  <p>If a data breach occurs that puts your rights or data at risk, we will notify the relevant supervisory authority within 72 hours of becoming aware of it, and notify you directly if the breach is likely to affect you. We will take appropriate technical and organizational steps to contain and address the breach.</p>
+
+  <h2>10. Changes to this notice</h2>
+  <p>We may update this notice as our programs evolve, including as we test new tools or partners. The current version will always be available at this page. Material changes affecting how your data is used will be communicated to active participants directly.</p>
+
+</main>
+
+<footer>
+  Making Sense &mdash; Want2goFit LLC, Ohio &mdash; DRAFT
+</footer>
+
+</body>
+</html>
