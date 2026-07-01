@@ -91,7 +91,7 @@
 <main>
   <h1>Making Sense</h1>
   <p class="intro">Privacy and Data Protection Notice</p>
-  <p class="updated">Draft - last updated [DATE]</p>
+  <p class="updated">Last updated June 30, 2026</p>
 
   <p>This notice explains how Want2goFit LLC, operating as Making Sense ("we," "us," "the Program"), collects, uses, and protects personal data belonging to participants, in accordance with the EU General Data Protection Regulation (GDPR) and applicable United States data protection law. It applies to all Making Sense programs, current and future.</p>
 
@@ -101,7 +101,7 @@
   <p>Want2goFit LLC, an Ohio limited liability company operating as Making Sense, is the data controller for the personal data described in this notice.</p>
   <div class="contact-box">
     <strong>Contact for data protection matters</strong><br>
-    Doych Karshovski &mdash; <a href="mailto:doych@doychzone.com">doych@doychzone.com</a>
+    Doychin Karshovski &mdash; <a href="mailto:doych@doychzone.com">doych@doychzone.com</a>
   </div>
 
   <h2>2. What data we collect</h2>
@@ -123,7 +123,7 @@
   <h2>4. Who we share your data with</h2>
   <ul>
     <li><strong>Program team members</strong> at Want2goFit LLC, on a need-to-know basis.</li>
-    <li><strong>Our scientific partner(s)</strong>, including Dr. Jin-Xiong She, PhD, who may receive raw, identified biological test data for scientific review and research purposes.</li>
+    <li><strong>Our scientific partner(s)</strong>, who may receive raw, identified biological test data for scientific review and research purposes.</li>
     <li><strong>Testing providers and laboratories</strong> selected by the Program to conduct biological and functional testing. The specific providers we work with may vary by program and over time.</li>
     <li><strong>AI tools</strong> used to assist in analyzing and synthesizing your data into your Intelligence Map. The specific tools in use may change over time as the Program tests different tools for different tasks. A current list is available on request. A human team member reviews and approves all output before it reaches you - no AI tool makes final decisions about your protocol.</li>
   </ul>
@@ -161,7 +161,7 @@
 </main>
 
 <footer>
-  Making Sense &mdash; Want2goFit LLC, Ohio &mdash; DRAFT
+  Making Sense &mdash; Want2goFit LLC, Ohio
 </footer>
 
 </body>
