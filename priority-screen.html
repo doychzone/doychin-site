@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Find Where to Look First - Making Sense Priority Screen</title>
+<meta name="description" content="Stay Ahead. Many of the conditions that shape how long and how well we live develop quietly. The Making Sense Priority Screen helps you find where to look first.">
+<link rel="canonical" href="https://www.doychin.com/priority-screen">
+<meta property="og:title" content="Find Where to Look First - Making Sense Priority Screen">
+<meta property="og:description" content="A private, 15-minute screen to help you identify which longevity pathway may deserve attention first.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.doychin.com/priority-screen">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241C17; --ink-soft:#5A4E44; --paper:#F2EDE4; --card:#FBF8F2;
+    --terra:#8B4A2B; --terra-soft:#B5714A; --line:#E2D8C8;
+    --sage:#5E7C6A; --amber:#C1872E; --brick:#A6432E;
+    --shadow:0 1px 2px rgba(36,28,23,.05),0 10px 30px rgba(36,28,23,.06);
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  .wide{max-width:1000px;margin:0 auto;padding:0 22px}
+  a{color:var(--terra)}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1.1;margin:0}
+  p{margin:0 0 18px}
+  .eyebrow{font:700 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--terra)}
+
+  /* header */
+  header{border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;gap:10px;padding:16px 0}
+  .umbrella{width:24px;height:24px;flex:0 0 auto}
+  .brandname{font-family:var(--serif);font-weight:600;font-size:18px}
+  .brandtag{margin-left:auto;font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--terra-soft)}
+
+  /* hero */
+  .hero{padding:64px 0 40px;opacity:0;transform:translateY(10px);animation:rise .7s cubic-bezier(.2,.7,.2,1) .05s forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .hero h1{font-size:clamp(38px,7vw,64px);margin:14px 0 20px}
+  .hero .lead{font-size:clamp(19px,2.4vw,22px);color:var(--ink);max-width:34ch}
+  .timing{display:inline-block;margin:6px 0 30px;font-family:var(--serif);font-style:italic;font-size:19px;color:var(--terra);
+    border-left:3px solid var(--terra);padding-left:14px}
+  .cta{display:inline-flex;align-items:center;gap:9px;background:var(--terra);color:#fff;text-decoration:none;
+    font-weight:600;font-size:16px;padding:14px 26px;border-radius:999px;transition:.15s;box-shadow:var(--shadow)}
+  .cta:hover{background:#7a3f24;transform:translateY(-1px)}
+  .cta .arr{transition:.15s} .cta:hover .arr{transform:translateX(3px)}
+  .cta.ghost{background:transparent;color:var(--terra);border:1px solid var(--terra);box-shadow:none}
+  .cta.ghost:hover{background:rgba(139,74,43,.06)}
+  .subcta{margin-top:14px;font-size:14px;color:var(--ink-soft)}
+
+  .section{padding:44px 0}
+  .section h2{font-size:clamp(26px,4vw,34px);margin-bottom:18px}
+  .kicker{color:var(--ink-soft)}
+  .rule{height:1px;background:var(--line);border:0;margin:0}
+
+  /* four horsemen */
+  .horsemen{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+  .horseman{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+  .horseman .ic{width:34px;height:34px;margin-bottom:12px;color:var(--terra)}
+  .horseman h3{font-size:19px;margin-bottom:6px}
+  .horseman p{margin:0;font-size:15px;color:var(--ink-soft);line-height:1.55}
+
+  /* pathway signature */
+  .pathwrap{background:linear-gradient(180deg,#F6F1E8,#EFE8DC);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .pathway{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative;margin-top:30px}
+  .pathway::before{content:"";position:absolute;top:43px;left:11%;right:11%;height:2px;
+    background:linear-gradient(90deg,var(--terra) 0 12%,var(--line) 26%);z-index:0}
+  .stage{position:relative;z-index:1;text-align:center}
+  .badgerow{height:24px;margin-bottom:8px}
+  .badge{display:inline-block;background:var(--terra);color:#fff;font:700 10px/1 var(--sans);letter-spacing:.14em;
+    text-transform:uppercase;padding:5px 11px;border-radius:999px}
+  .dot{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    margin:0 auto 12px;font-family:var(--serif);font-weight:600;font-size:19px;background:#fff;border:2px solid var(--line);color:var(--ink-soft)}
+  .stage.current .dot{background:var(--terra);border-color:var(--terra);color:#fff;box-shadow:0 0 0 6px rgba(139,74,43,.12)}
+  .stage h3{font-size:16px;margin-bottom:5px}
+  .stage p{font-size:13.5px;color:var(--ink-soft);margin:0;line-height:1.5}
+
+  /* priority screen block */
+  .screen{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:34px;box-shadow:var(--shadow);margin-top:8px}
+  .screen .meta{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+  .pill{font:700 12px/1 var(--sans);letter-spacing:.04em;color:var(--terra);background:rgba(139,74,43,.08);
+    border:1px solid rgba(139,74,43,.18);padding:7px 12px;border-radius:999px}
+  .screen p{color:var(--ink-soft)}
+  .screen p strong{color:var(--ink)}
+
+  /* closing */
+  .closing{text-align:center;padding:56px 0 30px}
+  .closing .q{font-family:var(--serif);font-size:clamp(22px,3.4vw,30px);line-height:1.3;max-width:22ch;margin:0 auto 26px}
+  .closing .invite{color:var(--ink-soft);max-width:46ch;margin:0 auto 24px}
+  .signoff{font-family:var(--serif);font-style:italic;color:var(--terra);font-size:18px;margin-top:34px}
+
+  footer{border-top:1px solid var(--line);background:#EFE8DC}
+  .foot{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;padding:26px 0;font-size:13px;color:var(--ink-soft)}
+  .foot .tag{font-family:var(--serif);font-style:italic;color:var(--terra-soft)}
+  .foot a{color:var(--ink-soft)}
+  .foot .sp{margin-left:auto}
+
+  @media (max-width:640px){
+    .horsemen{grid-template-columns:1fr}
+    .pathway{grid-template-columns:1fr;gap:22px}
+    .pathway::before{display:none}
+    .hero{padding:48px 0 30px}
+    .screen{padding:24px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+  :focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:6px}
+  .diagram{overflow-x:auto;margin:28px 0 0;-webkit-overflow-scrolling:touch}
+  .diagram svg{display:block;width:100%;min-width:560px;max-width:680px;height:auto;margin:0 auto}
+  .diagcap{font-size:12.5px;color:var(--ink-soft);text-align:center;margin:12px auto 0;max-width:44ch}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wide bar">
+    <svg class="umbrella" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4v3M16 27a3 3 0 0 0 3-3" stroke="#8B4A2B" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M4 17c0-6.6 5.4-11 12-11s12 4.4 12 11c-2.4-1.8-4.2-1.8-6 0-1.8-1.8-4.2-1.8-6 0-1.8-1.8-4.2-1.8-6 0-1.8-1.8-3.6-1.8-6 0Z" fill="#8B4A2B"/></svg>
+    <span class="brandname">Making Sense</span>
+    <span class="brandtag">Stay Ahead</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Stay Ahead</p>
+    <h1>Find where to look first.</h1>
+    <p class="lead">Most people start paying attention to their health after something goes wrong. Stay Ahead begins earlier.</p>
+    <div class="timing">The real advantage is timing. Data before opinion.</div>
+    <div><a class="cta" href="making-sense-priority-screen.html">Start the Priority Screen <span class="arr">&rarr;</span></a></div>
+    <p class="subcta">About 15 minutes. No blood test. Nothing leaves your device.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow">The Four Horsemen</p>
+    <h2 style="margin:8px 0 16px">Don't die from something stupid.</h2>
+    <p>There is a running joke in longevity circles that the single best tactic is exactly that: don't die from something stupid. It gets a laugh, and then it lands, because that is most of the game.</p>
+    <p>Longevity, underneath the noise, is the long and unglamorous work of not being taken out early by the things most likely to do it. Keep avoiding the big ones for long enough and time stays on your side. And the big ones are surprisingly few. Four areas cause most of what shortens life, and they are sometimes called the Four Horsemen.</p>
+    <div class="horsemen">
+      <div class="horseman">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h4l2-5 3 10 2-5h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Cardiovascular disease</h3>
+        <p>The world's leading killer, and one of the most preventable. It builds silently for years, which is exactly why it rewards looking early.</p>
+      </div>
+      <div class="horseman">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        <h3>Metabolic dysfunction</h3>
+        <p>How your body handles energy and blood sugar. The quiet upstream driver that makes the other three more likely.</p>
+      </div>
+      <div class="horseman">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="6.4" stroke="currentColor" stroke-width="1.7"/><path d="M15.6 15.6 21 21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <h3>Cancer</h3>
+        <p>The one where timing decides everything. Found early the odds change completely, so screening and family history matter most.</p>
+      </div>
+      <div class="horseman">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 4.5a4 4 0 0 1 3 6.5 3.5 3.5 0 0 1-1 5.5A3.5 3.5 0 0 1 11 19V6a3.5 3.5 0 0 1 4-1.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M11 9H8M11 13H7.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <h3>Neurodegenerative disease</h3>
+        <p>The slow one. Its groundwork is laid decades before symptoms, which is why early habits matter most here.</p>
+      </div>
+    </div>
+    <p style="margin-top:26px">They do not appear overnight. Long before a diagnosis, there are signals hidden in family history, everyday measurements, habits, symptoms, and screening history.</p>
+    <p>The problem is rarely a lack of information. It is knowing what matters, what is missing, and where to begin.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow">The system</p>
+    <h2>That is why I created Making Sense.</h2>
+    <p>Making Sense brings together health data, scientific knowledge, human behavior, and practical action. Its purpose is not to give you more advice. It is to help you understand your own situation and make better decisions before those decisions become urgent.</p>
+    <p class="kicker">The Priority Screen is where it starts.</p>
+  </div>
+</section>
+
+<section class="pathwrap">
+  <div class="wrap section">
+    <p class="eyebrow">Where this goes</p>
+    <h2 style="margin-bottom:6px">The first step of a longer path.</h2>
+    <p class="kicker" style="max-width:54ch">Each step earns the next. You never move further than your own information supports, and you are never left with a result and no next move. The loop is the point: as one priority settles, you choose the next.</p>
+    <div class="diagram">
+      <svg viewBox="0 0 720 860" role="img" aria-label="The Making Sense pathway. Preparation, then the Priority Screen where you are now, then deciding where to look first across heart, metabolic, brain and cancer screening, then confirming with the right measurements, building your Longevity Intelligence Map, choosing a focused action plan, and learning and tracking in Campus, then reviewing and choosing the next priority in a continuing loop.">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#B5714A"/></marker>
+        </defs>
+        <style>
+          .lbl{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;fill:#241C17;font-size:14px;text-anchor:middle}
+          .con{stroke:#C4B29E;stroke-width:1.6;fill:none}
+          .loop{stroke:#B5714A;stroke-width:1.8;fill:none;stroke-dasharray:5 5}
+        </style>
+
+        <!-- connectors (drawn first, under nodes) -->
+        <path class="con" d="M360 64 L360 105" marker-end="url(#ah)"/>
+        <path class="con" d="M360 166 L360 203" marker-end="url(#ah)"/>
+        <path class="con" d="M360 262 L96 313" marker-end="url(#ah)"/>
+        <path class="con" d="M360 262 L255 313" marker-end="url(#ah)"/>
+        <path class="con" d="M360 262 L420 313" marker-end="url(#ah)"/>
+        <path class="con" d="M360 262 L585 313" marker-end="url(#ah)"/>
+        <path class="con" d="M90 366 L358 421" marker-end="url(#ah)"/>
+        <path class="con" d="M255 366 L360 421" marker-end="url(#ah)"/>
+        <path class="con" d="M420 366 L360 421" marker-end="url(#ah)"/>
+        <path class="con" d="M585 366 L362 421" marker-end="url(#ah)"/>
+        <path class="con" d="M360 476 L360 513" marker-end="url(#ah)"/>
+        <path class="con" d="M360 566 L360 603" marker-end="url(#ah)"/>
+        <path class="con" d="M360 656 L360 693" marker-end="url(#ah)"/>
+        <path class="con" d="M360 746 L360 783" marker-end="url(#ah)"/>
+        <!-- loop back -->
+        <path class="loop" d="M475 813 C 632 810, 672 782, 672 700 L672 330 C672 272 626 240 489 235" marker-end="url(#ah)"/>
+        <text transform="rotate(-90 702 520)" x="702" y="520" text-anchor="middle" font-size="12" fill="#B5714A" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif">Continue the journey</text>
+
+        <!-- Preparation -->
+        <rect x="245" y="16" width="230" height="48" rx="12" fill="#EFE8DC" stroke="#E2D8C8" stroke-width="1.5"/>
+        <text class="lbl" fill="#5A4E44" font-size="12.5"><tspan x="360" y="36">Preparation</tspan><tspan x="360" y="53">gather what you already know</tspan></text>
+
+        <!-- Priority Screen (you are here) -->
+        <rect x="245" y="108" width="230" height="58" rx="14" fill="#8B4A2B" stroke="#8B4A2B"/>
+        <g><circle cx="311" cy="126" r="5" fill="#fff"/><circle cx="311" cy="126" r="2.2" fill="#8B4A2B"/><path d="M311 131 l-3 4 h6 z" fill="#fff"/></g>
+        <text class="lbl" fill="#fff"><tspan x="363" y="130" font-size="10" letter-spacing="1.4" font-weight="700">YOU ARE HERE</tspan><tspan x="360" y="152" font-size="16" font-weight="600">Priority Screen</tspan></text>
+
+        <!-- Decision -->
+        <rect x="235" y="206" width="250" height="56" rx="28" fill="#fff" stroke="#8B4A2B" stroke-width="2"/>
+        <text class="lbl" fill="#8B4A2B" font-size="14.5" font-weight="600"><tspan x="360" y="240">Where should I look first?</tspan></text>
+
+        <!-- Four pathways -->
+        <rect x="25"  y="316" width="130" height="50" rx="10" fill="#fff" stroke="#A6432E" stroke-width="2"/>
+        <text class="lbl" fill="#A6432E" font-weight="600"><tspan x="90" y="346">Heart</tspan></text>
+        <rect x="190" y="316" width="130" height="50" rx="10" fill="#fff" stroke="#C1872E" stroke-width="2"/>
+        <text class="lbl" fill="#C1872E" font-weight="600"><tspan x="255" y="346">Metabolic</tspan></text>
+        <rect x="355" y="316" width="130" height="50" rx="10" fill="#fff" stroke="#5E7C6A" stroke-width="2"/>
+        <text class="lbl" fill="#5E7C6A" font-weight="600"><tspan x="420" y="346">Brain</tspan></text>
+        <rect x="520" y="316" width="130" height="50" rx="10" fill="#fff" stroke="#8B4A2B" stroke-width="2"/>
+        <text class="lbl" fill="#8B4A2B" font-weight="600" font-size="12.5"><tspan x="585" y="346">Cancer screening</tspan></text>
+
+        <!-- Confirm -->
+        <rect x="245" y="424" width="230" height="52" rx="12" fill="#FBF8F2" stroke="#8B4A2B" stroke-width="1.6"/>
+        <text class="lbl" font-size="13.5" font-weight="600"><tspan x="360" y="447">Confirm with the right</tspan><tspan x="360" y="464">measurements</tspan></text>
+
+        <!-- Map -->
+        <rect x="245" y="516" width="230" height="50" rx="12" fill="#FBF8F2" stroke="#E2D8C8" stroke-width="1.5"/>
+        <text class="lbl" font-size="13"><tspan x="360" y="537">Build your Longevity</tspan><tspan x="360" y="554">Intelligence Map</tspan></text>
+
+        <!-- Plan -->
+        <rect x="245" y="606" width="230" height="50" rx="12" fill="#FBF8F2" stroke="#E2D8C8" stroke-width="1.5"/>
+        <text class="lbl" font-size="13"><tspan x="360" y="627">Choose a focused</tspan><tspan x="360" y="644">action plan</tspan></text>
+
+        <!-- Campus -->
+        <rect x="245" y="696" width="230" height="50" rx="12" fill="#FBF8F2" stroke="#E2D8C8" stroke-width="1.5"/>
+        <text class="lbl" font-size="13"><tspan x="360" y="717">Learn, act, and track</tspan><tspan x="360" y="734">in Campus</tspan></text>
+
+        <!-- Review -->
+        <rect x="245" y="786" width="230" height="54" rx="12" fill="#FBF8F2" stroke="#E2D8C8" stroke-width="1.5"/>
+        <text class="lbl" font-size="13"><tspan x="360" y="808">Review, repeat, and choose</tspan><tspan x="360" y="825">the next priority</tspan></text>
+      </svg>
+    </div>
+    <p class="diagcap">A schematic of the path. You start at the Priority Screen; everything after it is optional and earns its place one step at a time.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="screen">
+      <p class="eyebrow">The Priority Screen</p>
+      <div class="meta"><span class="pill">About 15 minutes</span><span class="pill">No blood test</span><span class="pill">Private to your device</span></div>
+      <p>In about fifteen minutes it helps you explore the four pathways and identify which one may deserve your attention first. <strong>This is not a diagnosis.</strong> It does not calculate your future or replace a medical professional. It gives you something simpler and more useful: a possible starting point, and a clearer idea of what to look into next.</p>
+      <p>Answer as accurately as you can. If you do not know something, that is useful information too. It may show us exactly what needs to be measured.</p>
+      <div><a class="cta" href="making-sense-priority-screen.html">Start the Priority Screen <span class="arr">&rarr;</span></a></div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="wrap">
+    <p class="q">Your result is not a label. It is an invitation to look more closely, ask better questions, and act while time is still on your side.</p>
+    <p class="invite">Your Priority Screen gives you a starting point. If you would like help understanding what it means and deciding what to do next, request a conversation.</p>
+    <div><a class="cta ghost" href="https://calendar.app.google/o62GwE6drenApCm27" target="_blank" rel="noopener">Request a conversation</a></div>
+    <p class="signoff">Stay Ahead. Make sense of where you are. Begin with what matters most.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wide foot">
+    <span class="tag">The real advantage is timing.</span>
+    <a href="/making-sense-privacy.html">Privacy</a>
+    <span>Educational, not a medical diagnosis.</span>
+    <span class="sp">&copy; Doychin Karshovski</span>
+  </div>
+</footer>
+
+</body>
+</html>
