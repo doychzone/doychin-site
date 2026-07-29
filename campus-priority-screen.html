@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Making Sense Campus - Priority Screen</title>
+<meta name="description" content="The invitation-only Making Sense Campus Priority Screen.">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<style>
+  :root{
+    --ink:#241C17; --ink-soft:#5A4E44; --paper:#F2EDE4; --card:#FBF8F2;
+    --terra:#8B4A2B; --terra-soft:#B5714A; --line:#E2D8C8;
+    --green:#5E7C6A; --amber:#C1872E; --red:#A6432E;
+    --green-bg:#E7EDE7; --amber-bg:#F5EAD6; --red-bg:#F2E1DA;
+    --shadow:0 1px 2px rgba(36,28,23,.06),0 8px 24px rgba(36,28,23,.06);
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    padding:24px 16px 80px;
+  }
+  .wrap{max-width:660px;margin:0 auto}
+  .brand{display:flex;align-items:baseline;gap:10px;margin:6px 2px 20px}
+  .umbrella{width:22px;height:22px;flex:0 0 auto;align-self:center}
+  .brand h1{font-family:Georgia,"Times New Roman",serif;font-size:19px;font-weight:600;letter-spacing:.2px;margin:0}
+  .brand span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);font-weight:700}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:26px}
+  .eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);font-weight:700;margin:0 0 10px}
+  h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;font-size:25px;line-height:1.2;margin:0 0 12px;letter-spacing:.2px}
+  h3{font-size:16px;margin:22px 0 4px;font-weight:650}
+  p{margin:0 0 14px;color:var(--ink-soft)}
+  p.tight{margin-bottom:8px}
+  .lead{color:var(--ink);font-size:17px}
+  .muted{font-size:13.5px;color:var(--ink-soft)}
+  .rule{height:1px;background:var(--line);border:0;margin:22px 0}
+
+  .field{margin:18px 0}
+  .field > label.q{display:block;font-weight:600;color:var(--ink);margin-bottom:9px}
+  .hint{font-weight:400;color:var(--ink-soft);font-size:13.5px;display:block;margin-top:2px}
+  input[type=number],input[type=text],input[type=email],select{
+    width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;
+    background:#fff;color:var(--ink);font-size:16px;
+  }
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .opts{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{position:relative}
+  .opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+  .opt span{display:block;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:14.5px;cursor:pointer;transition:.12s}
+  .opt input:checked + span{background:var(--terra);border-color:var(--terra);color:#fff}
+  .opt input:focus-visible + span{outline:2px solid var(--terra);outline-offset:2px}
+  .checks{display:grid;gap:8px}
+  .chk{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}
+  .chk input{margin-top:3px;width:17px;height:17px;accent-color:var(--terra);flex:0 0 auto}
+  .chk span{font-size:14.5px}
+
+  .nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:26px}
+  button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid transparent;padding:11px 20px;font-weight:600}
+  .primary{background:var(--terra);color:#fff}
+  .primary:hover{background:#7a3f24}
+  .ghost{background:transparent;color:var(--ink-soft);border-color:var(--line)}
+  .ghost:hover{color:var(--ink)}
+  button:focus-visible{outline:2px solid var(--terra);outline-offset:2px}
+  .progress{display:flex;gap:5px;margin:0 2px 16px}
+  .progress i{height:4px;flex:1;background:var(--line);border-radius:2px}
+  .progress i.on{background:var(--terra)}
+  .stepno{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:0 2px 14px}
+
+  .note{background:var(--amber-bg);border:1px solid #E4CE9F;border-radius:10px;padding:12px 14px;font-size:13.5px;color:#6a4e1e;margin:16px 0 0}
+  .privacy{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink-soft);margin-top:18px}
+  .privacy svg{flex:0 0 auto;margin-top:1px}
+
+  /* result */
+  .systems{display:grid;gap:12px;margin:6px 0 4px}
+  .sys{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#fff}
+  .sys .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .sys .name{font-weight:650;font-size:16px}
+  .sys .lvl{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:800}
+  .track{display:flex;gap:5px;margin:11px 0 9px}
+  .track i{height:8px;flex:1;border-radius:3px;background:#EEE7DB}
+  .track i.g{background:var(--green)} .track i.a{background:var(--amber)} .track i.r{background:var(--red)}
+  .sys .read{font-size:13.5px;color:var(--ink-soft);margin:0}
+  .lvl.g{color:var(--green)} .lvl.a{color:var(--amber)} .lvl.r{color:var(--red)}
+  .sys.cancer{background:linear-gradient(#fff,#fff)}
+  .tagrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+  .tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:999px}
+  .tag.watch{background:var(--amber-bg);color:#6a4e1e}
+  .tag.refer{background:var(--red-bg);color:#7c2f20}
+
+  .priority{background:var(--terra);color:#fff;border-radius:14px;padding:22px 22px 20px;margin:20px 0}
+  .priority .eyebrow{color:#F0D8C8}
+  .priority h2{color:#fff;margin-bottom:8px}
+  .priority p{color:#F3E3D6}
+  .priority .next{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:12px 14px;margin-top:14px;font-size:14px;color:#fff}
+  .actnow{border:1px solid var(--red);background:var(--red-bg);border-radius:14px;padding:18px 20px;margin:16px 0}
+  .actnow h3{margin:0 0 8px;color:#7c2f20}
+  .actnow ul{margin:0;padding-left:18px;color:#6a2c1f}
+  .actnow li{margin:6px 0;font-size:14.5px}
+  .flagbar{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);background:#fff;border-radius:12px;padding:14px 16px;margin:16px 0;font-size:14px;color:var(--ink-soft)}
+  .flagbar b{color:var(--ink)}
+  .disc{font-size:12.5px;color:var(--ink-soft);margin-top:18px;line-height:1.5}
+  @media (max-width:520px){ .row2{grid-template-columns:1fr} h2{font-size:22px} .card{padding:20px} }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  .share{border:1px solid var(--line);background:#fff;border-radius:14px;padding:18px 20px;margin:18px 0}
+  .share h3{margin:0 0 4px}
+  .share .privline{font-size:12.5px;color:var(--ink-soft);margin:0 0 14px}
+  .share label.q{display:block;font-weight:600;color:var(--ink);margin-bottom:6px}
+  .share .btns{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}
+  .share .btns button{padding:10px 16px}
+  .consent{display:flex;gap:10px;align-items:flex-start;margin:14px 0 0;font-size:13px;color:var(--ink-soft)}
+  .consent input{width:17px;height:17px;margin-top:2px;accent-color:var(--terra);flex:0 0 auto}
+  .consent a{color:var(--terra)}
+  .copied{font-size:12.5px;color:var(--green);font-weight:600}
+  .fallbox{width:100%;height:130px;border:1px solid var(--line);border-radius:8px;padding:10px;font:12.5px/1.4 ui-monospace,Menlo,Consolas,monospace;color:var(--ink);background:#FBF8F2;resize:vertical}
+  .formerror{display:none;background:var(--red-bg);border:1px solid #D8A394;color:#7c2f20;border-radius:10px;padding:11px 13px;margin:18px 0 0;font-size:14px}
+  .formerror.show{display:block}
+  .field.invalid input[type=number],.field.invalid input[type=text],.field.invalid input[type=email],.field.invalid select{border-color:var(--red);box-shadow:0 0 0 2px rgba(166,67,46,.1)}
+  .field.invalid .opts{outline:2px solid rgba(166,67,46,.35);outline-offset:5px;border-radius:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <svg class="umbrella" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4v3M16 27a3 3 0 0 0 3-3" stroke="#8B4A2B" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M4 17c0-6.6 5.4-11 12-11s12 4.4 12 11c-2.4-1.8-4.2-1.8-6 0-1.8-1.8-4.2-1.8-6 0-1.8-1.8-4.2-1.8-6 0-1.8-1.8-3.6-1.8-6 0Z" fill="#8B4A2B"/></svg>
+    <h1>Making Sense</h1>
+    <span>Priority Screen</span>
+  </div>
+
+  <div class="card" id="card"><!-- steps injected --></div>
+</div>
+
+<script>
+"use strict";
+/* ---------------- Build config ---------------- */
+const MODE = "cohort"; // "cohort" = member-directed result sharing; "public" = capture-free, booking CTA
+const COACH_EMAIL = "doych@doychzone.com";
+const BOOKING_URL = "https://calendar.app.google/o62GwE6drenApCm27";
+let lastResult = null;
+/* ---------------- Frozen v1.0 Tier 0 engine ---------------- */
+const S = {}; // state
+
+const LVL = {Green:0, Amber:1, Red:2};
+const LVLNAME = ["Green","Amber","Red"];
+const worse = (a,b)=> LVL[a] >= LVL[b] ? a : b;
+
+function num(id){ const v = parseFloat(S[id]); return isFinite(v)? v : null; }
+
+function findriscScore(){
+  let s = 0;
+  const age = num('age');
+  if(age!=null){ s += age>64?4 : age>=55?3 : age>=45?2 : 0; }
+  // BMI
+  const h = num('height'), w = num('weight');
+  let bmi = null;
+  if(h && w){ bmi = w / Math.pow(h/100,2); }
+  if(bmi!=null){ s += bmi>30?3 : bmi>=25?1 : 0; }
+  // waist
+  const waist = num('waist'); const male = S.sex==='male';
+  if(waist!=null){
+    if(male) s += waist>102?4 : waist>=94?3 : 0;
+    else     s += waist>88?4  : waist>=80?3 : 0;
+  }
+  if(S.active==='no') s += 2;
+  if(S.veg==='no') s += 1;
+  if(S.bpmeds==='yes') s += 2;
+  if(S.highglucose==='yes') s += 5;
+  if(S.famdiab==='immediate') s += 5;
+  else if(S.famdiab==='distant') s += 3;
+  return s; // 0..26
+}
+function findriscLevel(sc){ return sc>=15?'Red' : sc>=7?'Amber' : 'Green'; }
+
+function bmiVal(){ const h=num('height'),w=num('weight'); return (h&&w)? w/Math.pow(h/100,2) : null; }
+function whtr(){ const h=num('height'),ws=num('waist'); return (h&&ws)? ws/h : null; }
+function bpBand(){ // none / elevated / hypertensive
+  if(S.bpknown!=='yes') return 'unknown';
+  const sys=num('sbp'), dia=num('dbp');
+  if(sys==null&&dia==null) return 'unknown';
+  const s=sys??0, d=dia??0;
+  if(s>=140||d>=90) return 'hypertensive';
+  if(s>=120||d>=70) return 'elevated';
+  return 'optimal';
+}
+function bpMarker(){ // MetS-aligned triage marker: elevated >=130/85, high >=140/90
+  if(S.bpknown!=='yes') return 'none';
+  const s=num('sbp')??0, d=num('dbp')??0;
+  if(s>=140||d>=90) return 'high';
+  if(s>=130||d>=85) return 'elevated';
+  return 'none';
+}
+function centralAdipose(){ const r=whtr(); return r!=null && r>=0.5; }
+function obese(){ const b=bmiVal(); const r=whtr(); return (b!=null&&b>=30) || (r!=null&&r>0.6); }
+
+function metabolicProxyLevel(){
+  let markers=0, strong=0;
+  const r = whtr();
+  if(r!=null){ if(r>0.6){strong++;markers++;} else if(r>=0.5){markers++;} }
+  const waist=num('waist'); const male=S.sex==='male';
+  if(waist!=null){ if((male&&waist>=94)||(!male&&waist>=80)) markers++; }
+  const bp=bpMarker();
+  if(bp==='high'){strong++;markers++;} else if(bp==='elevated'){markers++;}
+  (S.soft||[]).forEach(()=>markers++);
+  if((r!=null&&r>0.6) || markers>=3 || strong>=2) return 'Red';
+  if(markers>=1) return 'Amber';
+  return 'Green';
+}
+
+function metabolicLevel(){ return worse(findriscLevel(findriscScore()), metabolicProxyLevel()); }
+
+function heartProvisional(){
+  let m=0;
+  if(S.smoke==='current'||S.smoke==='past') m++;
+  const bp=bpMarker(); if(bp!=='none') m++;
+  if(S.fam_heart==='yes') m++;
+  if(centralAdipose()) m++;
+  return m>=1 ? 'Amber' : 'Green'; // Tier 0 caps at Amber (provisional)
+}
+
+const HEAVY = new Set(['hearing','hypertension','obesity','diabetes','inactive','smoking']); // +LDL (unknown at T0)
+function brainFactors(){
+  const f=[];
+  if(S.education==='yes') f.push('education');
+  if(S.hearing==='yes') f.push('hearing');
+  const bp=bpBand(); if(bp==='hypertensive') f.push('hypertension');
+  if(S.smoke==='current') f.push('smoking');
+  if(obese()) f.push('obesity');
+  if(S.mood==='yes') f.push('depression');
+  if(S.active==='no') f.push('inactive');
+  if(S.diabetes==='yes') f.push('diabetes');
+  if(S.alcohol==='yes') f.push('alcohol');
+  if(S.tbi==='yes') f.push('tbi');
+  if(S.vision==='yes') f.push('vision');
+  if(S.isolation==='yes') f.push('isolation');
+  return f;
+}
+function brainLevel(){
+  const f=brainFactors();
+  const heavy=f.filter(x=>HEAVY.has(x)).length;
+  if(f.length>=5 || heavy>=2) return 'Red';
+  if(f.length>=2) return 'Amber';
+  return 'Green';
+}
+
+function constitutionalFlag(){
+  const age=num('age');
+  if(S.stairs==='no') return true;
+  if(S.rhr==='yes') return true;          // resting HR > 80
+  if(S.grip==='yes') return true;         // grip known low
+  if(S.smell==='no') return true;
+  if(age!=null && age>50 && S.balance==='no') return true;
+  return false;
+}
+
+function cancerActions(){
+  const out=[];
+  const age=num('age'); const male=S.sex==='male';
+  // hereditary
+  const cluster = S.cancer_cluster==='yes';
+  const early = S.cancer_early==='yes';
+  const many = S.cancer_relatives==='2plus';
+  if(cluster||early||many){
+    out.push({type:'refer', text:'Hereditary pattern in the family. Book a genetic-counselling conversation before any further screening decisions.'});
+  }
+  // screening gaps
+  if(age!=null && age>=45 && S.scr_colon==='overdue'){
+    out.push({type:'watch', text:'Colorectal screening is due from age 45. Schedule a colonoscopy or stool test.'});
+  }
+  if(!male && age!=null && age>=45 && S.scr_breast==='overdue'){
+    out.push({type:'watch', text:'Breast screening is due. Book a mammogram.'});
+  }
+  if(!male && age!=null && age>=25 && age<=65 && S.scr_cervical==='overdue'){
+    out.push({type:'watch', text:'Cervical screening is due. Book a Pap or HPV test.'});
+  }
+  if(male && age!=null && age>=50){
+    out.push({type:'watch', text:'Have the PSA discussion with your doctor (from 45 if higher risk).'});
+  }
+  if(S.smoke!=='never' && age!=null && age>=50 && age<=80 && S.heavy_smoker==='yes'){
+    out.push({type:'watch', text:'Heavy smoking history and age make you eligible for a low-dose lung CT. Ask about it.'});
+  }
+  // alarm
+  if(S.alarm==='yes'){
+    out.push({type:'refer', text:'You flagged an unexplained weight loss or a persistent unexplained change. See a doctor about that specifically, soon.'});
+  }
+  return out;
+}
+
+function redLines(){
+  const out=[];
+  if(bpBand()==='hypertensive') out.push('Blood pressure in the hypertensive range (confirm with three morning readings, then see a doctor).');
+  if(S.prior_event==='yes') out.push('A prior heart attack or stroke means cardiology already owns your heart risk. Keep that care active.');
+  if(S.memory==='yes') out.push('A memory change affecting daily life warrants a cognitive assessment.');
+  return out;
+}
+
+const NEXT = {
+  Metabolic:'Confirm this provisional result with HbA1c, fasting glucose, and other measurements selected for your context. A short continuous glucose monitor trial may add useful detail when appropriate.',
+  Brain:'Confirm this provisional result with the measurements that match your factors. These may include a hearing test, a sleep-apnea assessment when indicated, and a cognitive baseline.'
+};
+function heartNext(){
+  const age=num('age');
+  const base='Confirm this provisional result with ApoB and Lp(a), which is usually measured once in a lifetime.';
+  if(age!=null && age>=40) return base+' Discuss whether a coronary artery calcium (CAC) scan is appropriate for your age and clinical context.';
+  return base+' If you are under 40, imaging is not an automatic next step. Discuss it only when your overall risk or family history warrants it.';
+}
+function nextFor(priority){ return priority==='Heart' ? heartNext() : NEXT[priority]; }
+const WHY = {
+  Metabolic:'Metabolic sits upstream of the other three, so moving it tends to lower heart and brain risk at the same time. It is also the most responsive to what you do daily.',
+  Heart:'Your heart markers lead at this stage. Most of the risk here is movable, which makes it a high-return place to focus.',
+  Brain:'Your brain-risk factors lead, and most of them are movable: hearing, sleep, activity, connection and metabolic control.'
+};
+
+function compute(){
+  const levels = { Heart:heartProvisional(), Metabolic:metabolicLevel(), Brain:brainLevel() };
+  // Channel A ranking: highest level wins; tie -> metabolic, then heart, then brain
+  const order = ['Metabolic','Heart','Brain'];
+  let priority = order.reduce((best,k)=> LVL[levels[k]] > LVL[levels[best]] ? k : best, 'Metabolic');
+  // modifiability gate (Tier 0, limited): a prior cardiac event routes Heart to clinical management
+  let clinical=null;
+  if(priority==='Heart' && S.prior_event==='yes'){
+    clinical='Heart';
+    // pass coaching priority to next movable
+    const rest = order.filter(k=>k!=='Heart');
+    priority = rest.reduce((best,k)=> LVL[levels[k]] > LVL[levels[best]] ? k : best, rest[0]);
+  }
+  return {
+    levels, priority, clinical,
+    flag: constitutionalFlag(),
+    cancer: cancerActions(),
+    redlines: redLines(),
+    findrisc: findriscScore()
+  };
+}
+
+/* ---------------- UI ---------------- */
+const TOTAL = 8; // intro + 7 sections (result separate)
+let step = 0;
+const card = document.getElementById('card');
+
+function progress(n){
+  let p='<div class="progress">';
+  for(let i=1;i<=7;i++) p+=`<i class="${i<=n?'on':''}"></i>`;
+  p+='</div>';
+  return p;
+}
+function opt(name,val,label,cur){
+  return `<label class="opt"><input type="radio" name="${name}" value="${val}" ${S[name]===val?'checked':''} onchange="S['${name}']=this.value">
+    <span>${label}</span></label>`;
+}
+function radios(name,pairs){ return `<div class="opts">`+pairs.map(p=>opt(name,p[0],p[1])).join('')+`</div>`; }
+
+function setChecks(name){
+  S[name] = Array.from(document.querySelectorAll(`input[data-grp="${name}"]:checked`)).map(x=>x.value);
+}
+
+const steps = [
+  // 0 intro
+  ()=>`
+    <p class="eyebrow">Making Sense Campus - August starting point</p>
+    <h2>Which of the four is most worth watching, for you?</h2>
+    <p class="lead">Heart, metabolic, brain and cancer cause most of what shortens life. This short screen sorts which one deserves your attention first, and what to do next. It does not diagnose anything.</p>
+    <p>You answer with what you already know or can measure at home. No blood test is needed for this tier. At the end you get one priority to focus on, anything that needs a doctor now, and a clear next step.</p>
+    <p>This is the first step in our August journey inside Making Sense Campus. During the month, we will help you understand your result, identify what information is still missing, and prepare your next reasonable step.</p>
+    <div class="privacy">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.2-2.9 7.4-7 9-4.1-1.6-7-4.8-7-9V6l7-3Z" stroke="#8B4A2B" stroke-width="1.6"/><path d="M9 12l2 2 4-4" stroke="#8B4A2B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Everything runs on your own device. Nothing is sent automatically. At the end, you can choose to email your result to Doychin so we can continue the journey together.</span>
+    </div>
+    <div class="nav"><span></span><button class="primary" onclick="go(1)">Start</button></div>
+  `,
+  // 1 about you
+  ()=>`
+    ${progress(1)}<p class="stepno">Step 1 of 7 - About you</p>
+    <div class="field"><label class="q">Your age<span class="hint">In years.</span></label>
+      <input type="number" min="18" max="110" value="${S.age??''}" oninput="S.age=this.value"></div>
+    <div class="field"><label class="q">Sex at birth<span class="hint">Used for waist thresholds and screening.</span></label>
+      ${radios('sex',[['male','Male'],['female','Female']])}</div>
+    ${errorBox()}
+    ${nav(0,2)}
+  `,
+  // 2 body
+  ()=>`
+    ${progress(2)}<p class="stepno">Step 2 of 7 - Body measures</p>
+    <div class="row2">
+      <div class="field"><label class="q">Height<span class="hint">cm</span></label>
+        <input type="number" min="120" max="220" value="${S.height??''}" oninput="S.height=this.value"></div>
+      <div class="field"><label class="q">Weight<span class="hint">kg</span></label>
+        <input type="number" min="35" max="250" value="${S.weight??''}" oninput="S.weight=this.value"></div>
+    </div>
+    <div class="field"><label class="q">Waist<span class="hint">cm, measured at the belly button, relaxed.</span></label>
+      <input type="number" min="50" max="180" value="${S.waist??''}" oninput="S.waist=this.value"></div>
+    <div class="field"><label class="q">Do you know your blood pressure?<span class="hint">Best is the average of three calm morning readings.</span></label>
+      ${radios('bpknown',[['yes','Yes'],['no','Not right now']])}</div>
+    <div id="bpfields" style="${S.bpknown==='yes'?'':'display:none'}">
+      <div class="row2">
+        <div class="field"><label class="q">Systolic<span class="hint">top number</span></label>
+          <input type="number" min="80" max="240" value="${S.sbp??''}" oninput="S.sbp=this.value"></div>
+        <div class="field"><label class="q">Diastolic<span class="hint">bottom number</span></label>
+          <input type="number" min="40" max="140" value="${S.dbp??''}" oninput="S.dbp=this.value"></div>
+      </div>
+    </div>
+    ${errorBox()}
+    ${nav(1,3)}
+  `,
+  // 3 metabolic
+  ()=>`
+    ${progress(3)}<p class="stepno">Step 3 of 7 - Metabolic</p>
+    <div class="field"><label class="q">Are you physically active at least 30 minutes most days?<span class="hint">Work and leisure combined.</span></label>
+      ${radios('active',[['yes','Yes'],['no','No']])}</div>
+    <div class="field"><label class="q">Do you eat vegetables or fruit every day?</label>
+      ${radios('veg',[['yes','Every day'],['no','Not every day']])}</div>
+    <div class="field"><label class="q">Have you ever taken blood-pressure medication regularly?</label>
+      ${radios('bpmeds',[['yes','Yes'],['no','No']])}</div>
+    <div class="field"><label class="q">Has a blood glucose reading ever come back high?<span class="hint">At a check-up, in illness, or in pregnancy.</span></label>
+      ${radios('highglucose',[['yes','Yes'],['no','No']])}</div>
+    <div class="field"><label class="q">Family history of diabetes?</label>
+      ${radios('famdiab',[['none','None'],['distant','Grandparent, aunt, uncle or cousin'],['immediate','Parent, sibling or child']])}</div>
+    <div class="field"><label class="q">Any of these? Tick all that apply.<span class="hint">Everyday signs that can go with insulin resistance.</span></label>
+      <div class="checks">
+        ${chk('soft','skintags','Skin tags')}
+        ${chk('soft','acanthosis','Dark, velvety patches in skin folds (neck, armpits)')}
+        ${chk('soft','crash','Hard energy crash an hour or two after meals')}
+        ${chk('soft','cravings','Strong, frequent sugar cravings')}
+      </div></div>
+    ${errorBox()}
+    ${nav(2,4)}
+  `,
+  // 4 heart
+  ()=>`
+    ${progress(4)}<p class="stepno">Step 4 of 7 - Heart</p>
+    <div class="field"><label class="q">Do you smoke?</label>
+      ${radios('smoke',[['never','Never'],['past','In the past'],['current','Currently']])}</div>
+    <div class="field"><label class="q">Early heart attack or stroke in a close relative?<span class="hint">A man under 55 or a woman under 65 (parent or sibling).</span></label>
+      ${radios('fam_heart',[['yes','Yes'],['no','No / not sure']])}</div>
+    <div class="field"><label class="q">Have you yourself had a heart attack or stroke?</label>
+      ${radios('prior_event',[['yes','Yes'],['no','No']])}</div>
+    ${errorBox()}
+    ${nav(3,5)}
+  `,
+  // 5 brain
+  ()=>`
+    ${progress(5)}<p class="stepno">Step 5 of 7 - Brain</p>
+    <p class="muted">A few of these are personal. Answer only as far as you are comfortable - they are here because each one is something that can be acted on.</p>
+    <div class="field"><label class="q">Do you have difficulty hearing, or need aids you are not using?</label>
+      ${radios('hearing',[['yes','Yes'],['no','No']])}</div>
+    <div class="field"><label class="q">Uncorrected vision problems?</label>
+      ${radios('vision',[['yes','Yes'],['no','No']])}</div>
+    <div class="field"><label class="q">A persistent low mood, or diagnosed depression?</label>
+      ${radios('mood',[['yes','Yes'],['no','No']])}</div>
+    <div class="field"><label class="q">Do you often feel socially isolated or lonely?</label>
+      ${radios('isolation',[['yes','Yes'],['no','No']])}</div>
+    <div class="field"><label class="q">Have you had a head injury with loss of consciousness?</label>
+      ${radios('tbi',[['yes','Yes'],['no','No']])}</div>
+    <div class="field"><label class="q">Did you finish secondary education?</label>
+      ${radios('education',[['no','Yes'],['yes','No']])}</div>
+    <div class="field"><label class="q">Do you drink more than about 14 drinks a week?</label>
+      ${radios('alcohol',[['yes','Yes'],['no','No']])}</div>
+    <div class="field"><label class="q">Have you been diagnosed with type 2 diabetes?</label>
+      ${radios('diabetes',[['yes','Yes'],['no','No']])}</div>
+    <div class="field"><label class="q">Can you identify common smells (coffee, cinnamon, soap)?</label>
+      ${radios('smell',[['yes','Clearly'],['reduced','Reduced'],['no','Not really']])}</div>
+    <div class="field"><label class="q">Can you stand on one leg, eyes open, for 10 seconds?</label>
+      ${radios('balance',[['yes','Yes'],['no','No']])}</div>
+    <div class="field"><label class="q">Any memory change that affects daily life?</label>
+      ${radios('memory',[['yes','Yes'],['no','No']])}</div>
+    ${errorBox()}
+    ${nav(4,6)}
+  `,
+  // 6 cancer
+  ()=>`
+    ${progress(6)}<p class="stepno">Step 6 of 7 - Cancer</p>
+    <p class="muted">Cancer cannot be scored like the others, so this part looks only for family patterns and for screening you may be due.</p>
+    <div class="field"><label class="q">First-degree relatives (parent, sibling, child) with cancer?</label>
+      ${radios('cancer_relatives',[['0','None'],['1','One'],['2plus','Two or more']])}</div>
+    <div class="field"><label class="q">Any relative with cancer before age 50?</label>
+      ${radios('cancer_early',[['yes','Yes'],['no','No']])}</div>
+    <div class="field"><label class="q">Breast and ovarian cancer in close relatives, or another clear cluster?</label>
+      ${radios('cancer_cluster',[['yes','Yes'],['no','No']])}</div>
+    <hr class="rule">
+    <div class="field"><label class="q">Colorectal screening (colonoscopy or stool test) up to date?<span class="hint">Due from age 45.</span></label>
+      ${radios('scr_colon',[['current','Up to date'],['overdue','Overdue'],['na','Not applicable yet']])}</div>
+    <div class="field"><label class="q">Mammogram up to date?<span class="hint">Women, from around 45.</span></label>
+      ${radios('scr_breast',[['current','Up to date'],['overdue','Overdue'],['na','Not applicable']])}</div>
+    <div class="field"><label class="q">Cervical screening up to date?<span class="hint">Women, to about 65.</span></label>
+      ${radios('scr_cervical',[['current','Up to date'],['overdue','Overdue'],['na','Not applicable']])}</div>
+    <div class="field"><label class="q">If you smoke or did heavily: 20+ pack-years?</label>
+      ${radios('heavy_smoker',[['yes','Yes'],['no','No / never smoked']])}</div>
+    <div class="field"><label class="q">Unexplained weight loss, or a persistent unexplained change?</label>
+      ${radios('alarm',[['yes','Yes'],['no','No']])}</div>
+    ${errorBox()}
+    ${nav(5,7)}
+  `,
+  // 7 constitutional
+  ()=>`
+    ${progress(7)}<p class="stepno">Step 7 of 7 - Overall resilience</p>
+    <p class="muted">These do not point to one disease. They set how closely to keep watch overall.</p>
+    <div class="field"><label class="q">Can you climb about four flights of stairs briskly and still hold a conversation?</label>
+      ${radios('stairs',[['yes','Yes'],['no','No']])}</div>
+    <div class="field"><label class="q">If you know your resting heart rate, is it usually above 80?</label>
+      ${radios('rhr',[['yes','Yes, above 80'],['no','No / below 80'],['unknown','Do not know']])}</div>
+    <div class="field"><label class="q">If you have measured grip strength, is it low for your age and sex?</label>
+      ${radios('grip',[['yes','Yes, low'],['no','No / normal'],['unknown','Do not know']])}</div>
+    ${errorBox()}
+    <div class="nav"><button class="ghost" onclick="go(6)">Back</button><button class="primary" onclick="finish()">See my result</button></div>
+  `
+];
+
+function chk(grp,val,label){
+  const on=(S[grp]||[]).includes(val);
+  return `<label class="chk"><input type="checkbox" data-grp="${grp}" value="${val}" ${on?'checked':''} onchange="setChecks('${grp}')"><span>${label}</span></label>`;
+}
+function nav(back,next){
+  return `<div class="nav"><button class="ghost" onclick="go(${back})">Back</button><button class="primary" onclick="advance(${next})">Continue</button></div>`;
+}
+function errorBox(){
+  return `<div class="formerror" role="alert" aria-live="polite">Please answer every question on this step before continuing. If an “unknown” option is offered, choose it instead of leaving the question blank.</div>`;
+}
+const REQUIRED = {
+  1:['age','sex'],
+  2:['height','weight','waist','bpknown'],
+  3:['active','veg','bpmeds','highglucose','famdiab'],
+  4:['smoke','fam_heart','prior_event'],
+  5:['hearing','vision','mood','isolation','tbi','education','alcohol','diabetes','smell','balance','memory'],
+  6:['cancer_relatives','cancer_early','cancer_cluster','scr_colon','scr_breast','scr_cervical','heavy_smoker','alarm'],
+  7:['stairs','rhr','grip']
+};
+function fieldFor(name){
+  return Array.from(document.querySelectorAll('.field')).find(field=>
+    field.querySelector(`[name="${name}"]`) || field.querySelector(`[oninput*="S.${name}="]`)
+  );
+}
+function validateStep(n){
+  const missing=[];
+  (REQUIRED[n]||[]).forEach(name=>{
+    const field=fieldFor(name);
+    const input=field?.querySelector('input[type="number"]');
+    let invalid=S[name]==null || S[name]==='';
+    if(input && (input.value==='' || !input.checkValidity())) invalid=true;
+    field?.classList.toggle('invalid',invalid);
+    if(invalid) missing.push(name);
+  });
+  if(n===2 && S.bpknown==='yes'){
+    ['sbp','dbp'].forEach(name=>{
+      const field=fieldFor(name);
+      const input=field?.querySelector('input[type="number"]');
+      const invalid=!input || input.value==='' || !input.checkValidity();
+      field?.classList.toggle('invalid',invalid);
+      if(invalid) missing.push(name);
+    });
+  }
+  const box=document.querySelector('.formerror');
+  box?.classList.toggle('show',missing.length>0);
+  if(missing.length){
+    document.querySelector('.field.invalid input')?.focus();
+    return false;
+  }
+  return true;
+}
+function advance(next){ if(validateStep(step)) go(next); }
+function go(n){ step=n; render(); }
+function render(){
+  card.innerHTML = steps[step]();
+  if(step===2){
+    const bp=document.querySelector('input[name="bpknown"]');
+    document.querySelectorAll('input[name="bpknown"]').forEach(r=>r.addEventListener('change',()=>{
+      document.getElementById('bpfields').style.display = (S.bpknown==='yes')?'block':'none';
+    }));
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ---------------- Result ---------------- */
+function sysCard(name,label,lvl,read){
+  const c = lvl==='Red'?'r':lvl==='Amber'?'a':'g';
+  const filled = {g:1,a:2,r:3}[c];
+  let track='';
+  for(let i=1;i<=3;i++){ const cls=i<=filled?(i===1?'g':i===2?'a':'r'):''; track+=`<i class="${cls}"></i>`; }
+  return `<div class="sys"><div class="top"><span class="name">${label}</span><span class="lvl ${c}">${lvl}</span></div>
+    <div class="track">${track}</div><p class="read">${read}</p></div>`;
+}
+const READ = {
+  Heart:{Green:'No provisional heart flags were identified from your answers.',Amber:'One or more provisional heart flags are present. Confirm them with the right clinical measurements.'},
+  Metabolic:{Green:'Metabolic markers look clear today.',Amber:'Early metabolic signals. Worth confirming with blood work.',Red:'Strong metabolic signals. This is the most actionable place to start.'},
+  Brain:{Green:'Few modifiable brain-risk factors.',Amber:'Several modifiable brain-risk factors to work on.',Red:'Multiple modifiable brain-risk factors. High room to act.'}
+};
+
+function finish(){
+  if(!validateStep(7)) return;
+  const R = compute();
+  lastResult = R;
+  const L = R.levels;
+  let html = `<p class="eyebrow">Your Tier 0 result - provisional</p><h2>Four systems, one place to start</h2>`;
+  html += `<div class="systems">`;
+  html += sysCard('Heart','Heart',L.Heart, READ.Heart[L.Heart]||READ.Heart.Amber);
+  html += sysCard('Metabolic','Metabolic',L.Metabolic, READ.Metabolic[L.Metabolic]);
+  html += sysCard('Brain','Brain',L.Brain, READ.Brain[L.Brain]);
+  // cancer row (no level)
+  const cancerRefer = R.cancer.some(a=>a.type==='refer');
+  const cancerWatch = R.cancer.some(a=>a.type==='watch');
+  let cTags = cancerRefer?'<span class="tag refer">Refer</span>':'';
+  cTags += cancerWatch?'<span class="tag watch">Screening due</span>':'';
+  const cRead = R.cancer.length? 'See the follow-up list below.' : 'No family pattern or screening gap was flagged by your answers. Keep to the schedule appropriate for your age and clinical context.';
+  html += `<div class="sys cancer"><div class="top"><span class="name">Cancer</span><div class="tagrow">${cTags||'<span class="lvl g">Routine</span>'}</div></div><p class="read" style="margin-top:10px">${cRead}</p></div>`;
+  html += `</div>`;
+
+  // priority
+  const topLvl = R.levels[R.priority];
+  if(topLvl==='Green'){
+    html += `<div class="priority"><p class="eyebrow">Nothing flagged today</p><h2>Keep it steady</h2>
+      <p>None of the four is raising a flag at this tier. That is the result you want. Your highest-leverage place to keep investing is ${R.priority.toLowerCase()}, because it sits upstream of the rest.</p>
+      <div class="next"><b>Next step.</b> Home answers cannot show the full picture. ${nextFor(R.priority)}</div></div>`;
+  } else {
+    html += `<div class="priority"><p class="eyebrow">Start here</p><h2>${R.priority}</h2>
+      <p>${WHY[R.priority]}</p>
+      <div class="next"><b>Next step.</b> ${nextFor(R.priority)}</div></div>`;
+  }
+
+  if(R.clinical==='Heart'){
+    html += `<div class="flagbar"><span>&#9873;</span><div><b>Heart is under clinical care.</b> Because of a prior event, cardiology leads on your heart risk. Coaching focus moves to ${R.priority}, while you keep that medical care active.</div></div>`;
+  }
+
+  // act now
+  const acts = [];
+  R.redlines.forEach(t=>acts.push(t));
+  R.cancer.forEach(a=>acts.push(a.text));
+  if(acts.length){
+    html += `<div class="actnow"><h3>Follow up in parallel</h3><ul>${acts.map(a=>`<li>${a}</li>`).join('')}</ul></div>`;
+  }
+
+  // constitutional flag
+  if(R.flag){
+    html += `<div class="flagbar"><span>&#9679;</span><div><b>Watch a little closer.</b> One or more resilience markers (fitness, resting heart rate, grip, balance or smell) came back low. These predict how well you weather things overall, so tighten your monitoring by one step across the board.</div></div>`;
+  }
+
+  html += `<hr class="rule">
+    <p class="lead" style="font-size:15.5px">The next move is confirmation.</p>
+    <p class="muted">Confirm this provisional result with the right measurements for your priority. The appropriate tests, imaging, or assessments depend on your age, history, and clinical context. That confirmation is the next step toward a Longevity Intelligence Map.</p>`;
+
+  // share / next step
+  if(MODE==="cohort"){
+    html += `<div class="share">
+      <h3>Continue in Campus</h3>
+      <p class="privline">Everything so far has stayed on this device. If you choose to continue, the button below opens a pre-addressed email in your own email app. It includes your name, optional contact email, priority, pathway levels, and any follow-up flags. Nothing is sent until you send that email yourself.</p>
+      <div class="row2">
+        <div><label class="q" for="shareName">Name</label><input type="text" id="shareName" autocomplete="name"></div>
+        <div><label class="q" for="shareEmail">Email (optional)</label><input type="email" id="shareEmail" autocomplete="email"></div>
+      </div>
+      <label class="consent"><input type="checkbox" id="shareConsent"><span>I choose to share this health-related result with Making Sense for my Campus journey. I understand that I can withdraw consent for future processing. <a href="/making-sense-privacy" target="_blank" rel="noopener">Privacy notice</a></span></label>
+      <div class="btns">
+        <button class="primary" onclick="sendResult()">Prepare my email</button>
+        <button class="ghost" onclick="copyResult()">Copy</button>
+        <button class="ghost" onclick="downloadResult()">Download (JSON)</button>
+        <span id="shareMsg" class="copied" aria-live="polite"></span>
+      </div>
+      <div id="shareFallback"></div>
+    </div>`;
+  } else {
+    html += `<div class="share">
+      <h3>Take the next step</h3>
+      <p class="privline">This result stays on your device. When you are ready to turn it into a plan, book a short call.</p>
+      <div class="btns"><button class="primary" onclick="window.open(BOOKING_URL,'_blank')">Book a discovery call</button></div>
+    </div>`;
+  }
+
+  html += `<p class="disc">This educational screen helps identify where to look first. It is not a diagnosis, a validated risk calculator, or a replacement for medical care. It combines established risk factors and screening guidance with an experimental Making Sense prioritization method. Confirm any single high reading and discuss decisions with a qualified clinician.</p>`;
+  html += `<div class="nav"><button class="ghost" onclick="go(7)">Back</button><button class="primary" onclick="restart()">Start over</button></div>`;
+
+  card.innerHTML = html;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showShareMsg(t){ const m=document.getElementById('shareMsg'); if(m){ m.textContent=t; setTimeout(()=>{ if(m) m.textContent=""; },4000); } }
+function shareVal(id){ const el=document.getElementById(id); return el?el.value.trim():""; }
+function buildSummary(){
+  const R=lastResult; if(!R) return "";
+  const L=R.levels, name=shareVal('shareName'), email=shareVal('shareEmail');
+  let s="Making Sense - Four Horsemen Priority Screen (Tier 0)\n";
+  if(name) s+="Name: "+name+"\n";
+  if(email) s+="Email: "+email+"\n";
+  s+="\nPriority to start with: "+R.priority+" ("+L[R.priority]+")\n\n";
+  s+="Heart: "+L.Heart+"\nMetabolic: "+L.Metabolic+"\nBrain: "+L.Brain+"\n";
+  s+="Cancer: "+(R.cancer.length?"see act-now items below":"routine, no flags")+"\n";
+  const acts=[]; R.redlines.forEach(t=>acts.push(t)); R.cancer.forEach(a=>acts.push(a.text));
+  if(acts.length){ s+="\nAct now:\n"; acts.forEach(a=>{ s+="- "+a+"\n"; }); }
+  if(R.clinical) s+="\nNote: Heart is under clinical care (prior event); coaching focus moved to "+R.priority+".\n";
+  s+="\nConstitutional resilience flag: "+(R.flag?"on":"off")+"\n";
+  s+="\nTier 0, provisional. Not a diagnosis.\n";
+  return s;
+}
+function buildPayload(){
+  const R=lastResult; if(!R) return {};
+  return { tool:"four-horsemen-tier0", version:"1.0.1", timestamp:new Date().toISOString(),
+    priority:R.priority, clinical:R.clinical, levels:R.levels, constitutionalFlag:R.flag,
+    findrisc:R.findrisc, cancerActions:R.cancer.map(a=>a.text), redlines:R.redlines };
+}
+function revealFallback(txt){
+  const fb=document.getElementById('shareFallback');
+  if(fb){ fb.innerHTML='<div class="fallback"><p class="muted" style="margin:8px 0 6px">Select and copy the text below:</p><textarea class="fallbox" readonly></textarea></div>';
+    const ta=fb.querySelector('textarea'); if(ta){ ta.value=txt; ta.focus(); ta.select(); } }
+}
+function copyResult(){
+  const txt=buildSummary();
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(()=>showShareMsg("Copied")).catch(()=>revealFallback(txt));
+  } else { revealFallback(txt); }
+}
+function downloadResult(){
+  try{
+    const data=JSON.stringify(buildPayload(),null,2);
+    const blob=new Blob([data],{type:"application/json"});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a'); a.href=url; a.download="making-sense-tier0-result.json";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(()=>URL.revokeObjectURL(url),1000); showShareMsg("Downloaded");
+  }catch(e){ revealFallback(JSON.stringify(buildPayload(),null,2)); }
+}
+function sendResult(){
+  const name=shareVal('shareName');
+  const consent=document.getElementById('shareConsent');
+  if(!name){
+    showShareMsg("Please add your name.");
+    document.getElementById('shareName').focus();
+    return;
+  }
+  if(!consent || !consent.checked){
+    showShareMsg("Please confirm your choice to share.");
+    if(consent) consent.focus();
+    return;
+  }
+  const subject="Making Sense Tier 0 result"+(name?(" - "+name):"");
+  const url="mailto:"+encodeURIComponent(COACH_EMAIL)+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(buildSummary());
+  window.location.href=url;
+}
+function restart(){ for(const k in S) delete S[k]; step=0; render(); }
+
+render();
+</script>
+</body>
+</html>
