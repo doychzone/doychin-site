@@ -135,6 +135,15 @@ h2{font-family:var(--display);font-weight:400;font-size:clamp(36px,5vw,58px);lin
 .timing .mono{color:var(--ember);display:block;margin-bottom:12px}
 @media(max-width:840px){.ahead-cols{grid-template-columns:1fr}.timing{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.timing{grid-template-columns:1fr}.timing div{border-right:none;border-bottom:1px solid var(--line)}}
+.priority-entry{margin-top:64px;border:1px solid var(--ink);background:var(--paper);display:grid;grid-template-columns:1.25fr .75fr;gap:48px;padding:42px 40px;align-items:center}
+.priority-entry .mono{color:var(--ember);display:block;margin-bottom:12px}
+.priority-entry h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.5vw,40px);line-height:1.05;text-transform:uppercase;letter-spacing:.02em;margin-bottom:16px}
+.priority-entry p{color:var(--graphite);font-size:16.5px;max-width:58ch}
+.priority-entry .actions{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.priority-entry .actions .btn{text-align:center}
+.priority-entry .note{font-family:var(--mono);font-size:10.5px;line-height:1.5;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center}
+@media(max-width:840px){.priority-entry{grid-template-columns:1fr;gap:30px}}
+@media(max-width:560px){.priority-entry{padding:34px 24px}}
 
 /* ===== PROCESS ===== */
 .steps{border-top:1px solid var(--line)}
@@ -352,6 +361,18 @@ footer{background:var(--ink);color:#8B8F88;padding:54px 0}
       <div><span class="mono">Before</span><b>Health</b>before decline becomes visible</div>
       <div><span class="mono">Before</span><b>Capacity</b>before life demands more from you</div>
     </div>
+    <div class="priority-entry reveal">
+      <div>
+        <span class="mono">Making Sense Priority Screen</span>
+        <h3>Not sure where to begin?</h3>
+        <p>The Four Horsemen describe the major threats to long-term health. Making Sense helps turn those complex risks into a clear personal direction. The Priority Screen is the first step. It helps you identify which area may deserve your attention first.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-ember" href="/priority-screen">Find Where to Look First</a>
+        <a class="btn btn-ghost" href="https://calendar.app.google/4fME8BNBT4AQ3vu67">Request a Conversation</a>
+        <span class="note">About 15 minutes. Your result stays on your device.</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -561,6 +582,7 @@ footer{background:var(--ink);color:#8B8F88;padding:54px 0}
       <div class="foot-links">
         <a href="https://www.doychzone.com">DoychZone B2B</a>
         <a href="https://www.moytu.com">Moytu</a>
+        <a href="/priority-screen">Priority Screen</a>
         <a href="/making-sense-privacy.html">Making Sense Privacy Notice</a>
       </div>
     </div>
