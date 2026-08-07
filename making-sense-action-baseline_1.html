@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Making Sense - Action Baseline</title>
+<style>
+  :root{
+    --ink:#241C17; --ink-soft:#5A4E44; --paper:#F2EDE4; --card:#FBF8F2;
+    --terra:#8B4A2B; --terra-soft:#B5714A; --line:#E2D8C8;
+    --green:#5E7C6A; --amber:#C1872E; --red:#A6432E;
+    --green-bg:#E7EDE7; --amber-bg:#F5EAD6; --red-bg:#F2E1DA;
+    --shadow:0 1px 2px rgba(36,28,23,.06),0 8px 24px rgba(36,28,23,.06);
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    padding:24px 16px 80px;
+  }
+  .wrap{max-width:660px;margin:0 auto}
+  .brand{display:flex;align-items:baseline;gap:10px;margin:6px 2px 20px}
+  .umbrella{width:22px;height:22px;flex:0 0 auto;align-self:center}
+  .brand h1{font-family:Georgia,"Times New Roman",serif;font-size:19px;font-weight:600;letter-spacing:.2px;margin:0}
+  .brand span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--terra);font-weight:700}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:26px}
+  .eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--terra);font-weight:700;margin:0 0 10px}
+  h2{font-family:Georgia,"Times New Roman",serif;font-weight:600;font-size:25px;line-height:1.2;margin:0 0 12px;letter-spacing:.2px}
+  h3{font-size:16px;margin:22px 0 4px;font-weight:650}
+  p{margin:0 0 14px;color:var(--ink-soft)}
+  p.tight{margin-bottom:8px}
+  .lead{color:var(--ink);font-size:17px}
+  .muted{font-size:13.5px;color:var(--ink-soft)}
+  .rule{height:1px;background:var(--line);border:0;margin:22px 0}
+
+  .field{margin:18px 0}
+  .field > label.q{display:block;font-weight:600;color:var(--ink);margin-bottom:9px}
+  .hint{font-weight:400;color:var(--ink-soft);font-size:13.5px;display:block;margin-top:2px}
+  .example{font-weight:400;color:var(--terra-soft);font-size:13px;display:block;margin-top:5px;font-style:italic}
+  input[type=number],input[type=text],input[type=email],select,textarea{
+    width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;
+    background:#fff;color:var(--ink);font-size:16px;font-family:inherit;
+  }
+  textarea{resize:vertical;min-height:64px;line-height:1.5}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .opts{display:flex;flex-wrap:wrap;gap:8px}
+  .opt{position:relative}
+  .opt input{position:absolute;opacity:0;inset:0;cursor:pointer}
+  .opt span{display:block;padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:14.5px;cursor:pointer;transition:.12s}
+  .opt input:checked + span{background:var(--terra);border-color:var(--terra);color:#fff}
+  .opt input:focus-visible + span{outline:2px solid var(--terra);outline-offset:2px}
+  .checks{display:grid;gap:8px}
+  .chk{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}
+  .chk input{margin-top:3px;width:17px;height:17px;accent-color:var(--terra);flex:0 0 auto}
+  .chk span{font-size:14.5px}
+  .optional{border:1px dashed var(--line);border-radius:10px;padding:14px;margin-top:22px;background:rgba(255,255,255,.4)}
+  .optional label.q{font-weight:600;font-size:14.5px}
+
+  .nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:26px}
+  button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid transparent;padding:11px 20px;font-weight:600}
+  .primary{background:var(--terra);color:#fff}
+  .primary:hover{background:#7a3f24}
+  .ghost{background:transparent;color:var(--ink-soft);border-color:var(--line)}
+  .ghost:hover{color:var(--ink)}
+  button:focus-visible{outline:2px solid var(--terra);outline-offset:2px}
+  .progress{display:flex;gap:5px;margin:0 2px 16px}
+  .progress i{height:4px;flex:1;background:var(--line);border-radius:2px}
+  .progress i.on{background:var(--terra)}
+  .stepno{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin:0 2px 14px}
+
+  .privacy{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--ink-soft);margin-top:18px}
+  .privacy svg{flex:0 0 auto;margin-top:1px}
+
+  .priority{background:var(--terra);color:#fff;border-radius:14px;padding:22px 22px 20px;margin:20px 0}
+  .priority .eyebrow{color:#F0D8C8}
+  .priority h2{color:#fff;margin-bottom:8px}
+  .priority p{color:#F3E3D6}
+  .priority .next{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:12px 14px;margin-top:14px;font-size:14px;color:#fff}
+  .flagbar{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);background:#fff;border-radius:12px;padding:14px 16px;margin:16px 0;font-size:14px;color:var(--ink-soft)}
+  .flagbar b{color:var(--ink)}
+  .disc{font-size:12.5px;color:var(--ink-soft);margin-top:18px;line-height:1.5}
+  @media (max-width:520px){ .row2{grid-template-columns:1fr} h2{font-size:22px} .card{padding:20px} }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  .share{border:1px solid var(--line);background:#fff;border-radius:14px;padding:18px 20px;margin:18px 0}
+  .share h3{margin:0 0 4px}
+  .share .privline{font-size:12.5px;color:var(--ink-soft);margin:0 0 14px}
+  .share .btns{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}
+  .share .btns button{padding:10px 16px}
+  .copied{font-size:12.5px;color:var(--green);font-weight:600}
+  .fallbox{width:100%;height:130px;border:1px solid var(--line);border-radius:8px;padding:10px;font:12.5px/1.4 ui-monospace,Menlo,Consolas,monospace;color:var(--ink);background:#FBF8F2;resize:vertical}
+  .vbanner{background:var(--red-bg);border:1px solid #E0B3A6;color:#7c2f20;border-radius:10px;padding:11px 14px;font-size:13.5px;font-weight:600;margin-bottom:16px}
+  .namebox{max-width:320px}
+  .scorewrap{display:flex;align-items:baseline;gap:10px;margin:4px 0 14px}
+  .scorenum{font-family:Georgia,"Times New Roman",serif;font-size:52px;font-weight:600;line-height:1;color:var(--terra)}
+  .scoreof{font-size:14px;color:var(--ink-soft)}
+  .comp{display:grid;gap:10px;margin:14px 0 4px}
+  .comprow{border:1px solid var(--line);border-radius:10px;background:#fff;padding:12px 14px}
+  .comprow .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .comprow .name{font-weight:650;font-size:15px}
+  .comprow .val{font-size:13px;color:var(--ink-soft);font-weight:600}
+  .bar{height:8px;border-radius:3px;background:#EEE7DB;margin-top:9px;overflow:hidden}
+  .bar i{display:block;height:100%;background:var(--terra);border-radius:3px}
+  .delta{font-size:14px;font-weight:650}
+  .delta.up{color:var(--green)} .delta.flat{color:var(--ink-soft)} .delta.down{color:var(--red)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <svg class="umbrella" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4v3M16 27a3 3 0 0 0 3-3" stroke="#8B4A2B" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M4 17c0-6.6 5.4-11 12-11s12 4.4 12 11c-2.4-1.8-4.2-1.8-6 0-1.8-1.8-4.2-1.8-6 0-1.8-1.8-4.2-1.8-6 0-1.8-1.8-3.6-1.8-6 0Z" fill="#8B4A2B"/></svg>
+    <h1>Making Sense</h1>
+    <span>Action Baseline</span>
+  </div>
+
+  <div class="card" id="card"><!-- steps injected --></div>
+</div>
+
+<script>
+"use strict";
+/* ---------------- Build config ---------------- */
+const ADMINISTRATION = "baseline"; // "baseline" = August 2026, no score shown; "followup" = March 2027, score shown
+const COACH_EMAIL = "doych@doychzone.com";
+let lastResult = null;
+
+/* ================= FROZEN SCORING ENGINE v1.0.1 =================
+   Do not change any weight, threshold, option value or question
+   wording between the baseline and follow-up administrations.
+   Any edit here invalidates the comparison.
+
+   Four components, 100 points total.
+     Currency         30   how current your picture of yourself is
+     Forward calendar 25   what is actually booked ahead of you
+     Friction         20   how much you know about getting it done
+     Gap              25   how much known-but-not-done you carry
+
+   Q16 (blocker), Q17 (confidence), Q18 (intention) are UNSCORED.
+   Per-part free-text boxes are UNSCORED.
+   Q16 and Q18 are diagnostic. Q17 is texture.
+
+   Report the raw 0-100 integer. Never band it. Most six-month
+   movement will sit inside a band and banding would hide it.
+
+   v1.0.1: q2_bloods and q6_booked windows tightened, q14_oldest
+   gained an under-1-month band, to better catch six-month movement.
+   ============================================================== */
+const SCORING = {
+  currency: { max:30, items:{
+    q1_overdue:   { none:9, one:6, two:3, threeplus:0, unknown:0 },
+    q2_bloods:    { within6:6, m6to12:4, over12:2, never:0, unsure:0 },
+    q3_bp:        { within3:5, m3to12:3, over12:1, unsure:0 },
+    q4_numbers:   { perItem:1.5, cap:6 },
+    q5_senses:    { allthree:4, oneortwo:2, none:0, unsure:0 }
+  }},
+  calendar: { max:25, items:{
+    q6_booked:    { none:0, one:4, two:8, threeplus:11 },
+    q7_nextdate:  { yes:8, roughly:5, no:0, nonebooked:0 },
+    q8_reminder:  { self:6, clinic:4, family:2, nothing:0 }
+  }},
+  friction: { max:20, items:{
+    q9_where:     { exactly:8, idea:4, scratch:0 },
+    q10_cost:     { yes:4, atthetime:2, noidea:0 },
+    q11_insurance:{ specific:4, broad:2, no:0, nocover:2 },
+    q12_logistics:{ most:4, some:2, no:0 }
+  }},
+  gap: { max:25, items:{
+    q13_known:    { none:12, one:9, two:6, three:3, fourplus:0 },
+    q14_oldest:   { na:8, under1:7, under3:6, m3to12:4, y1to3:2, over3:0 },
+    q15_stopped:  { none:5, one:3, two:1, threeplus:0 }
+  }}
+};
+
+const S = {}; // state
+
+function scoreCurrency(){
+  const I = SCORING.currency.items; let t=0;
+  t += I.q1_overdue[S.q1_overdue] ?? 0;
+  t += I.q2_bloods[S.q2_bloods] ?? 0;
+  t += I.q3_bp[S.q3_bp] ?? 0;
+  const picked = (S.q4_numbers||[]).filter(v=>v!=="none").length;
+  t += Math.min(picked * I.q4_numbers.perItem, I.q4_numbers.cap);
+  t += I.q5_senses[S.q5_senses] ?? 0;
+  return t;
+}
+function scoreCalendar(){
+  const I = SCORING.calendar.items;
+  return (I.q6_booked[S.q6_booked] ?? 0) + (I.q7_nextdate[S.q7_nextdate] ?? 0) + (I.q8_reminder[S.q8_reminder] ?? 0);
+}
+function scoreFriction(){
+  const I = SCORING.friction.items;
+  return (I.q9_where[S.q9_where] ?? 0) + (I.q10_cost[S.q10_cost] ?? 0) +
+         (I.q11_insurance[S.q11_insurance] ?? 0) + (I.q12_logistics[S.q12_logistics] ?? 0);
+}
+function scoreGap(){
+  const I = SCORING.gap.items;
+  return (I.q13_known[S.q13_known] ?? 0) + (I.q14_oldest[S.q14_oldest] ?? 0) + (I.q15_stopped[S.q15_stopped] ?? 0);
+}
+function computeScore(){
+  const c = { currency:scoreCurrency(), calendar:scoreCalendar(), friction:scoreFriction(), gap:scoreGap() };
+  const total = Math.round(c.currency + c.calendar + c.friction + c.gap);
+  return { components:c, total:Math.max(0,Math.min(100,total)) };
+}
+
+/* ---------------- UI ---------------- */
+let step = 0;
+const card = document.getElementById('card');
+
+function progress(n){
+  let p='<div class="progress">';
+  for(let i=1;i<=5;i++) p+=`<i class="${i<=n?'on':''}"></i>`;
+  p+='</div>';
+  return p;
+}
+function opt(name,val,label){
+  return `<label class="opt"><input type="radio" name="${name}" value="${val}" ${S[name]===val?'checked':''} onchange="S['${name}']=this.value">
+    <span>${label}</span></label>`;
+}
+function radios(name,pairs){ return `<div class="opts">`+pairs.map(p=>opt(name,p[0],p[1])).join('')+`</div>`; }
+function chk(grp,val,label){
+  const on=(S[grp]||[]).includes(val);
+  return `<label class="chk"><input type="checkbox" data-grp="${grp}" value="${val}" ${on?'checked':''} onchange="setChecks('${grp}')"><span>${label}</span></label>`;
+}
+function setChecks(name){
+  S[name] = Array.from(document.querySelectorAll(`input[data-grp="${name}"]:checked`)).map(x=>x.value);
+}
+function optionalBox(id,label){
+  return `<div class="optional"><label class="q" for="${id}">${label}</label>
+    <textarea id="${id}" oninput="S.${id}=this.value" placeholder="Optional - leave blank if nothing to add.">${S[id]??''}</textarea></div>`;
+}
+function nav(back,next){
+  return `<div class="nav"><button class="ghost" onclick="go(${back})">Back</button><button class="primary" onclick="go(${next})">Continue</button></div>`;
+}
+
+const INTRO_TITLE = ADMINISTRATION==="baseline"
+  ? "Where you stand before anything changes."
+  : "The same questions, six months on.";
+
+const steps = [
+  // 0 intro + name
+  ()=>`
+    <p class="eyebrow">About five minutes</p>
+    <h2>${INTRO_TITLE}</h2>
+    <p class="lead">Most people already know more about their health than they act on. That gap between knowing and doing is the thing Making Sense exists to close, and right now we hold it as a belief rather than a measurement.</p>
+    ${ADMINISTRATION==="baseline"
+      ? `<p>This form measures where you stand on that gap today, before anything has changed. You will answer the identical questions again in month six. The difference between the two is the clearest evidence any of us will have about whether this actually worked.</p>`
+      : `<p>These are the identical questions you answered in August, unchanged. Answer them the same way you did then, from memory. The comparison is the point.</p>`}
+    <h3>Three things before you start</h3>
+    <p class="tight"><b>There is no good or bad score.</b> Most people score low the first time. That is expected and it is useful - a low starting number is what makes improvement visible later. Inflating your answers now makes your own progress impossible to see.</p>
+    <p class="tight"><b>This is not your Priority Screen.</b> It does not change your result, your priority, or your Map. It runs separately and scores separately.</p>
+    <p><b>Do not count anything we asked you to do.</b> Your Foundation Check and everything connected to this program is excluded. We are measuring what you do with your own health, not whether you followed instructions.</p>
+    <p class="muted">Answer from memory, without looking anything up. What you can recall unaided is part of what is being measured.</p>
+    <hr class="rule">
+    <div class="field namebox"><label class="q">Your name<span class="hint">First name is enough. Use the same one in March - it is what lets us compare your two answers.</span></label>
+      <input type="text" id="nameInput" value="${S.memberName??''}" placeholder="Your name" autocomplete="given-name"></div>
+    <div class="privacy">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 4.2-2.9 7.4-7 9-4.1-1.6-7-4.8-7-9V6l7-3Z" stroke="#8B4A2B" stroke-width="1.6"/><path d="M9 12l2 2 4-4" stroke="#8B4A2B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Everything stays on your own device until you choose to send it. Nothing is sent automatically, and sending is a separate, optional step at the end.</span>
+    </div>
+    <div class="nav"><span></span><button class="primary" onclick="startName()">Start</button></div>
+  `,
+  // 1 currency
+  ()=>`
+    ${progress(1)}<p class="stepno">Part 1 of 5 - Where you stand today</p>
+    <p class="muted">How current your picture of yourself actually is.</p>
+    <div class="field"><label class="q">1. How many health checks or screenings do you believe you are currently overdue for?
+      <span class="example">Example: a colonoscopy, a skin check, a dental cleaning, an eye test.</span></label>
+      ${radios('q1_overdue',[['none','None'],['one','One'],['two','Two'],['threeplus','Three or more'],['unknown','I do not know']])}</div>
+    <div class="field"><label class="q">2. When did you last have a full blood panel?</label>
+      ${radios('q2_bloods',[['within6','Within 6 months'],['m6to12','6 to 12 months ago'],['over12','More than 12 months ago'],['never','Never'],['unsure','I do not remember']])}</div>
+    <div class="field"><label class="q">3. When did you last have your blood pressure measured?</label>
+      ${radios('q3_bp',[['within3','Within 3 months'],['m3to12','3 to 12 months ago'],['over12','More than a year ago'],['unsure','I do not remember']])}</div>
+    <div class="field"><label class="q">4. Without looking them up, which of these can you state right now?<span class="hint">Select all that apply.</span></label>
+      <div class="checks">
+        ${chk('q4_numbers','bp','My blood pressure')}
+        ${chk('q4_numbers','glucose','My blood sugar or HbA1c')}
+        ${chk('q4_numbers','lipids','My cholesterol or ApoB')}
+        ${chk('q4_numbers','weight','My weight')}
+        ${chk('q4_numbers','waist','My waist measurement')}
+        ${chk('q4_numbers','none','None of these')}
+      </div></div>
+    <div class="field"><label class="q">5. When did you last have your hearing, vision or teeth checked?</label>
+      ${radios('q5_senses',[['allthree','All three within 2 years'],['oneortwo','One or two of them'],['none','None within 2 years'],['unsure','I do not remember']])}</div>
+    ${optionalBox('extra1','Anything about this section that did not fit above?')}
+    ${nav(0,2)}
+  `,
+  // 2 forward calendar
+  ()=>`
+    ${progress(2)}<p class="stepno">Part 2 of 5 - Your forward calendar</p>
+    <p class="muted">What is actually booked ahead of you, not what you intend.</p>
+    <div class="field"><label class="q">6. How many health appointments do you have booked with a confirmed date in the next 6 months?</label>
+      ${radios('q6_booked',[['none','None'],['one','One'],['two','Two'],['threeplus','Three or more']])}</div>
+    <div class="field"><label class="q">7. Can you name the date of your next health appointment without checking?</label>
+      ${radios('q7_nextdate',[['yes','Yes'],['roughly','Roughly, within a month'],['no','No'],['nonebooked','I have none booked']])}</div>
+    <div class="field"><label class="q">8. What reminds you when something is due?</label>
+      ${radios('q8_reminder',[['self','A calendar or app I maintain'],['clinic','My doctor or clinic contacts me'],['family','Someone in my family'],['nothing','Nothing - I remember or I do not']])}</div>
+    ${optionalBox('extra2','Anything about this section that did not fit above?')}
+    ${nav(1,3)}
+  `,
+  // 3 friction
+  ()=>`
+    ${progress(3)}<p class="stepno">Part 3 of 5 - What you know about getting it done</p>
+    <p class="muted">These questions are not about your health. They are about friction. Most people skip a test not because they decided against it but because they did not know where to go, what it costs, or whether they needed a referral - and the not-knowing quietly became not-doing.</p>
+    <div class="field"><label class="q">9. If you needed a blood panel next month, would you know where to go?
+      <span class="example">Example: "Cibalab downtown, I have been there before" counts as knowing exactly.</span></label>
+      ${radios('q9_where',[['exactly','I know exactly where and could book today'],['idea','I have an idea but would need to check'],['scratch','I would start from scratch']])}</div>
+    <div class="field"><label class="q">10. Would you know what it costs before you booked?</label>
+      ${radios('q10_cost',[['yes','Yes, roughly'],['atthetime','No, I would find out when I got there'],['noidea','No idea at all']])}</div>
+    <div class="field"><label class="q">11. Do you know what your insurance covers for preventive testing?</label>
+      ${radios('q11_insurance',[['specific','Yes, specifically'],['broad','Broadly, not the details'],['no','No'],['nocover','I have no coverage for this']])}</div>
+    <div class="field"><label class="q">12. For a test you might need, could you say how long it takes and what preparation it needs?
+      <span class="example">Example: fasting 8 hours beforehand, a morning appointment, no referral needed for a basic panel.</span></label>
+      ${radios('q12_logistics',[['most','Yes for most'],['some','For some'],['no','No']])}</div>
+    ${optionalBox('extra3','Anything about this section that did not fit above?')}
+    ${nav(2,4)}
+  `,
+  // 4 gap
+  ()=>`
+    ${progress(4)}<p class="stepno">Part 4 of 5 - The gap</p>
+    <p class="muted">The distance between what you already know and what you have done. Answer honestly - this is the number the whole exercise exists to move.</p>
+    <div class="field"><label class="q">13. How many things do you currently know you should do for your health but have not done?
+      <span class="example">Example: a colonoscopy you keep putting off, a dentist visit, a mole worth getting looked at.</span></label>
+      ${radios('q13_known',[['none','None'],['one','One'],['two','Two'],['three','Three'],['fourplus','Four or more']])}</div>
+    <div class="field"><label class="q">14. How long has the oldest of those been outstanding?</label>
+      ${radios('q14_oldest',[['na','Not applicable'],['under1','Under 1 month'],['under3','1 to 3 months'],['m3to12','3 to 12 months'],['y1to3','1 to 3 years'],['over3','More than 3 years']])}</div>
+    <div class="field"><label class="q">15. In the last 12 months, how many health habits or actions did you start and then stop?</label>
+      ${radios('q15_stopped',[['none','None'],['one','One'],['two','Two'],['threeplus','Three or more']])}</div>
+    ${optionalBox('extra4','Anything about this section that did not fit above?')}
+    ${nav(3,5)}
+  `,
+  // 5 unscored
+  ()=>`
+    ${progress(5)}<p class="stepno">Part 5 of 5 - In your own words</p>
+    <p class="muted">These three are not scored. They tell us more about how to help you than any number here.</p>
+    <div class="field"><label class="q">16. What most often stops you?<span class="hint">Choose the one that comes closest.</span></label>
+      ${radios('q16_blocker',[['time','Time'],['cost','Cost'],['start','Not knowing where to start'],['matters','Not knowing if it matters'],['fear','Fear of what I will find'],['forget','Forgetting'],['nothing','Nothing stops me'],['other','Something else']])}</div>
+    <div class="field"><label class="q">If something else, describe it in a few words<span class="hint">Example: "my clinic's hours do not match my work schedule." Leave blank if not relevant.</span></label>
+      <input type="text" id="q16other" value="${S.q16_other??''}" oninput="S.q16_other=this.value"></div>
+    <div class="field"><label class="q">17. How confident are you that you will complete what you intend over the next six months?<span class="hint">0 is not at all, 10 is completely.</span></label>
+      ${radios('q17_confidence',[['0','0'],['1','1'],['2','2'],['3','3'],['4','4'],['5','5'],['6','6'],['7','7'],['8','8'],['9','9'],['10','10']])}</div>
+    <div class="field"><label class="q">18. Name one thing you want to have done by March 2027 that is not done today.
+      <span class="example">Example: "book and complete a colonoscopy" rather than "be healthier." Specific enough that you would know whether you did it.</span></label>
+      <textarea id="q18" oninput="S.q18_intention=this.value" placeholder="">${S.q18_intention??''}</textarea></div>
+    <div class="nav"><button class="ghost" onclick="go(4)">Back</button><button class="primary" onclick="finish()">Record my answers</button></div>
+  `
+];
+
+const REQUIRED = {
+  1:["q1_overdue","q2_bloods","q3_bp","q4_numbers","q5_senses"],
+  2:["q6_booked","q7_nextdate","q8_reminder"],
+  3:["q9_where","q10_cost","q11_insurance","q12_logistics"],
+  4:["q13_known","q14_oldest","q15_stopped"],
+  5:["q16_blocker","q17_confidence","q18_intention"]
+};
+function missingFor(n){
+  const req=(REQUIRED[n]||[]).slice();
+  const miss=[];
+  req.forEach(id=>{
+    const v=S[id];
+    if(Array.isArray(v)){ if(!v.length) miss.push(id); }
+    else if(v===undefined || v===null || String(v).trim()==="") miss.push(id);
+  });
+  return miss;
+}
+let stepErr=0;
+function startName(){
+  const el=document.getElementById('nameInput');
+  const val=(el?el.value:"").trim();
+  if(!val){ stepErr=2; render(); return; }
+  S.memberName=val; stepErr=0; step=1; render();
+}
+function go(n){
+  if(n>step && step>=1 && missingFor(step).length){ stepErr=1; render(); return; }
+  stepErr=0; step=n; render();
+}
+function render(){
+  card.innerHTML = steps[step]();
+  if(stepErr===1 && step>=1){
+    const b=document.createElement('div'); b.className='vbanner';
+    b.textContent="Please answer every question on this page to continue.";
+    card.insertBefore(b, card.firstChild);
+  }
+  if(stepErr===2 && step===0){
+    const b=document.createElement('div'); b.className='vbanner';
+    b.textContent="Please enter your name to continue.";
+    card.insertBefore(b, card.firstChild);
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ---------------- Result ---------------- */
+const COMPNAMES = { currency:"Currency", calendar:"Forward calendar", friction:"Friction", gap:"The gap" };
+
+function compRow(key,val){
+  const max = SCORING[key].max;
+  const pct = Math.round((val/max)*100);
+  return `<div class="comprow"><div class="top"><span class="name">${COMPNAMES[key]}</span><span class="val">${Math.round(val)} of ${max}</span></div>
+    <div class="bar"><i style="width:${pct}%"></i></div></div>`;
+}
+
+function finish(){
+  if(missingFor(5).length){ stepErr=1; render(); return; }
+  const r = computeScore();
+  lastResult = { score:r.total, components:r.components };
+
+  let html = "";
+
+  if(ADMINISTRATION==="baseline"){
+    html += `<div class="priority"><p class="eyebrow">Recorded</p><h2>That is your starting line, ${S.memberName}.</h2>
+      <p>We are deliberately not showing you a number today. A number now would only invite you to defend it in March, and the whole value of this sits in the comparison, not in either measurement alone.</p>
+      <div class="next"><b>Use the same name in March.</b> That is what lets us compare your two answers.</div></div>`;
+    html += `<div class="flagbar"><span>&#9679;</span><div><b>What happens with this.</b> Nothing here changes your priority, your Foundation Check, or your Map. In month six you answer the identical questions and we look at both together. That is the only moment either number means anything.</div></div>`;
+  } else {
+    html += `<p class="eyebrow">Month six</p><h2>Your Action Baseline</h2>
+      <div class="scorewrap"><span class="scorenum">${r.total}</span><span class="scoreof">out of 100</span></div>
+      <p>${S.memberName}, the number on its own means very little. What it is for is the comparison with August.</p>
+      <div class="comp">
+        ${compRow('currency',r.components.currency)}
+        ${compRow('calendar',r.components.calendar)}
+        ${compRow('friction',r.components.friction)}
+        ${compRow('gap',r.components.gap)}
+      </div>
+      <div class="field" style="margin-top:20px"><label class="q">If you know your August number, enter it here<span class="hint">Optional. It was not shown to you at the time, so you may not have it. Leave blank if not.</span></label>
+        <input type="number" min="0" max="100" id="baselineInput" class="namebox" oninput="showDelta()">
+      </div>
+      <div id="deltaBox"></div>`;
+  }
+
+  html += `<hr class="rule">
+    <p class="lead" style="font-size:15.5px">Send it in.</p>
+    <p class="muted">Your answers stay on this device unless you choose to send them.</p>`;
+
+  html += `<div class="share">
+      <h3>Send your answers</h3>
+      <p class="privline">Sent under your name, ${S.memberName}. Sending is optional and separate from completing the form.</p>
+      <label class="chk"><input type="checkbox" id="consentCheck"><span>I agree to send these answers, under my name, to Doych to track my own progress. This is optional and does not affect my place in the program.</span></label>
+      <div class="btns">
+        <button class="primary" onclick="sendResult()">Send</button>
+        <button class="ghost" onclick="copyResult()">Copy</button>
+        <button class="ghost" onclick="downloadResult()">Download (JSON)</button>
+        <span id="shareMsg" class="copied" aria-live="polite"></span>
+      </div>
+      <div id="shareFallback"></div>
+    </div>`;
+
+  html += `<p class="disc">This is a self-report instrument built by Making Sense to measure follow-through, not health. It is not a risk assessment, not a diagnosis, and it does not replace a doctor. Its scoring is frozen for the duration of the Founding Cohort so that two measurements taken six months apart remain comparable.</p>`;
+  html += `<div class="nav"><button class="ghost" onclick="go(5)">Back</button><span></span></div>`;
+
+  card.innerHTML = html;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function showDelta(){
+  const el=document.getElementById('baselineInput');
+  const box=document.getElementById('deltaBox');
+  if(!el||!box||!lastResult) return;
+  const v=parseInt(el.value,10);
+  if(!isFinite(v)||v<0||v>100){ box.innerHTML=""; return; }
+  const d=lastResult.score - v;
+  const cls = d>0?'up':(d===0?'flat':'down');
+  const sign = d>0?'+':'';
+  const word = d>0 ? 'Movement in the right direction.' : (d===0 ? 'No net change.' : 'A drop. Worth understanding why, not defending.');
+  box.innerHTML = `<div class="flagbar"><span>&#9679;</span><div><b class="delta ${cls}">${sign}${d} points</b> since August, from ${v} to ${lastResult.score}. ${word} Bring this to your review - the components matter more than the total.</div></div>`;
+}
+
+function showShareMsg(t){ const m=document.getElementById('shareMsg'); if(m){ m.textContent=t; setTimeout(()=>{ if(m) m.textContent=""; },4000); } }
+function buildSummary(){
+  const R=lastResult; if(!R) return "";
+  let s="Making Sense - Action Baseline v1.0.1\n";
+  s+="Administration: "+ADMINISTRATION+"\n";
+  s+="Name: "+S.memberName+"\n";
+  s+="Date: "+new Date().toISOString().slice(0,10)+"\n";
+  s+="\nScore: "+R.score+" / 100\n";
+  s+="  Currency "+Math.round(R.components.currency)+"/30, Calendar "+R.components.calendar+"/25, Friction "+R.components.friction+"/20, Gap "+R.components.gap+"/25\n";
+  s+="\nAnswers\n";
+  ["q1_overdue","q2_bloods","q3_bp","q4_numbers","q5_senses","q6_booked","q7_nextdate","q8_reminder",
+   "q9_where","q10_cost","q11_insurance","q12_logistics","q13_known","q14_oldest","q15_stopped",
+   "q16_blocker","q16_other","q17_confidence"].forEach(k=>{
+    const v=S[k]; if(v===undefined) return;
+    s+="  "+k+": "+(Array.isArray(v)?v.join("|"):v)+"\n";
+  });
+  s+="\nQ18 intention: "+(S.q18_intention||"")+"\n";
+  ["extra1","extra2","extra3","extra4"].forEach(k=>{
+    if(S[k]) s+="Note ("+k+"): "+S[k]+"\n";
+  });
+  return s;
+}
+function buildPayload(){
+  const R=lastResult; if(!R) return {};
+  const answers={};
+  ["q1_overdue","q2_bloods","q3_bp","q4_numbers","q5_senses","q6_booked","q7_nextdate","q8_reminder",
+   "q9_where","q10_cost","q11_insurance","q12_logistics","q13_known","q14_oldest","q15_stopped",
+   "q16_blocker","q16_other","q17_confidence","q18_intention","extra1","extra2","extra3","extra4"].forEach(k=>{ answers[k]=S[k]; });
+  return { tool:"action-baseline", version:"1.0.1", administration:ADMINISTRATION,
+    memberName:S.memberName, timestamp:new Date().toISOString(),
+    score:R.score, components:R.components, answers:answers };
+}
+function revealFallback(txt){
+  const fb=document.getElementById('shareFallback');
+  if(fb){ fb.innerHTML='<div class="fallback"><p class="muted" style="margin:8px 0 6px">Select and copy the text below:</p><textarea class="fallbox" readonly></textarea></div>';
+    const ta=fb.querySelector('textarea'); if(ta){ ta.value=txt; ta.focus(); ta.select(); } }
+}
+function copyResult(){
+  const txt=buildSummary();
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(()=>showShareMsg("Copied")).catch(()=>revealFallback(txt));
+  } else { revealFallback(txt); }
+}
+function downloadResult(){
+  try{
+    const data=JSON.stringify(buildPayload(),null,2);
+    const blob=new Blob([data],{type:"application/json"});
+    const url=URL.createObjectURL(blob);
+    const safe=(S.memberName||"member").replace(/[^a-z0-9]+/gi,'_');
+    const a=document.createElement('a'); a.href=url; a.download="making-sense-action-baseline-"+safe+".json";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(()=>URL.revokeObjectURL(url),1000); showShareMsg("Downloaded");
+  }catch(e){ revealFallback(JSON.stringify(buildPayload(),null,2)); }
+}
+function sendResult(){
+  const c=document.getElementById('consentCheck');
+  if(!c || !c.checked){ showShareMsg("Tick the box above to send."); return; }
+  const subject="Making Sense Action Baseline - "+S.memberName+" - "+ADMINISTRATION;
+  const url="mailto:"+encodeURIComponent(COACH_EMAIL)+"?subject="+encodeURIComponent(subject)+"&body="+encodeURIComponent(buildSummary());
+  window.location.href=url;
+}
+
+render();
+</script>
+</body>
+</html>
