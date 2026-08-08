@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Filming Consent - Making Sense</title>
+<style>
+  :root{
+    --clay:#8B4A2B;
+    --clay-deep:#5E301A;
+    --ink:#1F1B18;
+    --ink-soft:#5A524C;
+    --line:#E2DBD3;
+    --paper:#FBF9F7;
+    --card:#FFFFFF;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Iowan Old Style","Charter","Georgia",serif;
+    font-size:17px;
+    line-height:1.62;
+  }
+  .sheet{
+    max-width:760px;
+    margin:0 auto;
+    background:var(--card);
+    border-left:1px solid var(--line);
+    border-right:1px solid var(--line);
+    min-height:100vh;
+  }
+  .band{
+    background:var(--clay);
+    color:#fff;
+    padding:38px 48px 34px;
+  }
+  .eyebrow{
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    opacity:.82;
+    margin:0 0 14px;
+  }
+  .band h1{
+    margin:0;
+    font-size:34px;
+    line-height:1.18;
+    font-weight:600;
+    letter-spacing:-.01em;
+  }
+  .band p{margin:14px 0 0;font-size:16px;opacity:.9;max-width:52ch}
+  main{padding:40px 48px 56px}
+  section{margin:0 0 34px;page-break-inside:avoid;break-inside:avoid}
+  .label{
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--clay);
+    margin:0 0 10px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--line);
+  }
+  p{margin:0 0 14px}
+  .muted{color:var(--ink-soft);font-size:15.5px}
+  a{color:var(--clay-deep)}
+
+  .choice{
+    display:block;
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:16px 18px;
+    margin:0 0 10px;
+    cursor:pointer;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .choice:hover{border-color:#C9BCB0}
+  .choice.on{border-color:var(--clay);background:#FCF6F2}
+  .choice input{margin:0 12px 0 0;accent-color:var(--clay);transform:translateY(1px)}
+  .choice strong{font-weight:600}
+  .choice .note{display:block;margin:6px 0 0 24px;font-size:15px;color:var(--ink-soft)}
+
+  .field{margin:0 0 16px}
+  .field label{
+    display:block;
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin:0 0 6px;
+  }
+  input[type=text],input[type=email]{
+    width:100%;
+    padding:11px 13px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    font:inherit;
+    font-size:16px;
+    background:#fff;
+    color:var(--ink);
+  }
+  input[type=text]:focus,input[type=email]:focus,.choice:focus-within{
+    outline:2px solid var(--clay);
+    outline-offset:1px;
+  }
+
+  .record{
+    border:1px solid var(--line);
+    border-left:3px solid var(--clay);
+    background:#FCFAF8;
+    padding:18px 20px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:13.5px;
+    line-height:1.75;
+    color:var(--ink-soft);
+    white-space:pre-wrap;
+  }
+  .btn{
+    display:inline-block;
+    margin:18px 10px 0 0;
+    padding:13px 26px;
+    border:1px solid var(--clay);
+    border-radius:3px;
+    background:var(--clay);
+    color:#fff;
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:15px;
+    cursor:pointer;
+  }
+  .btn.ghost{background:#fff;color:var(--clay-deep)}
+  .btn:disabled{opacity:.4;cursor:not-allowed}
+  .status{
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:14px;
+    color:var(--clay-deep);
+    margin:12px 0 0;
+    min-height:20px;
+  }
+  .sign-lines{display:none}
+  footer{
+    padding:22px 48px 40px;
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    border-top:1px solid var(--line);
+  }
+  @media (max-width:640px){
+    .band{padding:30px 22px}
+    .band h1{font-size:27px}
+    main{padding:30px 22px 40px}
+    footer{padding:20px 22px 32px}
+  }
+  @media print{
+    body{background:#fff}
+    .sheet{border:0}
+    .btn,.status,.record{display:none}
+    .sign-lines{display:block;margin-top:26px}
+    .choice{padding:10px 12px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <div class="band">
+    <p class="eyebrow">Making Sense</p>
+    <h1>Consent to be filmed and photographed</h1>
+    <p>Read this, choose what you agree to, and sign. You can agree to some purposes and not others.</p>
+  </div>
+
+  <main>
+
+    <section>
+      <p class="label">Who is asking</p>
+      <p>Want2goFit LLC (Ohio, USA), acting through Doychin Karshovski, is the controller of your personal data for this filming. Contact: <a href="mailto:doych@doychzone.com">doych@doychzone.com</a>. Our privacy notice is at <a href="https://www.doychin.com/making-sense-privacy.html">doychin.com/making-sense-privacy</a>.</p>
+    </section>
+
+    <section>
+      <p class="label">What will be filmed</p>
+      <p>Video and photographs will be taken during Making Sense testing at the session below. The footage covers the testing process and the work of the clinical team in general shots.</p>
+      <p>No test results, measurements, or personal comments about anyone's health will be shown or heard in the published material.</p>
+      <div class="field">
+        <label for="practice">Practice or clinic</label>
+        <input type="text" id="practice" placeholder="Name of the practice">
+      </div>
+      <div class="field">
+        <label for="address">Address</label>
+        <input type="text" id="address" placeholder="Street, city">
+      </div>
+      <div class="field">
+        <label for="shootdate">Date of filming</label>
+        <input type="text" id="shootdate" placeholder="e.g. 12 September 2026">
+      </div>
+    </section>
+
+    <section>
+      <p class="label">What you agree to</p>
+      <label class="choice"><input type="checkbox" id="c1"><strong>Internal training material</strong><span class="note">Used to train Making Sense coaches and partners, including inside the closed Making Sense Campus community.</span></label>
+      <label class="choice"><input type="checkbox" id="c2"><strong>Public material</strong><span class="note">Published on doychin.com, doychzone.com, LinkedIn, YouTube, Facebook, Instagram, and shown in presentations and at events.</span></label>
+      <label class="choice"><input type="checkbox" id="c3"><strong>Use of my name</strong><span class="note">For clinicians, this also covers job title and practice. If you decline, the material is used without naming you.</span></label>
+      <div class="field" style="margin-top:16px">
+        <label for="credit">Name as it should appear on screen, if you agreed above</label>
+        <input type="text" id="credit" placeholder="Optional">
+      </div>
+    </section>
+
+    <section>
+      <p class="label">What this means in practice</p>
+      <p><strong>Publishing reaches everywhere.</strong> Some of the platforms above are run by companies outside the EU, including in the United States. Anything published publicly can be seen worldwide and copied by others.</p>
+      <p><strong>How long.</strong> Your consent stands until you withdraw it. Internal training material is kept for up to five years.</p>
+      <p><strong>Withdrawing.</strong> Write to <a href="mailto:doych@doychzone.com">doych@doychzone.com</a> at any time, with no reason needed. All further use stops, and we make reasonable efforts to remove what is already published on the channels we control. We cannot guarantee removal of copies other people have already downloaded or shared. Withdrawal applies going forward and does not affect use that was lawful before it.</p>
+      <p><strong>Saying no costs you nothing.</strong> If you are in the programme, declining does not affect your participation, your testing, your Longevity Intelligence Map, or what you pay. If you are part of the clinical team, it does not affect our working relationship. No fee is paid for filming, and you make no financial claim in return.</p>
+      <p class="muted">You can ask for access to your data, correction, deletion, restriction, objection, and portability, and you can complain to the Bulgarian Commission for Personal Data Protection.</p>
+    </section>
+
+    <section>
+      <p class="label">Sign</p>
+      <div class="field">
+        <label for="fullname">Full name</label>
+        <input type="text" id="fullname" placeholder="First and last name">
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@example.com">
+      </div>
+      <label class="choice"><input type="checkbox" id="agree"><strong>I have read this and I give my consent, exactly as marked above.</strong></label>
+
+      <p class="muted" style="margin-top:18px">This is what will be sent, so you can see your own record before it leaves:</p>
+      <div class="record" id="record">Nothing selected yet.</div>
+
+      <button class="btn" id="send" disabled>Send my consent</button>
+      <p class="status" id="status">A copy goes to your own inbox at the same time.</p>
+
+      <div class="sign-lines">
+        <p>Signature: ...........................................&nbsp;&nbsp;&nbsp;Date: ......................</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>Making Sense - Want2goFit LLC. Consent is voluntary and can be withdrawn at any time.</footer>
+</div>
+
+<script>
+(function(){
+  var ids=["c1","c2","c3","agree"];
+  var labels={c1:"Internal training material",c2:"Public material",c3:"Use of my name"};
+  var el=function(i){return document.getElementById(i)};
+
+  function build(){
+    var name=el("fullname").value.trim();
+    var mail=el("email").value.trim();
+    var credit=el("credit").value.trim();
+    var lines=[];
+    lines.push("Making Sense - filming consent");
+    lines.push("Recorded: "+new Date().toLocaleString());
+    lines.push("");
+    lines.push("Practice: "+(el("practice").value.trim()||"-"));
+    lines.push("Address:  "+(el("address").value.trim()||"-"));
+    lines.push("Date:     "+(el("shootdate").value.trim()||"-"));
+    lines.push("");
+    lines.push("Name:  "+(name||"-"));
+    lines.push("Email: "+(mail||"-"));
+    if(credit) lines.push("On-screen name: "+credit);
+    lines.push("");
+    ["c1","c2","c3"].forEach(function(i){
+      lines.push((el(i).checked?"YES  ":"NO   ")+labels[i]);
+    });
+    lines.push("");
+    lines.push(el("agree").checked?"Consent given as marked above.":"Consent not yet confirmed.");
+    return lines.join("\n");
+  }
+
+  function refresh(){
+    var text=build();
+    el("record").textContent=text;
+    var ready=el("agree").checked && el("fullname").value.trim() && el("email").value.trim()
+      && el("practice").value.trim() && el("shootdate").value.trim();
+    el("send").disabled=!ready;
+    ids.forEach(function(i){
+      var box=el(i).closest(".choice");
+      if(box) box.classList.toggle("on", el(i).checked);
+    });
+  }
+
+  ["c1","c2","c3","agree"].forEach(function(i){el(i).addEventListener("change",refresh)});
+  ["fullname","email","credit","practice","address","shootdate"].forEach(function(i){el(i).addEventListener("input",refresh)});
+
+  var q=new URLSearchParams(window.location.search);
+  [["practice","practice"],["address","address"],["date","shootdate"]].forEach(function(p){
+    if(q.get(p[0])) el(p[1]).value=q.get(p[0]);
+  });
+
+  el("send").addEventListener("click",function(){
+    var mail=el("email").value.trim();
+    var subject="Filming consent - "+el("fullname").value.trim();
+    window.location.href="mailto:doych@doychzone.com"
+      +"?cc="+encodeURIComponent(mail)
+      +"&subject="+encodeURIComponent(subject)
+      +"&body="+encodeURIComponent(build());
+    el("status").textContent="Your email app is opening with everything filled in. Press send there, and the copy above lands in your inbox too. If nothing opens, copy the text above and email it to doych@doychzone.com.";
+  });
+
+  refresh();
+})();
+</script>
+</body>
+</html>
