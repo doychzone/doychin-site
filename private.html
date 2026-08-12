@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private Performance &amp; Longevity Advisory | Doychin Karshovski</title>
+<meta name="description" content="Private performance and longevity advisory for successful people who want to act before something breaks.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://www.doychin.com/private">
+<meta property="og:title" content="Don't wait until something breaks.">
+<meta property="og:description" content="Private performance and longevity advisory for people who want to stay ahead.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.doychin.com/private">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#141714;--ink-soft:#222622;--bone:#EFEDE4;--paper:#FAFAF6;
+  --graphite:#3C403C;--muted:#6E726C;--line:#DAD7CC;--line-dark:#2E332E;
+  --ember:#B0551F;--ember-deep:#8E441A;--maxw:1160px;
+  --display:'Anton',sans-serif;--body:'Instrument Sans',sans-serif;--mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+button,input{font:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.btn{appearance:none;border:1px solid transparent;background:var(--ember);color:#fff;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:13px;letter-spacing:.11em;line-height:1.25;padding:16px 25px;text-align:center;text-decoration:none;text-transform:uppercase;transition:background .15s,border-color .15s,color .15s}
+.btn:hover{background:var(--ember-deep)}
+.btn-dark{background:var(--ink);color:var(--bone)}
+.btn-dark:hover{background:#000}
+
+nav{position:sticky;top:0;z-index:30;background:rgba(20,23,20,.94);border-bottom:1px solid var(--line-dark);backdrop-filter:blur(8px)}
+.nav-inner{height:62px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{color:var(--bone);font-family:var(--display);font-size:17px;letter-spacing:.06em;text-decoration:none;text-transform:uppercase}
+.brand span{color:var(--ember)}
+.nav-note{color:#9A9E96;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+
+.hero{background:var(--ink);color:var(--bone);overflow:hidden;padding:92px 0 0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.7fr);gap:74px;align-items:end}
+.eyebrow{color:var(--ember);display:block;margin-bottom:26px}
+h1,h2,.display{font-family:var(--display);font-weight:400;letter-spacing:.005em;line-height:.97;text-transform:uppercase}
+h1{font-size:clamp(56px,8.8vw,118px);max-width:10ch}
+h1 span{color:var(--ember)}
+.hero-side{padding-bottom:8px}
+.hero-lead{color:#C9C7BC;font-size:20px;max-width:36ch}
+.hero-lead strong{color:var(--bone);font-weight:600}
+.hero-side .btn{margin-top:34px;width:100%;max-width:340px}
+.quiet{color:#8B8F88;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;line-height:1.55;margin-top:13px;max-width:47ch;text-transform:uppercase}
+.hero-strip{border-top:1px solid var(--line-dark);display:grid;grid-template-columns:repeat(3,1fr);margin-top:78px}
+.hero-strip div{border-right:1px solid var(--line-dark);color:#9A9E96;font-size:14.5px;padding:22px 28px}
+.hero-strip div:last-child{border-right:0}
+.hero-strip b{color:var(--bone);display:block;font-size:15px;font-weight:600;margin-bottom:2px}
+
+.section{padding:96px 0}
+.section-head{max-width:720px;margin-bottom:54px}
+.section-head .mono{color:var(--ember);display:block;margin-bottom:16px}
+h2{font-size:clamp(38px,5vw,62px)}
+.section-head p{color:var(--graphite);font-size:18px;margin-top:20px;max-width:62ch}
+.for-grid{border-left:1px solid var(--ink);border-top:1px solid var(--ink);display:grid;grid-template-columns:repeat(3,1fr)}
+.for-card{background:#fff;border-bottom:1px solid var(--ink);border-right:1px solid var(--ink);min-height:230px;padding:32px 28px}
+.for-card .n{color:var(--ember);display:block;margin-bottom:34px}
+.for-card h3{font-size:20px;line-height:1.3;margin-bottom:12px}
+.for-card p{color:var(--graphite);font-size:15.5px}
+
+.stance{background:var(--bone);border-bottom:1px solid var(--line);border-top:1px solid var(--line)}
+.stance-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:start}
+.stance-mark{border:1px solid var(--ink);padding:34px}
+.stance-mark .display{font-size:clamp(38px,5vw,62px)}
+.stance-mark .display span{color:var(--ember)}
+.stance-copy p{color:var(--graphite);font-size:clamp(18px,2vw,23px);line-height:1.5;margin-bottom:1.1em;max-width:37ch}
+.stance-copy strong{color:var(--ink)}
+
+.process{background:var(--ink);color:var(--bone)}
+.process .section-head p{color:#B9B7AC}
+.steps{border-top:1px solid var(--line-dark)}
+.step{border-bottom:1px solid var(--line-dark);display:grid;grid-template-columns:86px 280px 1fr;gap:36px;padding:34px 0}
+.step .n{color:var(--ember);font-family:var(--display);font-size:40px;line-height:1}
+.step h3{font-size:18px;font-weight:600}
+.step p{color:#B9B7AC;font-size:15.5px;max-width:62ch}
+
+.proof{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+.proof div{border-right:1px solid var(--line);padding:32px 28px}
+.proof div:last-child{border-right:0}
+.proof strong{display:block;font-family:var(--display);font-size:30px;font-weight:400;line-height:1.05;text-transform:uppercase}
+.proof p{color:var(--graphite);font-size:14.5px;margin-top:10px}
+.fit-note{border-left:3px solid var(--ember);color:var(--graphite);margin-top:40px;max-width:70ch;padding-left:22px}
+
+.qualify{background:var(--bone);border-top:1px solid var(--line)}
+.qualify-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:68px;align-items:start}
+.qualify-intro{position:sticky;top:94px}
+.qualify-intro h2{margin:14px 0 20px}
+.qualify-intro p{color:var(--graphite);max-width:38ch}
+.privacy-line{color:var(--muted)!important;font-size:13.5px;margin-top:22px}
+.fit-form{background:var(--paper);border:1px solid var(--ink);padding:38px}
+.progress{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:34px}
+.progress span{background:var(--line);height:3px;transition:background .15s}
+.progress span.on{background:var(--ember)}
+.question[hidden],.result[hidden]{display:none}
+.q-count{color:var(--ember);display:block;margin-bottom:12px}
+.question h3{font-size:clamp(21px,2.5vw,28px);line-height:1.25;margin-bottom:22px}
+.options{display:grid;gap:10px}
+.option{align-items:flex-start;background:#fff;border:1px solid var(--line);cursor:pointer;display:flex;gap:13px;padding:14px 15px;transition:border-color .15s,background .15s}
+.option:hover,.option:has(input:checked){background:#FFFDF9;border-color:var(--ember)}
+.option input{accent-color:var(--ember);margin-top:5px;flex:0 0 auto}
+.option span{font-size:15.5px}
+.form-actions{display:flex;gap:10px;justify-content:space-between;margin-top:28px}
+.form-actions .btn{min-width:124px}
+.back{background:transparent;border-color:var(--line);color:var(--ink)}
+.back:hover{background:#fff;border-color:var(--ink)}
+.result h3{font-family:var(--display);font-size:clamp(34px,5vw,52px);font-weight:400;line-height:1.03;text-transform:uppercase}
+.result p{color:var(--graphite);margin:18px 0 26px;max-width:48ch}
+.result .btn{width:100%}
+.result .fine{color:var(--muted);font-size:12.5px;line-height:1.5;margin:14px 0 0;text-align:center}
+.error{color:#8A2F1A;font-size:13px;margin-top:12px;min-height:21px}
+
+.closing{background:var(--ember);color:#fff;padding:86px 0}
+.closing h2{max-width:15ch}
+.closing p{font-size:18px;margin:20px 0 32px;max-width:54ch}
+footer{background:var(--ink);color:#8B8F88;padding:42px 0}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:13px}
+.foot-links{display:flex;gap:22px;flex-wrap:wrap}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--bone)}
+
+@media(max-width:840px){
+  .hero-grid,.stance-grid,.qualify-grid{grid-template-columns:1fr;gap:42px}
+  .hero-side{max-width:620px}.hero-strip{grid-template-columns:1fr}.hero-strip div{border-bottom:1px solid var(--line-dark);border-right:0}
+  .for-grid{grid-template-columns:1fr}.for-card{min-height:0}
+  .step{grid-template-columns:60px 1fr;gap:18px}.step p{grid-column:2}
+  .proof{grid-template-columns:1fr}.proof div{border-bottom:1px solid var(--line);border-right:0}.proof div:last-child{border-bottom:0}
+  .qualify-intro{position:static}
+}
+@media(max-width:560px){
+  .wrap{padding:0 20px}.nav-note{display:none}.hero{padding-top:68px}.section{padding:74px 0}
+  .fit-form{padding:28px 20px}.form-actions{align-items:stretch;flex-direction:column-reverse}.form-actions .btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="/">Doychin<span> Karshovski</span></a>
+    <span class="nav-note">Private advisory</span>
+  </div>
+</nav>
+
+<main>
+  <header class="hero" id="top">
+    <div class="wrap">
+      <span class="mono eyebrow">Private performance &amp; longevity advisory</span>
+      <div class="hero-grid">
+        <h1>Don't wait until something <span>breaks.</span></h1>
+        <div class="hero-side">
+          <p class="hero-lead">You have spent years building your career, your business, and your life. The question is whether your body and mind can keep up with what you have built.</p>
+          <a class="btn" href="#fit" data-track="cta_hero">Request a private conversation</a>
+          <p class="quiet">A brief fit check first. No medical details are requested or stored.</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-strip">
+      <div><b>35+ years of practice</b>Human performance, behavior, and longevity.</div>
+      <div><b>Data before opinion</b>Clarity first. Plans second.</div>
+      <div><b>Limited private capacity</b>Focused work for people ready to act.</div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono">Who this is for</span>
+        <h2>Successful on paper. Intentional about what comes next.</h2>
+        <p>I work with founders, executives, professionals, and other high performers who want to protect their capacity before fatigue, pain, or avoidable decline begins making decisions for them.</p>
+      </div>
+      <div class="for-grid">
+        <article class="for-card"><span class="mono n">01</span><h3>You value clear thinking over health noise.</h3><p>You do not need more tips. You need to understand what matters now, what can wait, and what is merely distraction.</p></article>
+        <article class="for-card"><span class="mono n">02</span><h3>You are willing to look honestly at the whole system.</h3><p>Sleep, movement, recovery, nutrition, stress, prevention, resources, and the reality of your schedule all belong in the same conversation.</p></article>
+        <article class="for-card"><span class="mono n">03</span><h3>You are ready to take ownership.</h3><p>I provide clarity, structure, pressure, and perspective. The work still has to become yours.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section stance">
+    <div class="wrap stance-grid">
+      <div class="stance-mark"><span class="mono" style="color:var(--ember);display:block;margin-bottom:18px">The stance</span><p class="display">No hype.<br>No shortcuts.<br><span>Stay ahead.</span></p></div>
+      <div class="stance-copy">
+        <p>I do not sell motivation, miracle protocols, or another collection of biohacks.</p>
+        <p>We look at where you actually are. Depending on what is relevant, that can include blood work, DNA, DEXA, VO2 max, movement, sleep, recovery, nutrition, stress, and the demands of real life.</p>
+        <p><strong>Then we decide what matters. And what does not.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section process">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono">How private work begins</span>
+        <h2>A conversation before a program.</h2>
+        <p>The first purpose is fit. If there is a useful way to work together, we define it. If there is not, I will tell you.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><div class="n">01</div><h3>Private conversation</h3><p>We clarify what you want to protect or improve, why now, and whether my approach fits the way you want to work.</p></div>
+        <div class="step"><div class="n">02</div><h3>Baseline and context</h3><p>We establish what is known, what is assumed, what is missing, and which measurements would genuinely change a decision.</p></div>
+        <div class="step"><div class="n">03</div><h3>Focused action</h3><p>We build the smallest useful system that fits your biology, resources, schedule, and level of commitment, then recalibrate as evidence arrives.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="mono">Why Doychin</span>
+        <h2>Experience without theater.</h2>
+      </div>
+      <div class="proof">
+        <div><strong>35+ years</strong><p>Working across human performance, behavior, and longevity.</p></div>
+        <div><strong>Six books</strong><p>On the foundations that shape how people breathe, sleep, move, eat, and live.</p></div>
+        <div><strong>100% remote</strong><p>Private work in English or Bulgarian, designed around real schedules.</p></div>
+      </div>
+      <p class="fit-note">Private work may begin with a $600 Foundations Session. Deeper engagements currently begin at $2,400. The conversation determines whether either is appropriate.</p>
+    </div>
+  </section>
+
+  <section class="section qualify" id="fit">
+    <div class="wrap qualify-grid">
+      <div class="qualify-intro">
+        <span class="mono" style="color:var(--ember)">Private fit check</span>
+        <h2>Is this the right conversation?</h2>
+        <p>Five short questions help set context before you choose a time. They ask about working style, timing, and readiness. They do not ask for medical information.</p>
+        <p class="privacy-line">Your answers stay in this browser and are not submitted, saved, or included in analytics. Contact details are requested only by Google when you choose to schedule.</p>
+      </div>
+
+      <form class="fit-form" id="fitForm" novalidate>
+        <div class="progress" aria-label="Question progress"><span class="on"></span><span></span><span></span><span></span><span></span></div>
+
+        <fieldset class="question" data-step="1">
+          <legend><span class="mono q-count">Question 1 of 5</span><h3>Which best describes your current work?</h3></legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="role" value="founder"><span>Founder or business owner</span></label>
+            <label class="option"><input type="radio" name="role" value="executive"><span>Executive or senior leader</span></label>
+            <label class="option"><input type="radio" name="role" value="professional"><span>Independent professional or advisor</span></label>
+            <label class="option"><input type="radio" name="role" value="other"><span>Another demanding role</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question" data-step="2" hidden>
+          <legend><span class="mono q-count">Question 2 of 5</span><h3>What would make this conversation useful now?</h3></legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="goal" value="capacity"><span>Protecting energy, focus, and long-term capacity</span></label>
+            <label class="option"><input type="radio" name="goal" value="priorities"><span>Making sense of competing health and performance priorities</span></label>
+            <label class="option"><input type="radio" name="goal" value="system"><span>Building a practical system that fits a demanding life</span></label>
+            <label class="option"><input type="radio" name="goal" value="data"><span>Translating existing data into clearer decisions</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question" data-step="3" hidden>
+          <legend><span class="mono q-count">Question 3 of 5</span><h3>When would you want to begin, if the fit is right?</h3></legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="timing" value="now"><span>Within the next 30 days</span></label>
+            <label class="option"><input type="radio" name="timing" value="quarter"><span>Within the next 1 to 3 months</span></label>
+            <label class="option"><input type="radio" name="timing" value="exploring"><span>I am exploring for later</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question" data-step="4" hidden>
+          <legend><span class="mono q-count">Question 4 of 5</span><h3>Which working style sounds most like you?</h3></legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="style" value="ownership"><span>I want clarity and structure, and I will own the action</span></label>
+            <label class="option"><input type="radio" name="style" value="collaborative"><span>I want a rigorous collaborator who will challenge my assumptions</span></label>
+            <label class="option"><input type="radio" name="style" value="motivation"><span>I mainly need someone to keep me motivated every day</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="question" data-step="5" hidden>
+          <legend><span class="mono q-count">Question 5 of 5</span><h3>Private work may begin at $600, with deeper engagements from $2,400. Is that a range you are prepared to consider?</h3></legend>
+          <div class="options">
+            <label class="option"><input type="radio" name="investment" value="yes"><span>Yes, if the fit and scope are right</span></label>
+            <label class="option"><input type="radio" name="investment" value="discuss"><span>I would need to understand the scope first</span></label>
+            <label class="option"><input type="radio" name="investment" value="not-now"><span>Not at this time</span></label>
+          </div>
+        </fieldset>
+
+        <div class="result" id="fitResult" hidden aria-live="polite">
+          <span class="mono" style="color:var(--ember);display:block;margin-bottom:14px">Fit check complete</span>
+          <h3 id="resultHeading">The next step is a private conversation.</h3>
+          <p id="resultCopy">Choose a time for a brief conversation about what matters now and whether there is a useful way to work together.</p>
+          <a class="btn" id="scheduleLink" href="https://calendar.app.google/4fME8BNBT4AQ3vu67" target="_blank" rel="noopener" data-track="schedule_click">Request a private conversation</a>
+          <p class="fine">Scheduling is handled by Google. Your fit-check answers are not sent with you.</p>
+        </div>
+
+        <p class="error" id="formError" role="alert"></p>
+        <div class="form-actions" id="formActions">
+          <button class="btn back" type="button" id="backButton" hidden>Back</button>
+          <button class="btn" type="button" id="nextButton">Next</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <h2>Act before the decision becomes urgent.</h2>
+      <p>The real advantage is timing. If you want to stay ahead, begin with a private conversation.</p>
+      <a class="btn btn-dark" href="#fit" data-track="cta_closing">Request a private conversation</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>Doychin Karshovski. Performance &amp; Longevity Coach.</span>
+    <div class="foot-links"><a href="/">Main site</a><a href="/making-sense-privacy">Privacy</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var form = document.getElementById('fitForm');
+  var questions = Array.prototype.slice.call(form.querySelectorAll('.question'));
+  var progress = Array.prototype.slice.call(form.querySelectorAll('.progress span'));
+  var nextButton = document.getElementById('nextButton');
+  var backButton = document.getElementById('backButton');
+  var formActions = document.getElementById('formActions');
+  var error = document.getElementById('formError');
+  var result = document.getElementById('fitResult');
+  var resultHeading = document.getElementById('resultHeading');
+  var resultCopy = document.getElementById('resultCopy');
+  var step = 0;
+
+  function track(eventName){
+    var detail = {event:eventName,page_path:'/private'};
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({event:'private_funnel',funnel_event:eventName,page_path:'/private'});
+    window.dispatchEvent(new CustomEvent('private-funnel',{detail:detail}));
+
+    if(window.fbq && window.privateMarketingConsent === true){
+      if(eventName === 'schedule_click'){
+        window.fbq('track','Lead',{content_name:'Private Conversation'});
+      }else{
+        window.fbq('trackCustom','PrivateFunnel',{funnel_event:eventName});
+      }
+    }
+  }
+
+  window.setPrivateMarketingConsent = function(consent){
+    window.privateMarketingConsent = consent === true;
+  };
+
+  function showStep(index){
+    questions.forEach(function(question,i){ question.hidden = i !== index; });
+    progress.forEach(function(item,i){ item.classList.toggle('on',i <= index); });
+    backButton.hidden = index === 0;
+    nextButton.textContent = index === questions.length - 1 ? 'Complete fit check' : 'Next';
+    error.textContent = '';
+    step = index;
+    questions[index].querySelector('legend').setAttribute('tabindex','-1');
+    questions[index].querySelector('legend').focus();
+  }
+
+  function selectedAnswer(){
+    return questions[step].querySelector('input[type="radio"]:checked');
+  }
+
+  function complete(){
+    var style = form.querySelector('input[name="style"]:checked').value;
+    var investment = form.querySelector('input[name="investment"]:checked').value;
+    var exploring = investment === 'not-now' || style === 'motivation';
+
+    questions.forEach(function(question){ question.hidden = true; });
+    formActions.hidden = true;
+    form.querySelector('.progress').hidden = true;
+    error.textContent = '';
+    result.hidden = false;
+
+    if(exploring){
+      resultHeading.textContent = 'You may be better served by exploring first.';
+      resultCopy.textContent = 'Private advisory works best when you are ready to own the action and consider a paid engagement. If you still want to clarify fit, you are welcome to request a brief conversation.';
+    }
+
+    track('qualification_completed');
+    result.setAttribute('tabindex','-1');
+    result.focus();
+  }
+
+  nextButton.addEventListener('click',function(){
+    if(!selectedAnswer()){
+      error.textContent = 'Choose one answer to continue.';
+      return;
+    }
+
+    if(step === 0){ track('qualification_started'); }
+    if(step < questions.length - 1){ showStep(step + 1); }
+    else{ complete(); }
+  });
+
+  backButton.addEventListener('click',function(){
+    if(step > 0){ showStep(step - 1); }
+  });
+
+  form.addEventListener('change',function(){ error.textContent = ''; });
+
+  document.querySelectorAll('[data-track]').forEach(function(element){
+    element.addEventListener('click',function(){ track(element.getAttribute('data-track')); });
+  });
+
+  track('page_view');
+})();
+</script>
+</body>
+</html>
