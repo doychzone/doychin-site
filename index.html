@@ -44,10 +44,11 @@ nav{position:sticky;top:0;z-index:50;background:rgba(20,23,20,.92);backdrop-filt
 .brand span{color:var(--ember)}
 .nav-links{display:flex;gap:28px;align-items:center}
 .nav-links a{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#B9B7AC;text-decoration:none;transition:color .15s}
-.nav-links a:hover{color:var(--bone)}
+.nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--bone)}
+.nav-links a[aria-current="page"]{border-bottom:1px solid var(--ember);padding-bottom:4px}
 .nav-cta{border:1px solid var(--ember);color:var(--bone)!important;padding:9px 16px;transition:background .15s}
 .nav-cta:hover{background:var(--ember)}
-@media(max-width:840px){.nav-links a:not(.nav-cta){display:none}}
+@media(max-width:840px){.nav-links a:not(.nav-primary){display:none}}
 
 /* ===== HERO ===== */
 .hero{background:var(--ink);color:var(--bone);padding:96px 0 0;position:relative;overflow:hidden}
@@ -259,13 +260,11 @@ footer{background:var(--ink);color:#8B8F88;padding:54px 0}
   <div class="nav-inner">
     <a class="brand" href="#top">Doychin<span> Karshovski</span></a>
     <div class="nav-links">
+      <a href="#top" aria-current="page">Home</a>
+      <a href="#about">About</a>
       <a href="#ahead">Stay Ahead</a>
-      <a href="#temeli">Temeli</a>
-      <a href="#coaching">Coaching</a>
-      <a href="#rates">Rates</a>
-      <a href="#speaking">Speaking</a>
-      <a href="#faq">FAQ</a>
-      <a class="nav-cta" href="https://calendar.app.google/4fME8BNBT4AQ3vu67">Discovery Call</a>
+      <a class="nav-primary" href="/making-sense">Making Sense</a>
+      <a class="nav-cta" href="mailto:doych@doychzone.com?subject=Website%20Inquiry">Contact</a>
     </div>
   </div>
 </nav>
@@ -291,7 +290,7 @@ footer{background:var(--ink);color:#8B8F88;padding:54px 0}
   </div>
 </header>
 
-<section class="manifesto">
+<section class="manifesto" id="about">
   <div class="wrap manifesto-grid">
     <figure class="portrait reveal">
       <span class="mono" style="color:var(--ember);display:block;margin-bottom:18px">The stance</span>
