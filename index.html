@@ -235,6 +235,17 @@ details .a{padding:0 0 28px;color:var(--graphite);max-width:64ch;font-size:16.5p
 details .a p{margin-bottom:.8em}
 details .a p:last-child{margin-bottom:0}
 
+/* ===== ECOSYSTEM BRIDGE ===== */
+.ecosystem-bridge{background:var(--bone);padding:82px 0;border-top:1px solid var(--line)}
+.ecosystem-bridge-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,8vw,110px);align-items:start}
+.ecosystem-bridge .eyebrow{margin-bottom:14px}
+.ecosystem-bridge h2{font-family:var(--display);font-size:clamp(44px,6vw,76px);line-height:.96;text-transform:uppercase;max-width:10ch;margin:0}
+.ecosystem-bridge-copy p{font-size:18px;line-height:1.65;max-width:62ch;margin:0 0 28px;color:var(--graphite)}
+.ecosystem-bridge-copy strong{color:var(--ink)}
+.ecosystem-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.ecosystem-link{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ember);text-decoration:none}
+@media(max-width:760px){.ecosystem-bridge-grid{grid-template-columns:1fr}.ecosystem-bridge h2{max-width:none}}
+
 /* ===== FOOTER CTA ===== */
 .foot-cta{background:var(--ember);color:#fff;padding:96px 0;text-align:left}
 .foot-cta h2{max-width:14ch}
@@ -563,6 +574,22 @@ footer{background:var(--ink);color:#8B8F88;padding:54px 0}
       <details><summary>Do you write workout or meal plans?</summary><div class="a"><p>No. I won't send you PDFs. I'll help you discover what works best for your biology, time, and goals - and help you build systems and habits that last.</p></div></details>
       <details><summary>Do you offer packages or memberships?</summary><div class="a"><p>Most people start with a single session. Some move to the 6-session Transformation Package, valid for 300 days. You come back when you're ready - usually less often over time - until you don't need direction anymore. No pressure. No subscription. Just real progress.</p></div></details>
       <details><summary>What is unique about your coaching?</summary><div class="a"><p>Cutting-edge science, tech, and more than anything - common sense. We can analyze your DNA, DEXA scan, or other data to personalize your approach, but we always start with the Temeli foundations: Breath, Sleep, Movement, Nutrition, Mindfulness, Prevention. We optimize behavior first, because that's what brings sustainable results.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="ecosystem-bridge">
+  <div class="wrap ecosystem-bridge-grid">
+    <div>
+      <span class="eyebrow">The ecosystem</span>
+      <h2>One way of thinking. Two ways to work.</h2>
+    </div>
+    <div class="ecosystem-bridge-copy">
+      <p><strong>Making Sense</strong> is the shared thinking layer behind the ecosystem — personal services for individuals here at Doychin.com, and corporate products for organizations through DoychZone.</p>
+      <div class="ecosystem-actions">
+        <a class="btn btn-dark" href="https://www.doychzone.com/">Explore DoychZone</a>
+        <a class="ecosystem-link" href="/making-sense/">Read Making Sense →</a>
+      </div>
     </div>
   </div>
 </section>
