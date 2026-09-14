@@ -3,6 +3,12 @@
   "cleanUrls": true,
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "makingsense.doychin.com" }],
+      "destination": "https://www.doychin.com/making-sense",
+      "permanent": true
+    },
+    {
       "source": "/posts/who-will-pick-up-when-you-call",
       "has": [{ "type": "host", "value": "makingsense.doychin.com" }],
       "destination": "https://www.doychin.com/making-sense/who-will-pick-up-when-you-call",
