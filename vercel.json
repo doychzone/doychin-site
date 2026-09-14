@@ -1,3 +1,36 @@
 {
-  "cleanUrls": true
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/posts/who-will-pick-up-when-you-call",
+      "has": [{ "type": "host", "value": "makingsense.doychin.com" }],
+      "destination": "https://www.doychin.com/making-sense/who-will-pick-up-when-you-call",
+      "permanent": true
+    },
+    {
+      "source": "/posts/the-secret-power-of-your-minimum-1",
+      "has": [{ "type": "host", "value": "makingsense.doychin.com" }],
+      "destination": "https://www.doychin.com/making-sense/the-secret-power-of-your-minimum",
+      "permanent": true
+    },
+    {
+      "source": "/posts/your-workout-is-not-the-whole-day",
+      "has": [{ "type": "host", "value": "makingsense.doychin.com" }],
+      "destination": "https://www.doychin.com/making-sense/your-workout-is-not-the-whole-day",
+      "permanent": true
+    },
+    {
+      "source": "/posts/welcome-to-issue-zero-of-making-sense",
+      "has": [{ "type": "host", "value": "makingsense.doychin.com" }],
+      "destination": "https://www.doychin.com/making-sense/issue-zero",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "makingsense.doychin.com" }],
+      "destination": "https://www.doychin.com/making-sense",
+      "permanent": true
+    }
+  ]
 }
