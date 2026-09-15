@@ -76,6 +76,7 @@ blockquote{margin:52px 0;padding:30px 0;border-top:1px solid var(--line);border-
 .subscribe-copy h2{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.2;color:var(--sea);margin:0 0 12px}
 .subscribe-copy p{color:var(--graphite);margin:0}
 .subscribe-form{min-width:0}
+.formkit-powered-by-convertkit-container{display:none!important}
 .subscribe-cta-article{margin-top:34px;grid-template-columns:1fr}
 .subscribe-cta-article .subscribe-copy h2{margin-top:0}
 .sources,.disclaimer{margin-top:50px;padding-top:26px;border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
