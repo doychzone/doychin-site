@@ -21,6 +21,13 @@ a:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
 .archive-hero p{font-size:clamp(19px,2.3vw,23px);line-height:1.5;color:var(--graphite);max-width:650px;margin:0}
 .archive-main{padding:64px 0 104px}
 .section-label{color:var(--muted);margin-bottom:22px}
+.featured-hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#1b1b1b url('/making-sense/the-space-between-two-hands/creation-of-adam-hands.jpg') center 46%/cover no-repeat;text-decoration:none}
+.featured-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,18,.18) 12%,rgba(10,15,18,.82) 100%)}
+.featured-hero .hero-inner{position:relative;z-index:1;padding:72px 0 52px;color:#fff}
+.featured-hero .kicker{color:#f2d5c2}
+.featured-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,7.2vw,84px);line-height:.98;max-width:18ch;margin:12px 0 16px;color:#fff}
+.featured-hero .dek{font-family:var(--serif);font-size:clamp(20px,2.4vw,28px);line-height:1.35;max-width:28ch;margin:0 0 18px;color:#f4f1eb}
+.featured-hero .meta{color:#ddd}
 .latest{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px 0;gap:42px;text-decoration:none;color:inherit}
 .latest img{display:block;width:100%;height:440px;object-fit:cover;object-position:center 54%;background:#dfe7ea}
 .issue-num{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--ember)}
@@ -38,18 +45,15 @@ a:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
 .article-hero{position:relative;min-height:640px;background:var(--sea);display:flex;align-items:flex-end;color:#fff;overflow:hidden}
 .article-hero.photo{background:#506979 url('/making-sense/beach-social-connection.jpg') center 54%/cover no-repeat}
 .article-hero.photo-water{background-image:url('/making-sense/what-can-ancient-water-teach-us-about-longevity/roman-thermae-varna.jpg');background-position:center 52%}
+.article-hero.photo-touch{background:#2a241c url('/making-sense/the-space-between-two-hands/creation-of-adam-hands.jpg') center 46%/cover no-repeat}
 .article-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,18,.08) 18%,rgba(10,15,18,.78) 100%)}
 .hero-inner{position:relative;z-index:1;padding:54px 0 48px}
 .article-hero.text-only:before{content:"";position:absolute;right:-10%;top:-50%;width:64%;aspect-ratio:1;border:1px solid rgba(255,255,255,.12);border-radius:50%;box-shadow:0 0 0 80px rgba(255,255,255,.025),0 0 0 160px rgba(255,255,255,.02)}
 .article-hero.text-only{min-height:500px;background:#365f73}
 .article-hero.text-only:after{background:linear-gradient(180deg,rgba(9,39,52,.02) 18%,rgba(9,39,52,.18) 100%)}
-.kicker{color:#f2d5c2;margin-bottom:16px}.hero-inner{position:relative;z-index:1;padding:54px 0 48px}
-.touch-hero .hero-inner{text-align:center}
-.touch-hero h1{max-width:900px;margin-inline:auto}
-.touch-hero .dek{margin-inline:auto}
-.touch-hero .meta{justify-content:center}
-.article-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,7.5vw,84px);line-height:1.03;max-width:880px;margin:0}
-.dek{font-family:var(--serif);font-size:clamp(20px,2.6vw,29px);line-height:1.45;max-width:720px;margin:18px 0 0}
+.kicker{color:#f2d5c2;margin-bottom:16px}
+.article-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(40px,6.6vw,78px);line-height:1.03;max-width:16ch;margin:0}
+.dek{font-family:var(--serif);font-size:clamp(20px,2.6vw,29px);line-height:1.45;max-width:28ch;margin:18px 0 0}
 .meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:22px;color:#ddd}
 .article{max-width:760px;margin:0 auto;padding:66px 28px 100px}
 .article p{margin:0 0 1.2em}
@@ -89,7 +93,7 @@ blockquote{margin:52px 0;padding:30px 0;border-top:1px solid var(--line);border-
 .sources li{margin-bottom:10px}
 .archive-cta{margin-top:52px;padding:26px;border:1px solid var(--line);display:flex;justify-content:space-between;gap:22px;align-items:center}
 .btn{display:inline-block;background:var(--ink);color:#fff!important;text-decoration:none;padding:12px 18px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;white-space:nowrap}
-@media(max-width:940px){.nav-links a:not(.nav-primary){display:none}.latest{grid-template-columns:1fr}.latest img{height:min(70vw,520px)}.issue-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:700px){body{font-size:17px}.wrap{width:min(100% - 36px,var(--maxw))}.site-nav .wrap{width:min(100% - 28px,var(--maxw))}.brand{font-size:15px}.nav-links{gap:14px}.nav-links a{font-size:10px}.archive-hero{padding:68px 0 52px}.archive-main{padding-top:46px}.latest{gap:26px}.latest img{height:430px}.issue-grid{grid-template-columns:1fr}.issue-card{min-height:300px}.article-hero{min-height:570px}.article-hero.photo{background-position:48% 50%}.article-hero.photo-water{background-position:44% 50%}.article-hero.text-only{min-height:470px}.article{padding-top:48px}.article h2{font-size:31px}.question,blockquote{font-size:24px}.archive-cta{display:block}.archive-cta .btn{margin-top:18px}.split-definition{grid-template-columns:1fr}.split-definition>div+div{border-left:0;border-top:1px solid var(--line)}.subscribe-cta{grid-template-columns:1fr;padding:26px;gap:22px}.subscribe-copy h2{font-size:27px}}
+@media(max-width:940px){.nav-links a:not(.nav-primary){display:none}.latest{grid-template-columns:1fr}.latest img{height:min(70vw,520px)}.issue-grid{grid-template-columns:1fr 1fr}.featured-hero{min-height:72vh}}
+@media(max-width:700px){body{font-size:17px}.wrap{width:min(100% - 36px,var(--maxw))}.site-nav .wrap{width:min(100% - 28px,var(--maxw))}.brand{font-size:15px}.nav-links{gap:14px}.nav-links a{font-size:10px}.archive-hero{padding:68px 0 52px}.archive-main{padding-top:46px}.latest{gap:26px}.latest img{height:430px}.issue-grid{grid-template-columns:1fr}.issue-card{min-height:300px}.article-hero,.featured-hero{min-height:70vh}.article-hero.photo{background-position:48% 50%}.article-hero.photo-water{background-position:44% 50%}.article-hero.photo-touch,.featured-hero{background-position:center 42%}.article-hero.text-only{min-height:470px}.article{padding-top:48px}.article h2{font-size:31px}.question,blockquote{font-size:24px}.archive-cta{display:block}.archive-cta .btn{margin-top:18px}.split-definition{grid-template-columns:1fr}.split-definition>div+div{border-left:0;border-top:1px solid var(--line)}.subscribe-cta{grid-template-columns:1fr;padding:26px;gap:22px}.subscribe-copy h2{font-size:27px}}
 @media(max-width:420px){.brand span{display:none}.latest img{height:390px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.issue-card{transition:none}}
