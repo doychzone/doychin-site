@@ -43,7 +43,11 @@ a:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
 .article-hero.text-only:before{content:"";position:absolute;right:-10%;top:-50%;width:64%;aspect-ratio:1;border:1px solid rgba(255,255,255,.12);border-radius:50%;box-shadow:0 0 0 80px rgba(255,255,255,.025),0 0 0 160px rgba(255,255,255,.02)}
 .article-hero.text-only{min-height:500px;background:#365f73}
 .article-hero.text-only:after{background:linear-gradient(180deg,rgba(9,39,52,.02) 18%,rgba(9,39,52,.18) 100%)}
-.kicker{color:#f2d5c2;margin-bottom:16px}
+.kicker{color:#f2d5c2;margin-bottom:16px}.hero-inner{position:relative;z-index:1;padding:54px 0 48px}
+.touch-hero .hero-inner{text-align:center}
+.touch-hero h1{max-width:900px;margin-inline:auto}
+.touch-hero .dek{margin-inline:auto}
+.touch-hero .meta{justify-content:center}
 .article-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,7.5vw,84px);line-height:1.03;max-width:880px;margin:0}
 .dek{font-family:var(--serif);font-size:clamp(20px,2.6vw,29px);line-height:1.45;max-width:720px;margin:18px 0 0}
 .meta{display:flex;gap:16px;flex-wrap:wrap;margin-top:22px;color:#ddd}
