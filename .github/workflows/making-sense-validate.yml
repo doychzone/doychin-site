@@ -26,8 +26,8 @@ jobs:
         id: issues
         shell: bash
         run: |
-          if [[ "\${{ github.event_name }}" == "pull_request" ]]; then
-            changed_files="$(git diff --name-only "origin/\${GITHUB_BASE_REF}...HEAD" -- "making-sense/**")"
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            changed_files="$(git diff --name-only "origin/${GITHUB_BASE_REF}...HEAD" -- "making-sense/**")"
             issue_dirs="$(printf '%s\n' "$changed_files" | awk -F/ 'NF >= 3 {print $1 "/" $2}' | sort -u)"
           else
             issue_dirs="$(find making-sense -mindepth 2 -maxdepth 2 -name index.html -print | xargs -n1 dirname | sort -u)"
@@ -43,7 +43,7 @@ jobs:
         if: steps.issues.outputs.directories != ''
         shell: bash
         env:
-          ISSUE_DIRECTORIES: \${{ steps.issues.outputs.directories }}
+          ISSUE_DIRECTORIES: ${{ steps.issues.outputs.directories }}
         run: |
           while IFS= read -r issue_dir; do
             [[ -z "$issue_dir" ]] && continue
