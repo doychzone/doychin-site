@@ -1,0 +1,32 @@
+{
+  "issue_number": 6,
+  "title": "A Clear Title",
+  "subtitle": "One sentence explaining why the idea matters.",
+  "slug": "a-clear-title",
+  "publication_date": "2026-09-29",
+  "read_time": "About a 5 minute read",
+  "meta_description": "A concise search description of the article, ideally under 160 characters.",
+  "og_description": "A concise social-sharing description that creates curiosity without clickbait.",
+  "image_alt": "A precise description of the approved editorial photograph",
+  "body_file": "body.example.html",
+  "sources": [
+    {
+      "title": "Example primary source",
+      "url": "https://example.com/research",
+      "note": "2026"
+    }
+  ],
+  "kit": {
+    "subject": "A short reason to open this week's Making Sense",
+    "preview_text": "A complementary line that creates curiosity.",
+    "teaser": [
+      "A short opening paragraph that names the tension or question.",
+      "A second short paragraph that gives the reader a reason to click without retelling the article."
+    ],
+    "cta": "Прочети статията"
+  },
+  "buffer": {
+    "LinkedIn": "A channel-specific post with a clear insight and one invitation to read. {{canonical_url}}",
+    "X": "A concise version with one useful idea. {{canonical_url}}"
+  }
+}
