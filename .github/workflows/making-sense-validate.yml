@@ -1,0 +1,55 @@
+name: Validate Making Sense issue
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "making-sense/**"
+      - "scripts/validate_making_sense.py"
+      - ".github/workflows/making-sense-validate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out pull request
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Find affected issue directories
+        id: issues
+        shell: bash
+        run: |
+          if [[ "\${{ github.event_name }}" == "pull_request" ]]; then
+            changed_files="$(git diff --name-only "origin/\${GITHUB_BASE_REF}...HEAD" -- "making-sense/**")"
+            issue_dirs="$(printf '%s\n' "$changed_files" | awk -F/ 'NF >= 3 {print $1 "/" $2}' | sort -u)"
+          else
+            issue_dirs="$(find making-sense -mindepth 2 -maxdepth 2 -name index.html -print | xargs -n1 dirname | sort -u)"
+          fi
+
+          {
+            echo "directories<<EOF"
+            echo "$issue_dirs"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Validate affected issues
+        if: steps.issues.outputs.directories != ''
+        shell: bash
+        env:
+          ISSUE_DIRECTORIES: \${{ steps.issues.outputs.directories }}
+        run: |
+          while IFS= read -r issue_dir; do
+            [[ -z "$issue_dir" ]] && continue
+            python3 scripts/validate_making_sense.py "$issue_dir"
+          done <<< "$ISSUE_DIRECTORIES"
+
+      - name: Report no affected issue
+        if: steps.issues.outputs.directories == ''
+        run: echo "No Making Sense issue directory requires validation."
