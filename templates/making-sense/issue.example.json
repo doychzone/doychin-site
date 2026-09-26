@@ -23,7 +23,7 @@
       "A short opening paragraph that names the tension or question.",
       "A second short paragraph that gives the reader a reason to click without retelling the article."
     ],
-    "cta": "Прочети статията"
+    "cta": "Read the full issue"
   },
   "buffer": {
     "LinkedIn": "A channel-specific post with a clear insight and one invitation to read. {{canonical_url}}",

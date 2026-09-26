@@ -36,7 +36,7 @@ def valid_spec() -> dict:
             "subject": "Subject",
             "preview_text": "Preview",
             "teaser": ["First short paragraph.", "Second short paragraph."],
-            "cta": "Прочети статията",
+            "cta": "Read the full issue",
         },
         "buffer": {"LinkedIn": "Read this: {{canonical_url}}"},
     }
@@ -63,7 +63,7 @@ class GeneratorTests(unittest.TestCase):
             self.assertIn('alt="Editorial image description"', article)
             self.assertIn('/making-sense/new-issue', hub)
             self.assertIn('/making-sense/old-issue', hub)
-            self.assertIn("Прочети статията", distribution)
+            self.assertIn("Read the full issue", distribution)
             self.assertIn("https://www.doychin.com/making-sense/new-issue", distribution)
 
     def test_rejects_long_kit_teaser(self):

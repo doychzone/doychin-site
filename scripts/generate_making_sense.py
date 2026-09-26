@@ -56,8 +56,8 @@ def load_spec(path: Path) -> dict:
         fail("kit must include subject, preview_text and teaser")
     if len(kit["teaser"]) not in range(2, 5):
         fail("kit.teaser must contain 2 to 4 short paragraphs")
-    if kit.get("cta", "Прочети статията") != "Прочети статията":
-        fail('kit.cta must be "Прочети статията"')
+    if not isinstance(kit.get("cta"), str) or not kit["cta"].strip():
+        fail("kit.cta must be a non-empty string")
 
     buffer = spec.get("buffer", {})
     if not buffer or not all(isinstance(value, str) and value.strip() for value in buffer.values()):
@@ -126,7 +126,7 @@ def render_article(spec: dict, image_name: str, body_html: str) -> str:
   <p><a href="mailto:doych@doychzone.com?subject=Making%20Sense%20Issue%20{issue}">Reply and tell me.</a> I read every reply.</p>
   <p>If you know someone who would find this useful, please forward it to them.</p>
 </div>
-<div class="subscribe-cta subscribe-cta-article"><div class="subscribe-copy"><h2>One focused idea every Tuesday.</h2><p>Health, longevity and human performance without the noise. Subscribe to receive Making Sense by email.</p></div><div class="subscribe-form"><script async data-uid="eb7e3ea366" src="https://making-sense.kit.com/eb7e3ea366/index.js"></script></div></div>
+<div class="subscribe-cta subscribe-cta-article"><div class="subscribe-copy"><h2>One focused idea every Wednesday.</h2><p>Health, longevity and human performance without the noise. Subscribe to receive Making Sense by email.</p></div><div class="subscribe-form"><script async data-uid="eb7e3ea366" src="https://making-sense.kit.com/eb7e3ea366/index.js"></script></div></div>
 <div class="signoff">Stay curious. But do what makes sense.<strong>Doych ☂️</strong></div>
 {source_block}
 <div class="disclaimer">Making Sense shares educational information, not individual medical advice.</div>
@@ -180,7 +180,6 @@ def update_hub(hub_path: Path, spec: dict) -> None:
         fail("Previous issues grid was not found in making-sense/index.html")
     insert_at = grid_pos + len('<div class="issue-grid">')
     hub = hub[:insert_at] + "\n" + old_card + hub[insert_at:]
-    hub = hub.replace("One focused idea every Wednesday.", "One focused idea every Tuesday.")
     hub_path.write_text(hub, encoding="utf-8")
 
 
@@ -188,7 +187,7 @@ def render_distribution(spec: dict) -> str:
     canonical = f"https://www.doychin.com/making-sense/{spec['slug']}"
     kit = spec["kit"]
     lines = [
-        f"# Distribution package — {spec['title']}",
+        f"# Distribution package - {spec['title']}",
         "",
         "## Kit email",
         "",
@@ -197,7 +196,7 @@ def render_distribution(spec: dict) -> str:
         f"**Preview text:** {kit['preview_text']}",
         "",
         *[f"{paragraph}\n" for paragraph in kit["teaser"]],
-        f"**CTA:** [{kit.get('cta', 'Прочети статията')}]({canonical})",
+        f"**CTA:** [{kit['cta']}]({canonical})",
         "",
         "## Buffer drafts",
         "",
