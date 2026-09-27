@@ -11,6 +11,8 @@ Copy these two files into a working folder:
 
 Complete the JSON fields, write the final article body in the HTML file and place the approved image beside them. The Kit section is intentionally a short teaser with one CTA, not a copy of the full article.
 
+`publication_date` is always the issue's Wednesday date, regardless of when the issue is prepared or when its canonical page is released.
+
 ## Generate
 
 From the repository root:

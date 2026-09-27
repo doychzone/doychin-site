@@ -25,7 +25,7 @@ def valid_spec() -> dict:
         "title": "New Issue",
         "subtitle": "New subtitle.",
         "slug": "new-issue",
-        "publication_date": "2026-09-29",
+        "publication_date": "2026-09-30",
         "read_time": "About a 5 minute read",
         "meta_description": "Meta description.",
         "og_description": "Social description.",
@@ -75,13 +75,13 @@ class GeneratorTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "2 to 4"):
                 load_spec(path)
 
-    def test_rejects_non_tuesday_publication(self):
+    def test_rejects_non_wednesday_publication(self):
         with tempfile.TemporaryDirectory() as temp:
             path = Path(temp) / "issue.json"
             spec = valid_spec()
-            spec["publication_date"] = "2026-09-30"
+            spec["publication_date"] = "2026-09-29"
             path.write_text(json.dumps(spec), encoding="utf-8")
-            with self.assertRaisesRegex(ValueError, "Tuesday"):
+            with self.assertRaisesRegex(ValueError, "Wednesday"):
                 load_spec(path)
 
     def test_rejects_existing_issue_directory(self):

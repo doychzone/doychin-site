@@ -48,8 +48,8 @@ def load_spec(path: Path) -> dict:
         publication_date = date.fromisoformat(str(spec["publication_date"]))
     except ValueError:
         fail("publication_date must use YYYY-MM-DD")
-    if publication_date.weekday() != 1:
-        fail("publication_date must be a Tuesday")
+    if publication_date.weekday() != 2:
+        fail("publication_date must be a Wednesday")
 
     kit = spec.get("kit", {})
     if not all(kit.get(field) for field in ("subject", "preview_text", "teaser")):
