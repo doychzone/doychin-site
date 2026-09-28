@@ -25,11 +25,17 @@ def write_issue(root: Path, slug: str) -> Path:
 
 
 class ValidateMakingSenseTests(unittest.TestCase):
-    def test_issue_zero_keeps_legacy_image_exception(self) -> None:
+    def test_legacy_issues_keep_their_image_exception(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
-            issue_dir = write_issue(Path(temp_dir), "issue-zero")
-
-            self.assertEqual(validate(issue_dir), [])
+            for slug in (
+                "issue-zero",
+                "the-secret-power-of-your-minimum",
+                "who-will-pick-up-when-you-call",
+                "your-workout-is-not-the-whole-day",
+            ):
+                with self.subTest(slug=slug):
+                    issue_dir = write_issue(Path(temp_dir), slug)
+                    self.assertEqual(validate(issue_dir), [])
 
     def test_new_issue_still_requires_an_editorial_image(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
