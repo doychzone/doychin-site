@@ -9,7 +9,12 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 
-LEGACY_IMAGE_OPTIONAL_ISSUES = {"issue-zero"}
+LEGACY_IMAGE_OPTIONAL_ISSUES = {
+    "issue-zero",
+    "the-secret-power-of-your-minimum",
+    "who-will-pick-up-when-you-call",
+    "your-workout-is-not-the-whole-day",
+}
 
 
 class IssueParser(HTMLParser):
