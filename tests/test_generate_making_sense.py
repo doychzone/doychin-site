@@ -9,12 +9,12 @@ from scripts.generate_making_sense import generate, load_spec
 HUB = '''<!doctype html><html><body>
 <a class="featured-hero" href="/making-sense/old-issue">
   <div class="hero-copy hero-inner">
-    <div class="kicker">Latest issue · Issue 5 · September 23, 2026</div>
+    <div class="kicker">Latest · September 23, 2026</div>
     <h1>Old Issue</h1><p class="dek">Old subtitle.</p>
     <div class="meta"><span>About a 4 minute read →</span></div>
   </div>
 </a>
-<div class="section-label" id="archive-label">Previous issues</div>
+<div class="section-label" id="archive-label">Previous articles</div>
 <div class="issue-grid"></div>
 </body></html>'''
 
@@ -25,7 +25,7 @@ def valid_spec() -> dict:
         "title": "New Issue",
         "subtitle": "New subtitle.",
         "slug": "new-issue",
-        "publication_date": "2026-09-29",
+        "publication_date": "2026-09-30",
         "read_time": "About a 5 minute read",
         "meta_description": "Meta description.",
         "og_description": "Social description.",
@@ -36,7 +36,7 @@ def valid_spec() -> dict:
             "subject": "Subject",
             "preview_text": "Preview",
             "teaser": ["First short paragraph.", "Second short paragraph."],
-            "cta": "Прочети статията",
+            "cta": "Read the full issue",
         },
         "buffer": {"LinkedIn": "Read this: {{canonical_url}}"},
     }
@@ -61,9 +61,13 @@ class GeneratorTests(unittest.TestCase):
             distribution = package.read_text(encoding="utf-8")
             self.assertIn("https://www.doychin.com/making-sense/new-issue", article)
             self.assertIn('alt="Editorial image description"', article)
+            self.assertIn('<div class="kicker">Making Sense</div>', article)
+            self.assertNotIn("Issue 6", article)
             self.assertIn('/making-sense/new-issue', hub)
             self.assertIn('/making-sense/old-issue', hub)
-            self.assertIn("Прочети статията", distribution)
+            self.assertIn("Latest · September 30, 2026", hub)
+            self.assertIn('<div class="issue-num">September 23, 2026</div>', hub)
+            self.assertIn("Read the full issue", distribution)
             self.assertIn("https://www.doychin.com/making-sense/new-issue", distribution)
 
     def test_rejects_long_kit_teaser(self):
@@ -75,13 +79,13 @@ class GeneratorTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "2 to 4"):
                 load_spec(path)
 
-    def test_rejects_non_tuesday_publication(self):
+    def test_rejects_non_wednesday_publication(self):
         with tempfile.TemporaryDirectory() as temp:
             path = Path(temp) / "issue.json"
             spec = valid_spec()
-            spec["publication_date"] = "2026-09-30"
+            spec["publication_date"] = "2026-09-29"
             path.write_text(json.dumps(spec), encoding="utf-8")
-            with self.assertRaisesRegex(ValueError, "Tuesday"):
+            with self.assertRaisesRegex(ValueError, "Wednesday"):
                 load_spec(path)
 
     def test_rejects_existing_issue_directory(self):

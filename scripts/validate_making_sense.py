@@ -9,6 +9,14 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 
+LEGACY_IMAGE_OPTIONAL_ISSUES = {
+    "issue-zero",
+    "the-secret-power-of-your-minimum",
+    "who-will-pick-up-when-you-call",
+    "your-workout-is-not-the-whole-day",
+}
+
+
 class IssueParser(HTMLParser):
     def __init__(self) -> None:
         super().__init__()
@@ -85,10 +93,11 @@ def validate(issue_dir: Path) -> list[str]:
         for path in issue_dir.iterdir()
         if path.is_file() and path.suffix.lower() in {".jpg", ".jpeg", ".png", ".webp", ".avif"}
     ]
-    if not local_assets:
+    image_required = issue_dir.name not in LEGACY_IMAGE_OPTIONAL_ISSUES
+    if image_required and not local_assets:
         errors.append("missing local editorial image")
 
-    if not parser.images:
+    if image_required and not parser.images:
         errors.append("article contains no <img> element")
     for src, alt in parser.images:
         if not src:
