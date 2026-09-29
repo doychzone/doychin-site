@@ -123,7 +123,7 @@ def render_article(spec: dict, image_name: str, body_html: str) -> str:
 <div class="reader-response">
   <p><strong>Was this useful?</strong></p>
   <p>Did it help you make a little more sense of the noise and lead you to action?</p>
-  <p><a href="mailto:doych@doychzone.com?subject=Making%20Sense%20%E2%80%94%20{quote(str(spec['title']))}">Reply and tell me.</a> I read every reply.</p>
+  <p><a href="mailto:doych@doychzone.com?subject=Making%20Sense%20%2D%20{quote(str(spec['title']))}">Reply and tell me.</a> I read every reply.</p>
   <p>If you know someone who would find this useful, please forward it to them.</p>
 </div>
 <div class="subscribe-cta subscribe-cta-article"><div class="subscribe-copy"><h2>One focused idea every Wednesday.</h2><p>Health, longevity and human performance without the noise. Subscribe to receive Making Sense by email.</p></div><div class="subscribe-form"><script async data-uid="eb7e3ea366" src="https://making-sense.kit.com/eb7e3ea366/index.js"></script></div></div>
