@@ -9,12 +9,12 @@ from scripts.generate_making_sense import generate, load_spec
 HUB = '''<!doctype html><html><body>
 <a class="featured-hero" href="/making-sense/old-issue">
   <div class="hero-copy hero-inner">
-    <div class="kicker">Latest issue · Issue 5 · September 23, 2026</div>
+    <div class="kicker">Latest · September 23, 2026</div>
     <h1>Old Issue</h1><p class="dek">Old subtitle.</p>
     <div class="meta"><span>About a 4 minute read →</span></div>
   </div>
 </a>
-<div class="section-label" id="archive-label">Previous issues</div>
+<div class="section-label" id="archive-label">Previous articles</div>
 <div class="issue-grid"></div>
 </body></html>'''
 
@@ -61,6 +61,8 @@ class GeneratorTests(unittest.TestCase):
             distribution = package.read_text(encoding="utf-8")
             self.assertIn("https://www.doychin.com/making-sense/new-issue", article)
             self.assertIn('alt="Editorial image description"', article)
+            self.assertIn('<div class="kicker">Making Sense</div>', article)
+            self.assertNotIn("Issue 6", article)
             self.assertIn('/making-sense/new-issue', hub)
             self.assertIn('/making-sense/old-issue', hub)
             self.assertIn("Read the full issue", distribution)
