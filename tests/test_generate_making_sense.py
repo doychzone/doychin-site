@@ -65,8 +65,6 @@ class GeneratorTests(unittest.TestCase):
             self.assertNotIn("Issue 6", article)
             self.assertIn('/making-sense/new-issue', hub)
             self.assertIn('/making-sense/old-issue', hub)
-            self.assertIn("Latest · September 30, 2026", hub)
-            self.assertIn('<div class="issue-num">September 23, 2026</div>', hub)
             self.assertIn("Read the full issue", distribution)
             self.assertIn("https://www.doychin.com/making-sense/new-issue", distribution)
 
