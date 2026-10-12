@@ -100,3 +100,15 @@ blockquote{margin:52px 0;padding:30px 0;border-top:1px solid var(--line);border-
 @media(max-width:700px){body{font-size:17px}.wrap{width:min(100% - 36px,var(--maxw))}.hero-copy{padding:48px 18px}.site-nav .wrap{width:min(100% - 28px,var(--maxw))}.brand{font-size:15px}.nav-links{gap:14px}.nav-links a{font-size:10px}.archive-hero{padding:68px 0 52px}.archive-main{padding-top:46px}.latest{gap:26px}.latest img{height:430px}.issue-grid{grid-template-columns:1fr}.issue-card{min-height:300px}.article-hero,.featured-hero{min-height:70vh}.article-hero.photo{background-position:48% 50%}.article-hero.photo-water{background-position:44% 50%}.article-hero.photo-touch,.featured-hero{background-position:center 40%}.article-hero.text-only{min-height:470px}.article{padding:48px 18px 100px}.article h2{font-size:31px}.question,blockquote{font-size:24px}.archive-cta{display:block}.archive-cta .btn{margin-top:18px}.split-definition{grid-template-columns:1fr}.split-definition>div+div{border-left:0;border-top:1px solid var(--line)}.subscribe-cta{grid-template-columns:1fr;padding:26px;gap:22px}.subscribe-copy h2{font-size:27px}}
 @media(max-width:420px){.brand span{display:none}.latest img{height:390px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.issue-card{transition:none}}
+
+/* ===== NAV v3: Doychin button, centered Making Sense, Priority Screen ===== */
+.nav-inner{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px}
+.nav-links{justify-self:end;gap:18px}
+.nav-links a.nav-cta{padding:8px 12px}
+.brand.nav-btn{justify-self:start}
+a.nav-btn,.nav-links a.nav-btn{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;line-height:1.2;background:var(--ember);color:#fff;padding:9px 16px;border:0;text-decoration:none;white-space:nowrap}
+a.nav-btn:hover,.nav-links a.nav-btn:hover{background:var(--ember-deep,#8f4316);color:#fff}
+.nav-ms{justify-self:center;display:inline-flex;align-items:center;gap:.55em;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;line-height:1.2;color:#B9B7AC;text-decoration:none;white-space:nowrap}
+.nav-ms svg{width:1.8em;height:1.8em;flex:0 0 auto}
+.nav-ms:hover,.nav-ms[aria-current="page"]{color:var(--bone)}
+@media(max-width:940px){.nav-inner{gap:8px}.nav-links a:not(.nav-ps){display:none}a.nav-btn,.nav-links a.nav-btn,.nav-ms{font-size:10px;letter-spacing:.07em}a.nav-btn,.nav-links a.nav-btn{padding:8px 8px}.nav-ms{gap:.4em}}
