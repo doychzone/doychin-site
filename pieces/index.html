@@ -22,6 +22,12 @@
 .prose p{color:var(--graphite)}
 .btn{display:inline-block;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--ember);color:var(--ink);padding:12px 18px;text-decoration:none;margin-top:8px}
 .btn:hover{background:var(--ember);color:#fff}
+.buy-one{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ember);text-decoration:none;border-bottom:1px solid var(--ember);padding-bottom:2px}
+.buy-box{margin-top:56px;padding:36px;border:1px solid var(--line);background:var(--bone);text-align:center}
+.buy-note{font-family:var(--serif);font-size:clamp(20px,2.4vw,26px);color:var(--sea);margin:0 0 22px}
+.btn-primary{background:var(--ember);color:#fff;font-size:14px;padding:16px 26px}
+.btn-primary:hover{background:var(--sea)}
+.buy-small{font-size:15px;color:var(--muted);margin:18px 0 0}
 @media(max-width:760px){.pieces-grid{grid-template-columns:1fr}}
 </style>
 </head>
@@ -44,6 +50,8 @@
   </div>
 </header>
 <main class="wrap archive-main">
+  <div id="thanks" class="buy-box" role="status" hidden style="margin:0 0 48px"><p class="buy-note" style="margin:0">Thank you! Your signed piece is on its way. We'll email you when it ships.</p></div>
+  <script>if(new URLSearchParams(location.search).get('thanks')==='1'){document.getElementById('thanks').hidden=false}</script>
   <section aria-labelledby="motto-label">
     <div class="section-label" id="motto-label">The idea</div>
     <p class="motto">Good Questions Stick.</p>
@@ -51,14 +59,15 @@
   <section class="archive-list" aria-labelledby="set-label">
     <div class="section-label" id="set-label">The set</div>
     <div class="pieces-grid">
-      <article class="piece"><img src="/pieces/magnet-1of4.jpg" alt="Pieces of Sense magnet 1 of 4" loading="lazy" width="900" height="900"><div class="issue-num">1/4</div><blockquote>Even the longest journey begins with a single breath.</blockquote><p class="sowhat">SO WHAT?</p><p class="answer">Every long road still needs a pause.</p></article>
-      <article class="piece"><img src="/pieces/magnet-2of4.jpg" alt="Pieces of Sense magnet 2 of 4" loading="lazy" width="900" height="900"><div class="issue-num">2/4</div><blockquote>A moment of stillness can change everything.</blockquote><p class="sowhat">SO WHAT?</p><p class="answer">Sometimes, doing nothing is quite magical.</p></article>
-      <article class="piece"><img src="/pieces/magnet-3of4.jpg" alt="Pieces of Sense magnet 3 of 4" loading="lazy" width="900" height="900"><div class="issue-num">3/4</div><blockquote>A quieter mind, a clearer path. In one breath, much can change.</blockquote><p class="sowhat">SO WHAT?</p><p class="answer">Breathe first, you must. Hurry, you need not.</p></article>
-      <article class="piece"><img src="/pieces/magnet-4of4.jpg" alt="Pieces of Sense magnet 4 of 4" loading="lazy" width="900" height="900"><div class="issue-num">4/4</div><blockquote>You have been breathing all day. But have you actually noticed how?</blockquote><p class="sowhat">SO WHAT?</p><p class="answer">The obvious is often the most overlooked.</p></article>
+      <article class="piece"><img src="/pieces/magnet-1of4.jpg" alt="Pieces of Sense magnet 1 of 4" loading="lazy" width="900" height="900"><div class="issue-num">1/4</div><blockquote>Even the longest journey begins with a single breath.</blockquote><p class="sowhat">SO WHAT?</p><p class="answer">Every long road still needs a pause.</p><a class="buy-one" href="https://buy.stripe.com/3cI8wP18zfwzdtOdwNasg0g">Buy this one · $19.99 →</a></article>
+      <article class="piece"><img src="/pieces/magnet-2of4.jpg" alt="Pieces of Sense magnet 2 of 4" loading="lazy" width="900" height="900"><div class="issue-num">2/4</div><blockquote>A moment of stillness can change everything.</blockquote><p class="sowhat">SO WHAT?</p><p class="answer">Sometimes, doing nothing is quite magical.</p><a class="buy-one" href="https://buy.stripe.com/aFaeVdg3t5VZ61m9gxasg0h">Buy this one · $19.99 →</a></article>
+      <article class="piece"><img src="/pieces/magnet-3of4.jpg" alt="Pieces of Sense magnet 3 of 4" loading="lazy" width="900" height="900"><div class="issue-num">3/4</div><blockquote>A quieter mind, a clearer path. In one breath, much can change.</blockquote><p class="sowhat">SO WHAT?</p><p class="answer">Breathe first, you must. Hurry, you need not.</p><a class="buy-one" href="https://buy.stripe.com/7sY8wP8B14RV0H21O5asg0i">Buy this one · $19.99 →</a></article>
+      <article class="piece"><img src="/pieces/magnet-4of4.jpg" alt="Pieces of Sense magnet 4 of 4" loading="lazy" width="900" height="900"><div class="issue-num">4/4</div><blockquote>You have been breathing all day. But have you actually noticed how?</blockquote><p class="sowhat">SO WHAT?</p><p class="answer">The obvious is often the most overlooked.</p><a class="buy-one" href="https://buy.stripe.com/dRm3cvg3t98b1L61O5asg0j">Buy this one · $19.99 →</a></article>
     </div>
-    <div class="prose" style="margin-top:48px">
-      <p>Want a set? Leave your email and we'll let you know when they're available.</p>
-      <a class="btn" href="/making-sense">Leave your email →</a>
+    <div class="buy-box">
+      <p class="buy-note">Limited edition. Only 10 of each, signed and dated on the back.</p>
+      <a class="btn btn-primary" href="https://buy.stripe.com/fZu5kDdVl3NR1L6dwNasg0k">Buy the full set · $49.99 (save $30)</a>
+      <p class="buy-small">Ships within the US. Prefer to wait? <a href="/making-sense">Join the Making Sense newsletter</a> for news about the next edition.</p>
     </div>
   </section>
   <section class="archive-list prose" aria-labelledby="missing-label">
