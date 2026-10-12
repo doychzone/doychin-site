@@ -277,13 +277,22 @@ a.nav-btn:hover,.nav-links a.nav-btn:hover{background:var(--ember-deep,#8f4316);
 .nav-ms svg{width:1.8em;height:1.8em;flex:0 0 auto}
 .nav-ms:hover,.nav-ms[aria-current="page"]{color:var(--bone)}
 @media(max-width:840px){.nav-inner{gap:8px}.nav-links a:not(.nav-ps){display:none}a.nav-btn,.nav-links a.nav-btn,.nav-ms{font-size:10px;letter-spacing:.07em}a.nav-btn,.nav-links a.nav-btn{padding:8px 8px}.nav-ms{gap:.4em}}
+
+/* ===== NAV v3.1: flex centering, umbrella as divider ===== */
+.nav-inner{display:flex;align-items:center;gap:0}
+.brand.nav-btn{flex:0 0 auto}
+.nav-ms{flex:1 1 auto;justify-content:center;gap:0;margin:0 16px;min-width:0}
+.nav-links{flex:0 0 auto}
+.nav-ms .ms-u{position:relative;display:inline-block;width:.45em;height:1em;align-self:center}
+.nav-ms .ms-u svg{position:absolute;width:2.6em;height:3.575em;left:50%;top:-1.55em;transform:translateX(-50%);overflow:visible}
+@media(max-width:840px){.nav-ms{margin:0 10px}}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a class="brand nav-btn" href="#top">Doychin</a><a class="nav-ms" href="/making-sense">Making<svg viewBox="0 0 32 32" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4v3M16 17v10a3 3 0 0 0 3-3"/><path d="M4 17c0-6.6 5.4-11 12-11s12 4.4 12 11c-2.4-1.8-4.2-1.8-6 0-1.8-1.8-4.2-1.8-6 0-1.8-1.8-4.2-1.8-6 0-1.8-1.8-3.6-1.8-6 0Z"/></svg>Sense</a><div class="nav-links"><a href="#about">About</a><a href="#ahead">Stay Ahead</a><a class="nav-cta" href="mailto:doych@doychzone.com?subject=Website%20Inquiry">Contact</a><a class="nav-ps nav-btn" href="/priority-screen">Priority Screen</a></div>
+    <a class="brand nav-btn" href="#top">Doychin</a><a class="nav-ms" href="/making-sense">Making<span class="ms-u"><svg viewBox="0 0 32 44" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4v3M16 17v16"/><path d="M4 17c0-6.6 5.4-11 12-11s12 4.4 12 11c-2.4-1.8-4.2-1.8-6 0-1.8-1.8-4.2-1.8-6 0-1.8-1.8-4.2-1.8-6 0-1.8-1.8-3.6-1.8-6 0Z"/></svg></span>Sense</a><div class="nav-links"><a href="#about">About</a><a href="#ahead">Stay Ahead</a><a class="nav-cta" href="mailto:doych@doychzone.com?subject=Website%20Inquiry">Contact</a><a class="nav-ps nav-btn" href="/priority-screen">Priority Screen</a></div>
   </div>
 </nav>
 
