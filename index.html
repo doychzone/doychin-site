@@ -265,21 +265,34 @@ footer{background:var(--ink);color:#8B8F88;padding:54px 0}
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none}}
+
+/* ===== NAV v3: Doychin button, centered Making Sense, Priority Screen ===== */
+.nav-inner{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px}
+.nav-links{justify-self:end;gap:18px}
+.nav-links a.nav-cta{padding:8px 12px}
+.brand.nav-btn{justify-self:start}
+a.nav-btn,.nav-links a.nav-btn{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;line-height:1.2;background:var(--ember);color:#fff;padding:9px 16px;border:0;text-decoration:none;white-space:nowrap}
+a.nav-btn:hover,.nav-links a.nav-btn:hover{background:var(--ember-deep,#8f4316);color:#fff}
+.nav-ms{justify-self:center;display:inline-flex;align-items:center;gap:.55em;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;line-height:1.2;color:#B9B7AC;text-decoration:none;white-space:nowrap}
+.nav-ms svg{width:1.8em;height:1.8em;flex:0 0 auto}
+.nav-ms:hover,.nav-ms[aria-current="page"]{color:var(--bone)}
+@media(max-width:840px){.nav-inner{gap:8px}.nav-links a:not(.nav-ps){display:none}a.nav-btn,.nav-links a.nav-btn,.nav-ms{font-size:10px;letter-spacing:.07em}a.nav-btn,.nav-links a.nav-btn{padding:8px 8px}.nav-ms{gap:.4em}}
+
+/* ===== NAV v3.1: flex centering, umbrella as divider ===== */
+.nav-inner{display:flex;align-items:center;gap:0}
+.brand.nav-btn{flex:0 0 auto}
+.nav-ms{flex:1 1 auto;justify-content:center;gap:0;margin:0 16px;min-width:0}
+.nav-links{flex:0 0 auto}
+.nav-ms .ms-u{position:relative;display:inline-block;width:.9em;height:1em;align-self:center;margin-left:-.12em}
+.nav-ms .ms-u svg{position:absolute;width:9em;height:4em;left:50%;top:-1.7em;transform:translateX(-50%);overflow:visible}
+@media(max-width:840px){.nav-ms{margin:0 10px}}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a class="brand" href="#top">Doychin<span> Karshovski</span></a>
-    <div class="nav-links">
-      <a href="#top" aria-current="page">Home</a>
-      <a href="#about">About</a>
-      <a href="#ahead">Stay Ahead</a>
-      <a class="nav-primary" href="/making-sense">Making Sense</a>
-      <a class="nav-ps" href="/priority-screen">Priority Screen</a>
-      <a class="nav-cta" href="mailto:doych@doychzone.com?subject=Website%20Inquiry">Contact</a>
-    </div>
+    <a class="brand nav-btn" href="#top">Doychin</a><a class="nav-ms" href="/making-sense">Making<span class="ms-u"><svg viewBox="0 0 90 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M26 13Q45 1 64 13"/><path d="M45 5V34Q45 38 49 38"/><circle cx="45" cy="1.2" r="2.3" fill="currentColor" stroke="none"/></svg></span>Sense</a><div class="nav-links"><a href="#about">About</a><a href="#ahead">Stay Ahead</a><a class="nav-cta" href="mailto:doych@doychzone.com?subject=Website%20Inquiry">Contact</a><a class="nav-ps nav-btn" href="/priority-screen">Priority Screen</a></div>
   </div>
 </nav>
 
