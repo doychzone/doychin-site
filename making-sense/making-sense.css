@@ -118,6 +118,6 @@ a.nav-btn:hover,.nav-links a.nav-btn:hover{background:var(--ember-deep,#8f4316);
 .brand.nav-btn{flex:0 0 auto}
 .nav-ms{flex:1 1 auto;justify-content:center;gap:0;margin:0 16px;min-width:0}
 .nav-links{flex:0 0 auto}
-.nav-ms .ms-u{position:relative;display:inline-block;width:.45em;height:1em;align-self:center}
-.nav-ms .ms-u svg{position:absolute;width:2.6em;height:3.575em;left:50%;top:-1.55em;transform:translateX(-50%);overflow:visible}
+.nav-ms .ms-u{position:relative;display:inline-block;width:.9em;height:1em;align-self:center;margin-left:-.12em}
+.nav-ms .ms-u svg{position:absolute;width:9em;height:4em;left:50%;top:-1.7em;transform:translateX(-50%);overflow:visible}
 @media(max-width:940px){.nav-ms{margin:0 10px}}
