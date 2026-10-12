@@ -115,7 +115,7 @@ def render_article(spec: dict, image_name: str, body_html: str) -> str:
 <link rel="stylesheet" href="/making-sense/making-sense.css">
 </head>
 <body>
-<nav class="site-nav" aria-label="Primary navigation"><div class="wrap nav-inner"><a class="brand" href="/">Doychin<span> Karshovski</span></a><div class="nav-links"><a href="/">Home</a><a href="/#about">About</a><a href="/#ahead">Stay Ahead</a><a class="nav-primary" href="/making-sense" aria-current="page">Making Sense</a><a class="nav-cta" href="mailto:doych@doychzone.com?subject=Website%20Inquiry">Contact</a></div></div></nav>
+<nav class="site-nav" aria-label="Primary navigation"><div class="wrap nav-inner"><a class="brand" href="/">Doychin<span> Karshovski</span></a><div class="nav-links"><a href="/">Home</a><a href="/#about">About</a><a href="/#ahead">Stay Ahead</a><a class="nav-primary" href="/making-sense" aria-current="page">Making Sense</a><a class="nav-ps" href="/priority-screen">Priority Screen</a><a class="nav-cta" href="mailto:doych@doychzone.com?subject=Website%20Inquiry">Contact</a></div></div></nav>
 <header class="article-hero" style="position:relative;overflow:hidden"><img src="/making-sense/{esc(slug)}/{esc(image_name)}" alt="{esc(spec['image_alt'])}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.16))"></div><div class="hero-copy hero-inner" style="position:relative"><div class="kicker">Making Sense</div><h1>{title}</h1><p class="dek">{subtitle}</p><div class="meta"><span>{esc(human_date(spec['publication_date']))}</span><span>{esc(spec['read_time'])}</span></div></div></header>
 <main class="article">
 {body_html.strip()}
