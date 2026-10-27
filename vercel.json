@@ -99,11 +99,11 @@
   "rewrites": [
     {
       "source": "/book",
-      "destination": "/speaking.html"
+      "destination": "/speaking"
     },
     {
       "source": "/workshops",
-      "destination": "/speaking.html"
+      "destination": "/speaking"
     }
   ]
 }
