@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Doychin Karshovski - Keynotes, Workshops &amp; Talks</title>
+<meta name="description" content="Book Doychin Karshovski for keynotes, workshops, masterclasses and retreats on performance, recovery, sleep, breath and longevity. In English and Bulgarian.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#141714;
+  --ink-soft:#222622;
+  --bone:#EFEDE4;
+  --paper:#FAFAF6;
+  --graphite:#3C403C;
+  --muted:#6E726C;
+  --line:#DAD7CC;
+  --line-dark:#2E332E;
+  --ember:#B0551F;
+  --ember-deep:#8E441A;
+  --maxw:1160px;
+  --display:'Anton',sans-serif;
+  --body:'Instrument Sans',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+
+/* ===== NAV ===== */
+nav{position:sticky;top:0;z-index:50;background:rgba(20,23,20,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-dark)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;height:62px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:var(--display);font-size:17px;letter-spacing:.06em;color:var(--bone);text-decoration:none;text-transform:uppercase}
+.brand span{color:var(--ember)}
+.nav-links{display:flex;gap:28px;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#B9B7AC;text-decoration:none;transition:color .15s}
+.nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--bone)}
+.nav-links a[aria-current="page"]{border-bottom:1px solid var(--ember);padding-bottom:4px}
+.nav-cta{border:1px solid var(--ember);color:var(--bone)!important;padding:9px 16px;transition:background .15s}
+.nav-cta:hover{background:var(--ember)}
+.nav-links a.nav-ps{background:var(--ember);color:#fff;padding:9px 16px;transition:background .15s}
+.nav-links a.nav-ps:hover{background:var(--ember-deep);color:#fff}
+@media(max-width:840px){.nav-links a:not(.nav-primary):not(.nav-ps){display:none}.nav-links{gap:16px}.brand span{display:none}}
+
+/* ===== HERO ===== */
+.hero{background:var(--ink);color:var(--bone);padding:96px 0 0;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:64px;align-items:end}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(58px,9vw,124px);line-height:.96;letter-spacing:.005em;text-transform:uppercase}
+.hero h1 .l2{color:#8B8F88}
+.hero h1 .l3{color:var(--ember)}
+.hero-eyebrow{color:var(--ember);margin-bottom:28px;display:block}
+.hero-side{padding-bottom:14px}
+.hero-side p{font-size:18px;color:#C9C7BC;max-width:34ch}
+.hero-side p strong{color:var(--bone);font-weight:600}
+.hero-ctas{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;padding:16px 26px;display:inline-block;transition:all .15s;border:1px solid transparent}
+.btn-ember{background:var(--ember);color:#fff}
+.btn-ember:hover{background:var(--ember-deep)}
+.btn-ghost-dark{border-color:var(--line-dark);color:var(--bone)}
+.btn-ghost-dark:hover{border-color:var(--bone)}
+.btn-ghost{border-color:var(--ink);color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--bone)}
+.hero-strip{margin-top:84px;border-top:1px solid var(--line-dark);display:grid;grid-template-columns:repeat(3,1fr)}
+.hero-strip div{padding:22px 28px;border-right:1px solid var(--line-dark);color:#9A9E96;font-size:14.5px}
+.hero-strip div:last-child{border-right:none}
+.hero-strip b{display:block;color:var(--bone);font-weight:600;margin-bottom:2px;font-size:15px}
+@media(max-width:840px){.hero-grid{grid-template-columns:1fr;gap:40px}.hero-strip{grid-template-columns:1fr}.hero-strip div{border-right:none;border-bottom:1px solid var(--line-dark)}}
+
+/* ===== MANIFESTO ===== */
+.manifesto{background:var(--ink);color:var(--bone);padding:96px 0 110px;border-top:1px solid var(--line-dark)}
+.manifesto-grid{display:grid;grid-template-columns:400px 1fr;gap:72px;align-items:start}
+.portrait{margin:0}
+.portrait img{display:block;width:100%;height:auto;border:1px solid var(--line-dark)}
+.portrait .pq{margin-top:22px;font-family:var(--display);font-weight:400;font-size:27px;line-height:1.12;text-transform:uppercase;letter-spacing:.02em;color:var(--bone)}
+.portrait .pq span{color:var(--ember)}
+.bio{font-size:14.5px!important;line-height:1.6!important;color:#9A9E96!important;max-width:52ch!important;margin-top:14px;border-top:1px solid var(--line-dark);padding-top:18px}
+.manifesto p{font-size:clamp(20px,2.4vw,27px);line-height:1.45;color:#CDCBC0;max-width:30ch;margin-bottom:1.2em;font-weight:400}
+.manifesto p strong{color:var(--bone);font-weight:600}
+.manifesto .sig{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--muted);margin-top:38px;text-transform:uppercase}
+@media(max-width:840px){.manifesto-grid{grid-template-columns:1fr;gap:44px}.portrait{max-width:420px}}
+
+/* ===== SECTION SHARED ===== */
+section.light{padding:104px 0}
+.sec-head{margin-bottom:56px;max-width:680px}
+.sec-head .mono{color:var(--ember);display:block;margin-bottom:16px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(36px,5vw,58px);line-height:1.02;text-transform:uppercase;letter-spacing:.01em}
+.sec-head p{margin-top:20px;font-size:18px;color:var(--graphite)}
+
+/* ===== TEMELI PUZZLE ===== */
+.tem-wrap{position:relative;max-width:580px;margin:0 auto}
+.tem-wrap svg{display:block;width:100%;height:auto;overflow:visible}
+.tem-piece{cursor:pointer;transition:transform .25s ease;outline-offset:6px}
+.tem-piece:hover,.tem-piece.active,.tem-piece:focus-visible{transform:translate(var(--tx),var(--ty))}
+.tem-pp{fill:var(--ink);stroke:var(--paper);stroke-width:3;transition:fill .2s ease}
+.tem-piece:hover .tem-pp,.tem-piece.active .tem-pp,.tem-piece:focus-visible .tem-pp{fill:var(--ember)}
+.tem-num{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;fill:#8B8F88;text-anchor:middle}
+.tem-piece:hover .tem-num,.tem-piece.active .tem-num{fill:rgba(255,255,255,.75)}
+.tem-name{font-family:var(--display);font-size:22px;letter-spacing:.04em;fill:var(--bone);text-anchor:middle;dominant-baseline:central;text-transform:uppercase}
+.tem-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.tem-center-inner{width:158px;text-align:center}
+.tc-word{font-family:var(--display);font-size:27px;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);line-height:1}
+.tc-sub{color:var(--muted);margin-top:8px;font-size:10px!important}
+.tc-num{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--ember);text-transform:uppercase}
+.tc-name{font-family:var(--display);font-size:21px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink);margin:6px 0 8px;line-height:1}
+.tc-desc{font-size:12.5px;line-height:1.45;color:var(--graphite)}
+.pillars-note{font-size:16px;color:var(--graphite);max-width:62ch}
+.pillars-note strong{font-weight:600}
+@media(max-width:560px){.tem-name{font-size:24px}.tem-center-inner{width:120px}.tc-word{font-size:21px}.tc-name{font-size:17px}.tc-desc{font-size:11px}}
+/* ===== STAY AHEAD ===== */
+.ahead{background:var(--bone);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ahead-cols{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--ink)}
+.ahead-col{padding:44px 40px}
+.ahead-col.no{background:var(--paper)}
+.ahead-col.yes{background:var(--ink);color:var(--bone)}
+.ahead-col h3{font-family:var(--display);font-weight:400;font-size:24px;text-transform:uppercase;letter-spacing:.03em;margin-bottom:26px}
+.ahead-col.yes h3{color:var(--ember)}
+.ahead-col ul{list-style:none}
+.ahead-col li{padding:13px 0;border-bottom:1px solid var(--line);font-size:16.5px}
+.ahead-col.yes li{border-bottom-color:var(--line-dark)}
+.ahead-col li:last-child{border-bottom:none}
+.ahead-col li::before{content:"";display:inline-block;width:9px;height:9px;margin-right:14px;vertical-align:1px}
+.ahead-col.no li::before{background:transparent;border:1.5px solid var(--muted)}
+.ahead-col.yes li::before{background:var(--ember)}
+.timing{margin-top:64px;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:var(--paper)}
+.timing div{padding:26px;border-right:1px solid var(--line);font-size:15.5px;color:var(--graphite)}
+.timing div:last-child{border-right:none}
+.timing b{display:block;font-weight:600;color:var(--ink);margin-bottom:4px}
+.timing .mono{color:var(--ember);display:block;margin-bottom:12px}
+@media(max-width:840px){.ahead-cols{grid-template-columns:1fr}.timing{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.timing{grid-template-columns:1fr}.timing div{border-right:none;border-bottom:1px solid var(--line)}}
+.priority-entry{margin-top:64px;border:1px solid var(--ink);background:var(--paper);display:grid;grid-template-columns:1.25fr .75fr;gap:48px;padding:42px 40px;align-items:center}
+.priority-entry .mono{color:var(--ember);display:block;margin-bottom:12px}
+.priority-entry h3{font-family:var(--display);font-weight:400;font-size:clamp(28px,3.5vw,40px);line-height:1.05;text-transform:uppercase;letter-spacing:.02em;margin-bottom:16px}
+.priority-entry p{color:var(--graphite);font-size:16.5px;max-width:58ch}
+.priority-entry .actions{display:flex;flex-direction:column;gap:12px;align-items:stretch}
+.priority-entry .actions .btn{text-align:center}
+.priority-entry .note{font-family:var(--mono);font-size:10.5px;line-height:1.5;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center}
+@media(max-width:840px){.priority-entry{grid-template-columns:1fr;gap:30px}}
+@media(max-width:560px){.priority-entry{padding:34px 24px}}
+
+/* ===== PROCESS ===== */
+.steps{border-top:1px solid var(--line)}
+.step{display:grid;grid-template-columns:120px 320px 1fr;gap:40px;padding:38px 0;border-bottom:1px solid var(--line)}
+.step .n{font-family:var(--display);font-size:44px;color:var(--line);line-height:1;transition:color .2s}
+.step:hover .n{color:var(--ember)}
+.step h3{font-size:19px;font-weight:600;line-height:1.35}
+.step h3 small{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ember);margin-top:8px;font-weight:500}
+.step p{color:var(--graphite);font-size:16px;max-width:58ch}
+@media(max-width:840px){.step{grid-template-columns:64px 1fr;gap:18px}.step p{grid-column:2}.step .n{font-size:32px}}
+.principles{margin-top:64px;display:flex;flex-wrap:wrap;gap:10px}
+.principles span{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--ink);padding:10px 16px}
+
+/* ===== RATES ===== */
+.rates{background:var(--ink);color:var(--bone)}
+.rates .sec-head p{color:#B9B7AC}
+.rate-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-bottom:14px}
+.rate-card{border:1px solid var(--line-dark);padding:38px 34px;display:flex;flex-direction:column;gap:16px;transition:border-color .2s}
+.rate-card:hover{border-color:var(--ember)}
+.rate-card.feature{background:var(--ink-soft)}
+.rate-card .tag{color:var(--ember)}
+.rate-card h3{font-family:var(--display);font-weight:400;font-size:26px;text-transform:uppercase;letter-spacing:.02em}
+.rate-card .price{font-family:var(--display);font-size:46px;color:var(--bone)}
+.rate-card .price small{font-family:var(--mono);font-size:12px;color:#8B8F88;letter-spacing:.1em;margin-left:10px}
+.rate-card p{color:#B9B7AC;font-size:15.5px}
+.rate-card ul{list-style:none;color:#C9C7BC;font-size:15px}
+.rate-card li{padding:8px 0;border-bottom:1px solid var(--line-dark)}
+.rate-card li:last-child{border-bottom:none}
+.rate-card .btn{margin-top:auto;text-align:center}
+.dna-row{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:920px){.rate-grid,.dna-row{grid-template-columns:1fr}}
+.giving{margin-top:64px;border:1px solid var(--ember);padding:38px 34px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+.giving h3{font-family:var(--display);font-weight:400;font-size:24px;text-transform:uppercase;margin-bottom:10px}
+.giving p{color:#C9C7BC;font-size:16px;max-width:60ch}
+@media(max-width:760px){.giving{grid-template-columns:1fr}}
+.policy{margin-top:44px;color:#8B8F88;font-size:14.5px;max-width:70ch}
+.policy b{color:#C9C7BC}
+
+/* ===== MAKING SENSE FEATURE ===== */
+.ms-card{margin-top:14px;border:1px solid var(--ember);background:var(--ink-soft);display:grid;grid-template-columns:1.05fr .95fr}
+.ms-main{padding:44px 40px;display:flex;flex-direction:column;gap:18px}
+.ms-main h3{font-family:var(--display);font-weight:400;font-size:32px;text-transform:uppercase;letter-spacing:.02em;line-height:1.05}
+.ms-main h3 span{color:var(--ember)}
+.ms-main>p{color:#C9C7BC;font-size:16px;max-width:52ch}
+.ms-price-row{display:flex;gap:40px;flex-wrap:wrap;align-items:baseline;margin-top:6px}
+.ms-price-row .price{font-family:var(--display);font-size:44px;color:var(--bone)}
+.ms-price-row .price small{font-family:var(--mono);font-size:11.5px;color:#8B8F88;letter-spacing:.1em;display:block;margin-top:6px}
+.ms-price-row .founding .price-n{font-family:var(--display);font-size:44px;color:var(--ember)}
+.ms-side{border-left:1px solid var(--line-dark);padding:44px 40px;display:flex;flex-direction:column;gap:22px}
+.ms-layer{border-bottom:1px solid var(--line-dark);padding-bottom:18px}
+.ms-layer:last-of-type{border-bottom:none;padding-bottom:0}
+.ms-layer .mono{color:var(--ember);display:block;margin-bottom:6px}
+.ms-layer p{color:#C9C7BC;font-size:14.5px}
+.ms-tao{display:flex;gap:10px;flex-wrap:wrap}
+.ms-tao span{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line-dark);padding:8px 13px;color:#B9B7AC}
+@media(max-width:920px){.ms-card{grid-template-columns:1fr}.ms-side{border-left:none;border-top:1px solid var(--line-dark)}}
+
+/* ===== SPEAKING ===== */
+.speak{background:var(--bone);border-top:1px solid var(--line)}
+.topics{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--ink);border-left:1px solid var(--ink)}
+.topic{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:30px 28px;background:var(--paper);transition:background .2s}
+.topic:hover{background:#fff}
+.topic .t-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:10px}
+.topic .t-n{font-family:var(--mono);font-size:12px;color:var(--ember);letter-spacing:.1em}
+.topic .t-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:var(--bone);padding:4px 9px}
+.topic .t-tag.hot{background:var(--ember);color:#fff}
+.topic h3{font-size:19px;font-weight:600;margin-bottom:8px;line-height:1.3}
+.topic p{font-size:14.5px;color:var(--graphite)}
+.topic .t-format{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+.formats{margin-top:54px;display:grid;grid-template-columns:repeat(6,1fr);border:1px solid var(--line);background:var(--paper)}
+.formats div{padding:20px 18px;border-right:1px solid var(--line);font-size:13.5px;color:var(--graphite)}
+.formats div:last-child{border-right:none}
+.formats b{display:block;font-weight:600;color:var(--ink);margin-bottom:3px;font-size:14.5px}
+.speak-cta{margin-top:48px;display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.speak-cta p{color:var(--graphite);font-size:15.5px;max-width:46ch}
+@media(max-width:920px){.topics{grid-template-columns:1fr}.formats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.formats{grid-template-columns:1fr}.formats div{border-right:none;border-bottom:1px solid var(--line)}}
+
+/* ===== FAQ ===== */
+.faq-list{max-width:820px}
+details{border-bottom:1px solid var(--line)}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:26px 0;font-size:18.5px;font-weight:600;display:flex;justify-content:space-between;align-items:center;gap:24px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--display);font-size:26px;color:var(--ember);flex-shrink:0;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details .a{padding:0 0 28px;color:var(--graphite);max-width:64ch;font-size:16.5px}
+details .a p{margin-bottom:.8em}
+details .a p:last-child{margin-bottom:0}
+
+/* ===== ECOSYSTEM BRIDGE ===== */
+.ecosystem-bridge{background:var(--bone);padding:82px 0;border-top:1px solid var(--line)}
+.ecosystem-bridge-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(40px,8vw,110px);align-items:start}
+.ecosystem-bridge .eyebrow{margin-bottom:14px}
+.ecosystem-bridge h2{font-family:var(--display);font-size:clamp(44px,6vw,76px);line-height:.96;text-transform:uppercase;max-width:10ch;margin:0}
+.ecosystem-bridge-copy p{font-size:18px;line-height:1.65;max-width:62ch;margin:0 0 28px;color:var(--graphite)}
+.ecosystem-bridge-copy strong{color:var(--ink)}
+.ecosystem-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.ecosystem-link{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ember);text-decoration:none}
+@media(max-width:760px){.ecosystem-bridge-grid{grid-template-columns:1fr}.ecosystem-bridge h2{max-width:none}}
+
+/* ===== FOOTER CTA ===== */
+.foot-cta{background:var(--ember);color:#fff;padding:96px 0;text-align:left}
+.foot-cta h2{max-width:14ch}
+.foot-cta p{margin:22px 0 36px;font-size:18px;max-width:48ch;color:rgba(255,255,255,.9)}
+.btn-on-ember{background:var(--ink);color:var(--bone)}
+.btn-on-ember:hover{background:#000}
+footer{background:var(--ink);color:#8B8F88;padding:54px 0}
+.foot-grid{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+.foot-grid .motto{font-family:var(--display);font-size:19px;text-transform:uppercase;letter-spacing:.04em;color:var(--bone)}
+.foot-links{display:flex;gap:14px 24px;flex-wrap:wrap}
+.foot-links a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8B8F88;text-decoration:none}
+.foot-links a:hover{color:var(--bone)}
+.copy{margin-top:30px;font-size:13px}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none}}
+
+/* ===== NAV v3: Doychin button, centered Making Sense, Priority Screen ===== */
+.nav-inner{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px}
+.nav-links{justify-self:end;gap:18px}
+.nav-links a.nav-cta{padding:8px 12px}
+.brand.nav-btn{justify-self:start}
+a.nav-btn,.nav-links a.nav-btn{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;line-height:1.2;background:var(--ember);color:#fff;padding:9px 16px;border:0;text-decoration:none;white-space:nowrap}
+a.nav-btn:hover,.nav-links a.nav-btn:hover{background:var(--ember-deep,#8f4316);color:#fff}
+.nav-ms{justify-self:center;display:inline-flex;align-items:center;gap:.55em;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;line-height:1.2;color:#B9B7AC;text-decoration:none;white-space:nowrap}
+.nav-ms svg{width:1.8em;height:1.8em;flex:0 0 auto}
+.nav-ms:hover,.nav-ms[aria-current="page"]{color:var(--bone)}
+@media(max-width:840px){.nav-inner{gap:8px}.nav-links a:not(.nav-ps){display:none}a.nav-btn,.nav-links a.nav-btn,.nav-ms{font-size:10px;letter-spacing:.07em}a.nav-btn,.nav-links a.nav-btn{padding:8px 8px}.nav-ms{gap:.4em}}
+
+/* ===== NAV v3.1: flex centering, umbrella as divider ===== */
+.nav-inner{display:flex;align-items:center;gap:0}
+.brand.nav-btn{flex:0 0 auto}
+.nav-ms{flex:1 1 auto;justify-content:center;gap:0;margin:0 16px;min-width:0}
+.nav-links{flex:0 0 auto}
+.nav-ms .ms-u{position:relative;display:inline-block;width:.9em;height:1em;align-self:center;margin-left:-.12em}
+.nav-ms .ms-u svg{position:absolute;width:9em;height:4em;left:50%;top:-1.7em;transform:translateX(-50%);overflow:visible}
+@media(max-width:840px){.nav-ms{margin:0 10px}}
+.testimonial{margin:48px 0 0;padding:0 0 0 20px;border-left:2px solid var(--ember);max-width:62ch}
+.testimonial p{font-family:var(--body);font-size:18px;line-height:1.65;color:var(--graphite);margin:0 0 12px;overflow-wrap:break-word}
+.testimonial cite{font-family:var(--mono);font-style:normal;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ember)}
+.ecosystem-bridge-copy .testimonial{margin-top:40px}
+.testimonial-share,.ecosystem-bridge-copy .testimonial-share{margin:16px 0 0 22px}
+
+/* ===== SPEAKING PAGE ===== */
+.sp-hero{background:var(--ink);color:var(--bone);padding:96px 0 0}
+.sp-hero h1{font-family:var(--display);font-weight:400;font-size:clamp(52px,8vw,108px);line-height:.96;text-transform:uppercase}
+.sp-hero h1 span{color:var(--ember)}
+.sp-hero p.lead{font-size:19px;color:#C9C7BC;max-width:60ch;margin-top:28px}
+.sp-hero .hero-ctas{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+.sp-hero .hero-strip{grid-template-columns:repeat(4,1fr)}
+@media(max-width:840px){.sp-hero .hero-strip{grid-template-columns:1fr 1fr}}
+.t-req{display:inline-block;margin-top:18px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ember);text-decoration:none;border-bottom:1px solid var(--ember);padding-bottom:2px}
+.t-req:hover{color:var(--ember-deep)}
+.who{margin-top:40px;color:var(--graphite);font-size:16.5px;max-width:70ch}
+.req{background:var(--paper);border-top:1px solid var(--line)}
+.form{max-width:860px;display:grid;grid-template-columns:1fr 1fr;gap:26px 28px}
+.form .full{grid-column:1/-1}
+.form label.f{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+.form label.f i{color:var(--ember);font-style:normal}
+.form input[type=text],.form input[type=email],.form input[type=tel],.form input[type=url],.form select,.form textarea{width:100%;font:inherit;font-size:16px;padding:13px 14px;border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:0}
+.form textarea{min-height:150px;resize:vertical}
+.form input:focus,.form select:focus,.form textarea:focus{outline:2px solid var(--ember);outline-offset:1px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;padding:9px 13px;font-size:15px;cursor:pointer}
+.opt:has(input:checked){border-color:var(--ember);background:#FBF1EA}
+.opt input{accent-color:var(--ember)}
+.opts.col{flex-direction:column;align-items:flex-start}
+.form .hint{font-size:13.5px;color:var(--muted);margin-top:6px}
+.form .actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.form button.btn{border:0;cursor:pointer}
+.form-note{margin-top:22px;font-size:14.5px;color:var(--muted);max-width:70ch}
+#formMsg{font-size:15px;color:var(--ember-deep)}
+@media(max-width:720px){.form{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="brand nav-btn" href="/">Doychin</a><a class="nav-ms" href="/making-sense">Making<span class="ms-u"><svg viewBox="0 0 90 40" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M26 13Q45 1 64 13"/><path d="M45 5V34Q45 38 49 38"/><circle cx="45" cy="1.2" r="2.3" fill="currentColor" stroke="none"/></svg></span>Sense</a><div class="nav-links"><a href="/#about">About</a><a href="/#ahead">Stay Ahead</a><a class="nav-cta" href="mailto:doych@doychzone.com?subject=Website%20Inquiry">Contact</a><a class="nav-ps nav-btn nav-book" href="/speaking" aria-current="page" style="background:transparent;border:1px solid var(--ember)">Book Doychin</a><a class="nav-ps nav-btn" href="/priority-screen">Priority Screen</a></div>
+  </div>
+</nav>
+
+<header class="sp-hero" id="top">
+  <div class="wrap">
+    <span class="mono hero-eyebrow">Keynotes &amp; Workshops</span>
+    <h1>Book Doychin<br><span>to speak.</span></h1>
+    <p class="lead">35+ years at the intersection of human biology, performance science, and behavioral change. Author of 6 published books. One consistent message for corporate teams, leadership, and innovation forums: you cannot separate the machine from the biology running it.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-ember" href="#request">Request a date</a>
+      <a class="btn btn-ghost-dark" href="#talks">See the talks</a>
+      <a class="btn btn-ghost-dark" href="#formats">Formats</a>
+    </div>
+  </div>
+  <div class="hero-strip">
+    <div><b>35+ years</b>of practice in human biology, performance and behavioral change</div>
+    <div><b>6 books</b>on human performance and longevity</div>
+    <div><b>4 documentary films</b>behind the prevention-first framework</div>
+    <div><b>English and Bulgarian</b>talks and workshops in both languages</div>
+  </div>
+</header>
+
+<section class="light speak" id="talks">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono">The talks</span>
+      <h2>Eight ways to bring it to your team.</h2>
+    </div>
+    <div class="topics">
+      <div class="topic reveal">
+        <div class="t-head"><span class="t-n">01</span><span class="t-tag hot">Flagship</span></div>
+        <h3>Managing Personal Resources</h3>
+        <p>Energy, attention, and recovery are finite - and most people manage them as if they're unlimited. Performance reframed as resource management for anyone under sustained cognitive load.</p>
+        <div class="t-format">Keynote / Workshop / Retreat · 45 min to half-day</div>
+        <a class="t-req" href="#request" data-topic="Managing Personal Resources">Request this talk &rarr;</a>
+      </div>
+      <div class="topic reveal">
+        <div class="t-head"><span class="t-n">02</span><span class="t-tag hot">High Demand</span></div>
+        <h3>The Art and Science of Recovery</h3>
+        <p>Recovery is not rest - it's a skill most high performers never learned. Why achievers sabotage it without knowing, and how to build protocols that work inside a demanding schedule.</p>
+        <div class="t-format">Keynote / Workshop · 45 min to 3 hours</div>
+        <a class="t-req" href="#request" data-topic="The Art and Science of Recovery">Request this talk &rarr;</a>
+      </div>
+      <div class="topic reveal">
+        <div class="t-head"><span class="t-n">03</span><span class="t-tag">Full Framework</span></div>
+        <h3>The Temeli System - Six Pillars of Human Performance</h3>
+        <p>The complete framework for sustainable performance. Delivered as a keynote overview, deep-dive workshop, or multi-session retreat module - each pillar also stands alone.</p>
+        <div class="t-format">Keynote / Workshop / Retreat series · Modular by pillar</div>
+        <a class="t-req" href="#request" data-topic="The Temeli System - Six Pillars of Human Performance">Request this talk &rarr;</a>
+      </div>
+      <div class="topic reveal">
+        <div class="t-head"><span class="t-n">04</span><span class="t-tag">Evidence-Based</span></div>
+        <h3>Prevention First</h3>
+        <p>Most wellness conversations happen too late. A prevention-first framework for personal and organizational health, built on 30 years of practice and 4 documentary films.</p>
+        <div class="t-format">Keynote / Panel / Leadership session · 45-90 min</div>
+        <a class="t-req" href="#request" data-topic="Prevention First">Request this talk &rarr;</a>
+      </div>
+      <div class="topic reveal">
+        <div class="t-head"><span class="t-n">05</span><span class="t-tag">Pillar Deep-Dive</span></div>
+        <h3>Breathe Better, Perform Better</h3>
+        <p>Beyond "just breathe" - the mechanics of breath, its direct impact on the nervous system and cognition, and techniques that work in real time, in a meeting or before a presentation.</p>
+        <div class="t-format">Workshop / Masterclass · 60-180 min, highly interactive</div>
+        <a class="t-req" href="#request" data-topic="Breathe Better, Perform Better">Request this talk &rarr;</a>
+      </div>
+      <div class="topic reveal">
+        <div class="t-head"><span class="t-n">06</span><span class="t-tag">Pillar Deep-Dive</span></div>
+        <h3>Sleep as a Performance Tool</h3>
+        <p>Chronic sleep debt is the silent performance killer in every high-functioning team. The biology of sleep and habits that hold under real-world pressure. Based on the book "Спя".</p>
+        <div class="t-format">Keynote / Workshop · 45-90 min</div>
+        <a class="t-req" href="#request" data-topic="Sleep as a Performance Tool">Request this talk &rarr;</a>
+      </div>
+      <div class="topic reveal">
+        <div class="t-head"><span class="t-n">07</span><span class="t-tag hot">Signature Philosophy</span></div>
+        <h3>Stay Ahead - A Longevity Mindset for High Performers</h3>
+        <p>Act before it's necessary, build systems before you need them, and treat longevity not as a medical goal but as a performance strategy.</p>
+        <div class="t-format">Keynote / Opening or closing session · 45-60 min</div>
+        <a class="t-req" href="#request" data-topic="Stay Ahead - A Longevity Mindset for High Performers">Request this talk &rarr;</a>
+      </div>
+      <div class="topic reveal">
+        <div class="t-head"><span class="t-n">+</span><span class="t-tag">Bonus Format</span></div>
+        <h3>Author Talk + Book Signing</h3>
+        <p>Standalone or attached to any keynote. Six published books on the Temeli pillars, grounded in science, written for non-specialists. English editions in development.</p>
+        <div class="t-format">Cultural events / Internal libraries · 45-60 min</div>
+        <a class="t-req" href="#request" data-topic="Author Talk + Book Signing">Request this talk &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="formats">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono">Formats</span>
+      <h2>Pick the format that fits.</h2>
+    </div>
+    <div class="formats reveal">
+      <div><b>Keynote</b>45-75 min</div>
+      <div><b>Workshop</b>2-4 hours</div>
+      <div><b>Masterclass</b>Half or full day</div>
+      <div><b>Retreat Module</b>Custom, multi-day</div>
+      <div><b>Panel / Expert Guest</b>30-60 min</div>
+      <div><b>Book Talk</b>45-60 min</div>
+    </div>
+    <p class="who">Include your event, audience, and dates. Available for corporate events, tech teams, leadership summits, health and innovation forums, and retreats, in English and Bulgarian.</p>
+  </div>
+</section>
+
+<section class="light req" id="request">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="mono">Request a date</span>
+      <h2>Invite Doychin.</h2>
+      <p>Tell us about your event and we will get back to you within 2 working days.</p>
+    </div>
+    <form class="form" id="speakForm" novalidate>
+      <div class="full"><label class="f">Request type <i>*</i></label><div class="opts"><label class="opt"><input type="radio" name="request_type" value="Invitation to speak" required> Invitation to speak</label><label class="opt"><input type="radio" name="request_type" value="Corporate workshop or program"> Corporate workshop or program</label><label class="opt"><input type="radio" name="request_type" value="Media or interview"> Media or interview</label></div></div>
+      <div><label class="f" for="name">Name <i>*</i></label><input type="text" id="name" name="name" required autocomplete="name"></div>
+      <div><label class="f" for="email">Email <i>*</i></label><input type="email" id="email" name="email" required autocomplete="email"></div>
+      <div><label class="f" for="phone">Phone</label><input type="tel" id="phone" name="phone" autocomplete="tel"></div>
+      <div><label class="f" for="org">Organization behind the event <i>*</i></label><input type="text" id="org" name="organization" required autocomplete="organization"></div>
+      <div class="full"><label class="f" for="site">Event website (optional)</label><input type="url" id="site" name="event_website" placeholder="https://"></div>
+      <div class="full"><label class="f" for="etype">Event type <i>*</i></label><select id="etype" name="event_type" required><option value="">Select</option><option>Conference</option><option>Internal team training</option><option>Leadership offsite</option><option>Retreat</option><option>Other</option></select></div>
+      <div class="full"><label class="f">Talk(s) of interest <i>*</i></label><div class="opts col" id="topicBoxes"><label class="opt"><input type="checkbox" name="topics" value="Managing Personal Resources"> Managing Personal Resources</label><label class="opt"><input type="checkbox" name="topics" value="The Art and Science of Recovery"> The Art and Science of Recovery</label><label class="opt"><input type="checkbox" name="topics" value="The Temeli System - Six Pillars of Human Performance"> The Temeli System - Six Pillars of Human Performance</label><label class="opt"><input type="checkbox" name="topics" value="Prevention First"> Prevention First</label><label class="opt"><input type="checkbox" name="topics" value="Breathe Better, Perform Better"> Breathe Better, Perform Better</label><label class="opt"><input type="checkbox" name="topics" value="Sleep as a Performance Tool"> Sleep as a Performance Tool</label><label class="opt"><input type="checkbox" name="topics" value="Stay Ahead - A Longevity Mindset for High Performers"> Stay Ahead - A Longevity Mindset for High Performers</label><label class="opt"><input type="checkbox" name="topics" value="Author Talk + Book Signing"> Author Talk + Book Signing</label><label class="opt"><input type="checkbox" name="topics" value="Not sure yet, please advise"> Not sure yet, please advise</label></div></div>
+      <div class="full"><label class="f">Format <i>*</i></label><div class="opts"><label class="opt"><input type="radio" name="format" value="Keynote" required> Keynote</label><label class="opt"><input type="radio" name="format" value="Workshop"> Workshop</label><label class="opt"><input type="radio" name="format" value="Masterclass"> Masterclass</label><label class="opt"><input type="radio" name="format" value="Retreat module"> Retreat module</label><label class="opt"><input type="radio" name="format" value="Panel"> Panel</label><label class="opt"><input type="radio" name="format" value="Book talk"> Book talk</label></div></div>
+      <div><label class="f">Virtual or in person? <i>*</i></label><div class="opts"><label class="opt"><input type="radio" name="delivery" value="In person" required> In person</label><label class="opt"><input type="radio" name="delivery" value="Virtual"> Virtual</label><label class="opt"><input type="radio" name="delivery" value="Hybrid"> Hybrid</label></div></div>
+      <div><label class="f" for="city">City / venue (if in person)</label><input type="text" id="city" name="city_venue"></div>
+      <div><label class="f" for="date">Event date or range <i>*</i></label><input type="text" id="date" name="event_date" required placeholder="e.g. 12 March 2027 or spring 2027"><label class="opt" style="margin-top:8px"><input type="checkbox" name="dates_flexible" value="Yes"> Dates are flexible</label></div>
+      <div><label class="f">Expected audience size <i>*</i></label><div class="opts"><label class="opt"><input type="radio" name="audience" value="Up to 30" required> Up to 30</label><label class="opt"><input type="radio" name="audience" value="30-100"> 30-100</label><label class="opt"><input type="radio" name="audience" value="100-300"> 100-300</label><label class="opt"><input type="radio" name="audience" value="300+"> 300+</label></div></div>
+      <div><label class="f">Proposed speaking fee <i>*</i></label><div class="opts"><label class="opt"><input type="radio" name="fee" value="Up to €1,000" required> Up to €1,000</label><label class="opt"><input type="radio" name="fee" value="€1,000-2,500"> €1,000-2,500</label><label class="opt"><input type="radio" name="fee" value="€2,500-5,000"> €2,500-5,000</label><label class="opt"><input type="radio" name="fee" value="€5,000+"> €5,000+</label><label class="opt"><input type="radio" name="fee" value="Let&#x27;s discuss"> Let&#x27;s discuss</label></div></div>
+      <div><label class="f">Language <i>*</i></label><div class="opts"><label class="opt"><input type="radio" name="language" value="English" required> English</label><label class="opt"><input type="radio" name="language" value="Bulgarian"> Bulgarian</label></div></div>
+      <div class="full"><label class="f" for="more">Tell us more about your event and goals <i>*</i></label><textarea id="more" name="details" required></textarea></div>
+      <div class="full"><label class="f" for="heard">How did you hear about Doychin?</label><input type="text" id="heard" name="heard_about"></div>
+      <div class="full actions"><button type="submit" class="btn btn-ember">Send request</button><span id="formMsg" role="status" aria-live="polite"></span></div>
+    </form>
+    <p class="form-note">Sending opens your email app with all details filled in, addressed to doych@doychzone.com. If it does not open, write to <a href="mailto:doych@doychzone.com?subject=Speaking%20Inquiry">doych@doychzone.com</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <span class="motto">You are the sum of your actions.</span>
+      <div class="foot-links">
+        <a href="https://www.doychzone.com">Organizations · DoychZone</a>
+        <a href="https://www.moytu.com">Technology · Moytu</a>
+        <a href="/priority-screen">Priority Screen</a>
+        <a href="/pieces/">Pieces of Sense</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfsSdETIigUjRHjTWIzvxEU2YXANlWBLvP_C6pagUrvV76avQ/viewform" target="_blank" rel="noopener">Share your story</a>
+        <a href="/making-sense-privacy.html">Making Sense Privacy Notice</a>
+      </div>
+    </div>
+    <p class="copy">&copy; 2026 Doychin Karshovski. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.t-req').forEach(a=>a.addEventListener('click',()=>{
+  const v=a.dataset.topic;
+  document.querySelectorAll('#topicBoxes input').forEach(c=>{if(c.value===v)c.checked=true});
+}));
+const f=document.getElementById('speakForm'),msg=document.getElementById('formMsg');
+f.addEventListener('submit',e=>{
+  e.preventDefault();
+  const d=new FormData(f),miss=[];
+  const req={request_type:'Request type',name:'Name',email:'Email',organization:'Organization',event_type:'Event type',topics:'Talk(s) of interest',format:'Format',delivery:'Virtual or in person',event_date:'Event date',audience:'Audience size',fee:'Proposed speaking fee',language:'Language',details:'Event details'};
+  for(const k in req){if(!d.getAll(k).filter(x=>String(x).trim()).length)miss.push(req[k])}
+  if(miss.length){msg.textContent='Please complete: '+miss.join(', ')+'.';return}
+  if(!f.email.checkValidity()){msg.textContent='Please enter a valid email.';return}
+  const L=[['Request type','request_type'],['Name','name'],['Email','email'],['Phone','phone'],['Organization','organization'],['Event website','event_website'],['Event type','event_type'],['Talk(s) of interest','topics'],['Format','format'],['Virtual or in person','delivery'],['City / venue','city_venue'],['Event date or range','event_date'],['Dates flexible','dates_flexible'],['Expected audience size','audience'],['Proposed speaking fee','fee'],['Language','language'],['How they heard about Doychin','heard_about']];
+  let b=L.map(([l,k])=>l+': '+(d.getAll(k).join('; ')||'-')).join('\n');
+  b+='\n\nAbout the event and goals:\n'+d.get('details');
+  const subj='Speaking Inquiry: '+d.get('organization');
+  location.href='mailto:doych@doychzone.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(b);
+  msg.textContent='Your email app should open with the request. Just press send.';
+});
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
