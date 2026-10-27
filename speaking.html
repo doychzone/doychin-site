@@ -445,6 +445,7 @@ a.nav-btn:hover,.nav-links a.nav-btn:hover{background:var(--ember-deep,#8f4316);
       <p>Tell us about your event and we will get back to you within 2 working days.</p>
     </div>
     <form class="form" id="speakForm" novalidate>
+      <div style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label>Company website<input type="text" name="company_url" tabindex="-1" autocomplete="off"></label></div>
       <div class="full"><label class="f">Request type <i>*</i></label><div class="opts"><label class="opt"><input type="radio" name="request_type" value="Invitation to speak" required> Invitation to speak</label><label class="opt"><input type="radio" name="request_type" value="Corporate workshop or program"> Corporate workshop or program</label><label class="opt"><input type="radio" name="request_type" value="Media or interview"> Media or interview</label></div></div>
       <div><label class="f" for="name">Name <i>*</i></label><input type="text" id="name" name="name" required autocomplete="name"></div>
       <div><label class="f" for="email">Email <i>*</i></label><input type="email" id="email" name="email" required autocomplete="email"></div>
@@ -464,7 +465,7 @@ a.nav-btn:hover,.nav-links a.nav-btn:hover{background:var(--ember-deep,#8f4316);
       <div class="full"><label class="f" for="heard">How did you hear about Doychin?</label><input type="text" id="heard" name="heard_about"></div>
       <div class="full actions"><button type="submit" class="btn btn-ember">Send request</button><span id="formMsg" role="status" aria-live="polite"></span></div>
     </form>
-    <p class="form-note">Sending opens your email app with all details filled in, addressed to doych@doychzone.com. If it does not open, write to <a href="mailto:doych@doychzone.com?subject=Speaking%20Inquiry">doych@doychzone.com</a>.</p>
+    <p class="form-note">Your request goes straight to Doychin. Prefer email? Write to <a href="mailto:doych@doychzone.com?subject=Speaking%20Inquiry">doych@doychzone.com</a>.</p>
   </div>
 </section>
 
@@ -499,11 +500,20 @@ f.addEventListener('submit',e=>{
   if(miss.length){msg.textContent='Please complete: '+miss.join(', ')+'.';return}
   if(!f.email.checkValidity()){msg.textContent='Please enter a valid email.';return}
   const L=[['Request type','request_type'],['Name','name'],['Email','email'],['Phone','phone'],['Organization','organization'],['Event website','event_website'],['Event type','event_type'],['Talk(s) of interest','topics'],['Format','format'],['Virtual or in person','delivery'],['City / venue','city_venue'],['Event date or range','event_date'],['Dates flexible','dates_flexible'],['Expected audience size','audience'],['Proposed speaking fee','fee'],['Language','language'],['How they heard about Doychin','heard_about']];
+  const payload={};
+  for(const k of new Set([...d.keys()])){const v=d.getAll(k);payload[k]=v.length>1?v:v[0]}
   let b=L.map(([l,k])=>l+': '+(d.getAll(k).join('; ')||'-')).join('\n');
   b+='\n\nAbout the event and goals:\n'+d.get('details');
-  const subj='Speaking Inquiry: '+d.get('organization');
-  location.href='mailto:doych@doychzone.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(b);
-  msg.textContent='Your email app should open with the request. Just press send.';
+  const mailto='mailto:doych@doychzone.com?subject='+encodeURIComponent('Speaking Inquiry: '+d.get('organization'))+'&body='+encodeURIComponent(b);
+  const btn=f.querySelector('[type=submit]');btn.disabled=true;msg.textContent='Sending...';
+  fetch('/api/speaking-inquiry',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(r=>r.json().then(j=>({ok:r.ok&&j.ok,j})))
+    .then(({ok,j})=>{
+      if(ok){f.reset();msg.textContent='Thank you. Your request has been sent. We will get back to you within 2 working days.';}
+      else{msg.innerHTML='';msg.append((j&&j.error?j.error+' ':'Something went wrong. ')+'You can also ');const a=document.createElement('a');a.href=mailto;a.textContent='send it by email';msg.append(a,'.');}
+    })
+    .catch(()=>{msg.innerHTML='';msg.append('Something went wrong. You can also ');const a=document.createElement('a');a.href=mailto;a.textContent='send it by email';msg.append(a,'.');})
+    .finally(()=>{btn.disabled=false});
 });
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
