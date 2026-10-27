@@ -66,7 +66,7 @@ module.exports = async (req, res) => {
     const out = await r.json().catch(() => ({}));
     if (!r.ok) {
       console.error('Resend error', r.status, out && out.message);
-      return res.status(502).json({ ok: false, error: 'Could not send right now.', code: (out && out.name) || r.status });
+      return res.status(502).json({ ok: false, error: 'Could not send right now.'});
     }
     return res.status(200).json({ ok: true, id: out.id });
   } catch (e) {
