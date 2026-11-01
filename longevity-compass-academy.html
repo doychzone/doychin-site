@@ -67,10 +67,21 @@
   .card .ic{width:34px;height:34px;margin-bottom:12px;color:var(--terra)}
 
   .mods{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:10px}
-  .mods li{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+  .mods li{background:var(--card);border:1px solid var(--line);border-radius:14px;transition:.15s}
+  .mods li:hover{border-color:var(--terra-soft)}
+  .mods li:has(details[open]){box-shadow:var(--shadow);border-color:var(--terra-soft)}
+  .mods summary{display:flex;gap:16px;align-items:center;padding:14px 18px;cursor:pointer;list-style:none;border-radius:14px}
+  .mods summary::-webkit-details-marker{display:none}
   .mods .n{flex:0 0 auto;width:38px;height:38px;border-radius:50%;background:#fff;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;color:var(--terra)}
   .mods li.last .n{background:var(--terra);border-color:var(--terra);color:#fff}
-  .mods .t{font-weight:600;color:var(--ink);line-height:1.35}
+  .mods .t{font-weight:600;color:var(--ink);line-height:1.35;flex:1}
+  .mods .chev{flex:0 0 auto;width:9px;height:9px;border:solid var(--terra);border-width:0 2px 2px 0;transform:rotate(45deg);margin:0 6px 3px 0;transition:transform .2s}
+  .mods details[open] .chev{transform:rotate(-135deg);margin-bottom:-3px}
+  .mbody{padding:2px 22px 18px 72px}
+  .mbody p{margin:0 0 10px;font-size:15.5px;line-height:1.6;color:var(--ink-soft)}
+  .mbody p strong{color:var(--ink)}
+  .mbody p.exam{margin:0;font-size:14.5px;color:var(--terra)}
+  .mbody p.exam strong{color:var(--terra)}
 
   .facts{display:grid;gap:12px;margin:28px 0 0}
   .fact{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--terra);border-radius:12px;padding:16px 18px}
@@ -111,6 +122,7 @@
   .foot .sp{margin-left:auto}
 
   @media (max-width:640px){
+    .mbody{padding:2px 18px 16px 18px}
     .cards,.roles{grid-template-columns:1fr}
     .hero{padding:48px 0 30px}
     .price{padding:24px}
@@ -193,17 +205,89 @@
   <div class="wrap">
     <p class="eyebrow">What you do in the Academy</p>
     <h2>Nine modules, learned at your own pace.</h2>
-    <p>The course lives on Circle, in a members only space that is open at any time. You move through it at your own pace, and each module ends with an exam.</p>
+    <p>The course lives on Circle, in a members only space that is open at any time. You move through it at your own pace, and each module ends with an exam. Tap a module to see what happens in it and what the Coach and the Medic learn.</p>
     <ol class="mods">
-      <li><span class="n">1</span><span class="t">The Coach's Personal Practice</span></li>
-      <li><span class="n">2</span><span class="t">Making Sense Foundations</span></li>
-      <li><span class="n">3</span><span class="t">Priority Check</span></li>
-      <li><span class="n">4</span><span class="t">Longevity Compass and Measurement</span></li>
-      <li><span class="n">5</span><span class="t">Technology and Data</span></li>
-      <li><span class="n">6</span><span class="t">Session Structure</span></li>
-      <li><span class="n">7</span><span class="t">Communication, Care and Stagnation</span></li>
-      <li><span class="n">8</span><span class="t">Boundaries, Business and Renewal</span></li>
-      <li class="last"><span class="n">9</span><span class="t">Coach and Medic: One Client, One Team</span></li>
+      <li><details>
+        <summary><span class="n">1</span><span class="t">The Coach's Personal Practice</span><span class="chev" aria-hidden="true"></span></summary>
+        <div class="mbody">
+          <p>You begin with yourself. You take your own Priority Check, set your baseline and your goal, and experience the Compass as a client before you guide anyone else.</p>
+          <p><strong>The Coach learns</strong> how to build a personal practice you can honestly stand behind, because clients follow what you live.</p>
+          <p><strong>The Medic learns</strong> how to read their own baseline and goal with the same method clients will use, and how a Medic fits into the team from day one.</p>
+          <p class="exam"><strong>Exam:</strong> a client case solved by a Coach and Medic pair.</p>
+        </div>
+      </details></li>
+      <li><details>
+        <summary><span class="n">2</span><span class="t">Making Sense Foundations</span><span class="chev" aria-hidden="true"></span></summary>
+        <div class="mbody">
+          <p>This module lays the shared base of the method: sleep, movement, nutrition, stress, and relationships, with the science behind each one and simple ways to explain it.</p>
+          <p><strong>The Coach learns</strong> how to turn the science into plain words and small daily steps that a client can actually keep.</p>
+          <p><strong>The Medic learns</strong> the medical reasoning behind each of the five areas, and how to keep explanations accurate while staying simple.</p>
+          <p class="exam"><strong>Exam:</strong> a client case solved by a Coach and Medic pair.</p>
+        </div>
+      </details></li>
+      <li><details>
+        <summary><span class="n">3</span><span class="t">Priority Check</span><span class="chev" aria-hidden="true"></span></summary>
+        <div class="mbody">
+          <p>You learn the Priority Check as a step by step protocol: how to take a client through it, how to read the result, and how to guide the person to book the free discovery call.</p>
+          <p><strong>The Coach learns</strong> how to explain the colours and the Start here recommendation, and how to prepare the client so the next step feels natural.</p>
+          <p><strong>The Medic learns</strong> what each result can signal medically across heart, metabolic, brain, and cancer screening, and when a result calls for a closer medical look.</p>
+          <p class="exam"><strong>Exam:</strong> a client case solved by a Coach and Medic pair.</p>
+        </div>
+      </details></li>
+      <li><details>
+        <summary><span class="n">4</span><span class="t">Longevity Compass and Measurement</span><span class="chev" aria-hidden="true"></span></summary>
+        <div class="mbody">
+          <p>Here the Compass becomes concrete: a baseline for each client, the slow markers that change over time, and a clear way to show progress.</p>
+          <p><strong>The Coach learns</strong> how to explain what each measurement is for, why we do it, and what we will watch over time.</p>
+          <p><strong>The Medic learns</strong> how to prepare and explain the slow markers according to Doctor Toshkov's protocol, and how to work with cutting edge medical and testing equipment.</p>
+          <p class="exam"><strong>Exam:</strong> a client case solved by a Coach and Medic pair.</p>
+        </div>
+      </details></li>
+      <li><details>
+        <summary><span class="n">5</span><span class="t">Technology and Data</span><span class="chev" aria-hidden="true"></span></summary>
+        <div class="mbody">
+          <p>This module covers the tools around the client: wearables, lab results, and test data, and how to handle all of it with respect for privacy.</p>
+          <p><strong>The Coach learns</strong> how to bring wearable and test data into a conversation without overwhelming the client, and how to protect their privacy.</p>
+          <p><strong>The Medic learns</strong> how to work with cutting edge medical and testing equipment, how to interpret lab and test data, and how to handle it safely.</p>
+          <p class="exam"><strong>Exam:</strong> a client case solved by a Coach and Medic pair.</p>
+        </div>
+      </details></li>
+      <li><details>
+        <summary><span class="n">6</span><span class="t">Session Structure</span><span class="chev" aria-hidden="true"></span></summary>
+        <div class="mbody">
+          <p>You learn how a Compass session is built, from opening to closing, so that every meeting has a purpose and ends with a clear next step.</p>
+          <p><strong>The Coach learns</strong> how to open, guide, and close a session, and how to keep the client moving between sessions.</p>
+          <p><strong>The Medic learns</strong> how a medical contribution fits into a session, short, clear, and in the same language the Coach is using.</p>
+          <p class="exam"><strong>Exam:</strong> a client case solved by a Coach and Medic pair.</p>
+        </div>
+      </details></li>
+      <li><details>
+        <summary><span class="n">7</span><span class="t">Communication, Care and Stagnation</span><span class="chev" aria-hidden="true"></span></summary>
+        <div class="mbody">
+          <p>This module is about how we talk with clients, how we show care, and how we treat stagnation as an observation and not as a failure.</p>
+          <p><strong>The Coach learns</strong> how to explain a stall as useful information and keep the client motivated without blame.</p>
+          <p><strong>The Medic learns</strong> how to explain slow progress from the medical side, and how to tell when it is worth looking deeper, without alarming the client.</p>
+          <p class="exam"><strong>Exam:</strong> a client case solved by a Coach and Medic pair.</p>
+        </div>
+      </details></li>
+      <li><details>
+        <summary><span class="n">8</span><span class="t">Boundaries, Business and Renewal</span><span class="chev" aria-hidden="true"></span></summary>
+        <div class="mbody">
+          <p>You learn to work within a clear scope, to refer onward when needed, and to build a practice in which clients arrive through your personal Priority Screen link and renew at month six.</p>
+          <p><strong>The Coach learns</strong> how to set healthy boundaries, how to grow a practice around the Compass, and how to earn a renewal.</p>
+          <p><strong>The Medic learns</strong> the limits of the medical role, when and how to refer onward, and how to keep clients safe within the programme.</p>
+          <p class="exam"><strong>Exam:</strong> a client case solved by a Coach and Medic pair.</p>
+        </div>
+      </details></li>
+      <li class="last"><details>
+        <summary><span class="n">9</span><span class="t">Coach and Medic: One Client, One Team</span><span class="chev" aria-hidden="true"></span></summary>
+        <div class="mbody">
+          <p>The final module brings the two roles together on one client, from the first Priority Screen through measurement and plan to review, solved as a pair.</p>
+          <p><strong>The Coach learns</strong> how to lead the client relationship while working hand in hand with a Medic.</p>
+          <p><strong>The Medic learns</strong> how to bring cutting edge medical and testing equipment and clinical judgment into the shared case, while working as one team with the Coach.</p>
+          <p class="exam"><strong>Exam:</strong> a client case solved by a Coach and Medic pair.</p>
+        </div>
+      </details></li>
     </ol>
     <div class="facts">
       <div class="fact"><strong>An exam after every module</strong><span>A real or simulated client case, solved by a Coach and Medic pair. The pairs rotate, so you learn to work with different partners.</span></div>
@@ -258,7 +342,7 @@
     <h2>Simple and clear.</h2>
     <div class="price">
       <div class="amount">&euro;1,500</div>
-      <p class="kicker" style="margin-bottom:14px">One payment, or three instalments of &euro;500.</p>
+      <p class="kicker" style="margin-bottom:14px">(Instalment payment available)</p>
       <div><span class="pill">Nine modules</span><span class="pill">Exams after each module</span><span class="pill">Practice at DetoxCenter</span></div>
       <p style="margin-top:8px">Enrolment starts with a short conversation, so we can see together that the Academy fits you. Our opening day is Saturday 7 November 2026, 10:00, at DetoxCenter in Sofia.</p>
       <div class="scholar" id="scholarship">
