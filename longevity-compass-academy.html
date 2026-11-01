@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Longevity Compass Academy - Making Sense</title>
+<meta name="description" content="Longevity Compass Academy trains the Coaches and Medics who form the team behind the Longevity Compass. Nine modules, real client cases, and two certified paths.">
+<link rel="canonical" href="https://www.doychin.com/longevity-compass-academy">
+<meta property="og:title" content="Longevity Compass Academy">
+<meta property="og:description" content="Train as a Coach or a Medic and join the team behind the Longevity Compass.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.doychin.com/longevity-compass-academy">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241C17; --ink-soft:#5A4E44; --paper:#F2EDE4; --card:#FBF8F2;
+    --terra:#8B4A2B; --terra-soft:#B5714A; --line:#E2D8C8;
+    --sage:#5E7C6A; --amber:#C1872E; --brick:#A6432E;
+    --shadow:0 1px 2px rgba(36,28,23,.05),0 10px 30px rgba(36,28,23,.06);
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  .wide{max-width:1000px;margin:0 auto;padding:0 22px}
+  a{color:var(--terra)}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;line-height:1.12;margin:0}
+  p{margin:0 0 18px}
+  .eyebrow{font:700 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--terra);margin:0}
+
+  header{border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;gap:10px;padding:16px 0}
+  .umbrella{width:24px;height:24px;flex:0 0 auto}
+  .brandname{font-family:var(--serif);font-weight:600;font-size:18px;color:var(--ink);text-decoration:none}
+  .brandtag{margin-left:auto;font:700 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--terra-soft)}
+
+  .hero{padding:64px 0 40px;opacity:0;transform:translateY(10px);animation:rise .7s cubic-bezier(.2,.7,.2,1) .05s forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .hero h1{font-size:clamp(38px,7vw,64px);margin:14px 0 20px}
+  .hero .lead{font-size:clamp(19px,2.4vw,22px);color:var(--ink);max-width:34ch}
+  .timing{display:inline-block;margin:6px 0 30px;font-family:var(--serif);font-style:italic;font-size:19px;color:var(--terra);border-left:3px solid var(--terra);padding-left:14px}
+  .cta{display:inline-flex;align-items:center;gap:9px;background:var(--terra);color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:14px 26px;border-radius:999px;transition:.15s;box-shadow:var(--shadow)}
+  .cta:hover{background:#7a3f24;transform:translateY(-1px)}
+  .cta .arr{transition:.15s} .cta:hover .arr{transform:translateX(3px)}
+  .cta.ghost{background:transparent;color:var(--terra);border:1px solid var(--terra);box-shadow:none}
+  .cta.ghost:hover{background:rgba(139,74,43,.06)}
+  .ctarow{display:flex;flex-wrap:wrap;gap:12px}
+  .subcta{margin-top:14px;font-size:14px;color:var(--ink-soft)}
+
+  .section{padding:48px 0}
+  .section h2{font-size:clamp(26px,4vw,34px);margin:10px 0 18px}
+  .kicker{color:var(--ink-soft)}
+  .rule{height:1px;background:var(--line);border:0;margin:0}
+  .band{background:linear-gradient(180deg,#F6F1E8,#EFE8DC);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+  .pride{font-family:var(--serif);font-size:clamp(21px,3.2vw,28px);line-height:1.32;color:var(--ink);margin:0}
+  .pride em{color:var(--terra);font-style:italic}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+  .card h3{font-size:19px;margin-bottom:6px}
+  .card p{margin:0;font-size:15px;color:var(--ink-soft);line-height:1.55}
+  .card .ic{width:34px;height:34px;margin-bottom:12px;color:var(--terra)}
+
+  .mods{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:10px}
+  .mods li{display:flex;gap:16px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px}
+  .mods .n{flex:0 0 auto;width:38px;height:38px;border-radius:50%;background:#fff;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;color:var(--terra)}
+  .mods li.last .n{background:var(--terra);border-color:var(--terra);color:#fff}
+  .mods .t{font-weight:600;color:var(--ink);line-height:1.35}
+
+  .facts{display:grid;gap:12px;margin:28px 0 0}
+  .fact{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--terra);border-radius:12px;padding:16px 18px}
+  .fact strong{display:block;color:var(--ink);margin-bottom:2px}
+  .fact span{color:var(--ink-soft);font-size:15.5px}
+
+  .roles{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+  .role{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--shadow)}
+  .role p.eyebrow{margin:0 0 10px;font-size:12px;line-height:1;color:var(--terra)}
+  .role h3{font-size:24px;margin-bottom:10px}
+  .role p{font-size:15.5px;color:var(--ink-soft);margin-bottom:12px}
+  .role .cert{display:inline-block;font:700 12px/1 var(--sans);letter-spacing:.04em;color:var(--terra);background:rgba(139,74,43,.08);border:1px solid rgba(139,74,43,.18);padding:7px 12px;border-radius:999px}
+
+  .ticks{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:12px}
+  .ticks li{position:relative;padding:0 0 0 34px;color:var(--ink-soft)}
+  .ticks li strong{color:var(--ink)}
+  .ticks li::before{content:"";position:absolute;left:0;top:5px;width:18px;height:18px;border-radius:50%;background:var(--terra)}
+  .ticks li::after{content:"";position:absolute;left:6px;top:9px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) scale(.8);transform-origin:center}
+
+  .price{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:34px;box-shadow:var(--shadow)}
+  .amount{font-family:var(--serif);font-weight:600;font-size:clamp(44px,8vw,64px);line-height:1;color:var(--ink);margin:10px 0 6px}
+  .amount small{font-size:18px;font-weight:500;color:var(--ink-soft);font-family:var(--sans)}
+  .pill{display:inline-block;font:700 12px/1 var(--sans);letter-spacing:.04em;color:var(--terra);background:rgba(139,74,43,.08);border:1px solid rgba(139,74,43,.18);padding:7px 12px;border-radius:999px;margin:0 8px 8px 0}
+  .scholar{margin-top:22px;border:1px dashed var(--terra-soft);border-radius:16px;padding:22px 24px;background:rgba(139,74,43,.04)}
+  .scholar h3{font-size:20px;margin-bottom:8px}
+  .scholar p{color:var(--ink-soft);font-size:15.5px}
+
+  .closing{text-align:center;padding:56px 0 40px}
+  .closing .q{font-family:var(--serif);font-size:clamp(22px,3.4vw,30px);line-height:1.3;max-width:24ch;margin:0 auto 26px}
+  .closing .invite{color:var(--ink-soft);max-width:46ch;margin:0 auto 24px}
+  .closing .ctarow{justify-content:center}
+  .signoff{font-family:var(--serif);font-style:italic;color:var(--terra);font-size:18px;margin-top:34px}
+
+  footer{border-top:1px solid var(--line);background:#EFE8DC}
+  .foot{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;padding:26px 0;font-size:13px;color:var(--ink-soft)}
+  .foot .tag{font-family:var(--serif);font-style:italic;color:var(--terra-soft)}
+  .foot a{color:var(--ink-soft)}
+  .foot .sp{margin-left:auto}
+
+  @media (max-width:640px){
+    .cards,.roles{grid-template-columns:1fr}
+    .hero{padding:48px 0 30px}
+    .price{padding:24px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+  :focus-visible{outline:2px solid var(--terra);outline-offset:3px;border-radius:6px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wide bar">
+    <svg class="umbrella" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4v3M16 27a3 3 0 0 0 3-3" stroke="#8B4A2B" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M4 17c0-6.6 5.4-11 12-11s12 4.4 12 11c-2.4-1.8-4.2-1.8-6 0-1.8-1.8-4.2-1.8-6 0-1.8-1.8-4.2-1.8-6 0-1.8-1.8-3.6-1.8-6 0Z" fill="#8B4A2B"/></svg>
+    <a class="brandname" href="/priority-screen">Making Sense</a>
+    <span class="brandtag">Longevity Compass Academy</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Training for Coaches and Medics</p>
+    <h1>Longevity Compass Academy</h1>
+    <p class="lead">Become part of the team behind the Longevity Compass.</p>
+    <div class="timing">A Coach and a Medic. One client. One team.</div>
+    <div class="ctarow">
+      <a class="cta" href="/priority-screen">Step 1: take the Priority Screen <span class="arr">&rarr;</span></a>
+      <a class="cta ghost" href="#enquire">Request a conversation</a>
+    </div>
+    <p class="subcta">The Priority Screen is free and takes under 10 minutes.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap section">
+    <p class="pride">When a client sits down with you, they are not meeting a certificate. They are meeting a team with a method, a measured path, and a medical partner behind it. <em>That is what an Academy graduate carries into every conversation.</em></p>
+  </div>
+</section>
+
+<section class="section" id="compass">
+  <div class="wrap">
+    <p class="eyebrow">The Longevity Compass</p>
+    <h2>Science turned into steps, with a person beside you.</h2>
+    <p>The Longevity Compass is built on the Making Sense method. People today are flooded with information about health and longevity. What they lack is someone to help them decide what matters for them and what to do next. The Compass takes the science and the data and turns them into clear, practical steps, with a trained person alongside.</p>
+    <p>It focuses on four areas that shape how long and how well we live, the four horsemen of longevity.</p>
+    <div class="cards">
+      <div class="card"><h3>Heart</h3><p>Cardiovascular health, which builds quietly for years and rewards looking early.</p></div>
+      <div class="card"><h3>Metabolic</h3><p>How the body handles energy and blood sugar, the quiet driver behind the others.</p></div>
+      <div class="card"><h3>Brain</h3><p>Long term brain health, where the groundwork is laid decades before symptoms.</p></div>
+      <div class="card"><h3>Cancer</h3><p>Screening and family history, where timing changes everything.</p></div>
+    </div>
+    <p style="margin-top:28px">Every client starts with the <strong>Priority Screen</strong>, a free and private entry point that shows where to look first. From there, the Compass becomes a guided path of twelve months, with a Coach and a Medic working together: confirm with the right measurements, build a clear picture, choose a focused plan, then review, repeat, and choose the next priority.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="section" id="different">
+  <div class="wrap">
+    <p class="eyebrow">Why it is different</p>
+    <h2>One standard for everyone. One path for each person.</h2>
+    <div class="facts">
+      <div class="fact"><strong>Universal quality plus personalization</strong><span>Every client receives the same high standard of method and care, and a path shaped around their own situation.</span></div>
+      <div class="fact"><strong>Working backwards from the goal</strong><span>We begin with what the person wants to achieve, then work backwards to the measurements, habits, and decisions that lead there.</span></div>
+      <div class="fact"><strong>Measured progress</strong><span>We measure at the start and again along the way, so progress is seen and not guessed.</span></div>
+      <div class="fact"><strong>Stagnation is an observation</strong><span>When progress stalls, it is not a failure and nobody is blamed. It is information. We look at it, explain it, and adjust.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="who">
+  <div class="wrap section">
+    <p class="eyebrow">Who we are</p>
+    <h2>Coaching and medicine, under one roof.</h2>
+    <p>The Academy is led by <strong>Doychin Karshovski</strong>, who brings the behavior and coaching side through DoychZone and the Making Sense method. It is built in partnership with <strong>DetoxCenter in Sofia</strong> and <strong>Doctor Toshkov</strong> and his team, who bring medical depth.</p>
+    <p style="margin-bottom:0">Together they give the Longevity Compass something rare: holistic coaching that is backed by real medical knowledge, in a single method and a single service.</p>
+  </div>
+</section>
+
+<section class="section" id="academy">
+  <div class="wrap">
+    <p class="eyebrow">What you do in the Academy</p>
+    <h2>Nine modules, learned at your own pace.</h2>
+    <p>The course lives on Circle, in a members only space that is open at any time. You move through it at your own pace, and each module ends with an exam.</p>
+    <ol class="mods">
+      <li><span class="n">1</span><span class="t">The Coach's Personal Practice</span></li>
+      <li><span class="n">2</span><span class="t">Making Sense Foundations</span></li>
+      <li><span class="n">3</span><span class="t">Priority Check</span></li>
+      <li><span class="n">4</span><span class="t">Longevity Compass and Measurement</span></li>
+      <li><span class="n">5</span><span class="t">Technology and Data</span></li>
+      <li><span class="n">6</span><span class="t">Session Structure</span></li>
+      <li><span class="n">7</span><span class="t">Communication, Care and Stagnation</span></li>
+      <li><span class="n">8</span><span class="t">Boundaries, Business and Renewal</span></li>
+      <li class="last"><span class="n">9</span><span class="t">Coach and Medic: One Client, One Team</span></li>
+    </ol>
+    <div class="facts">
+      <div class="fact"><strong>An exam after every module</strong><span>A real or simulated client case, solved by a Coach and Medic pair. The pairs rotate, so you learn to work with different partners.</span></div>
+      <div class="fact"><strong>Practice at DetoxCenter</strong><span>Live practice sessions in Sofia, two to three times a year.</span></div>
+      <div class="fact"><strong>A final exam</strong><span>To finish, you show what you know and how you work with a client.</span></div>
+    </div>
+    <p class="subcta" style="margin-top:18px">The Academy is not for anyone looking for a quick certificate. It is for people ready to practice.</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section class="section" id="roles">
+  <div class="wrap">
+    <p class="eyebrow">Two roles</p>
+    <h2>Coach and Medic. Two roles, one team.</h2>
+    <div class="roles">
+      <div class="role">
+        <p class="eyebrow">Role</p>
+        <h3>Coach</h3>
+        <p>The Coach walks with the client week by week: explaining the measurements, building the plan, keeping momentum, and handling stagnation with care.</p>
+        <span class="cert">Coach certified</span>
+      </div>
+      <div class="role">
+        <p class="eyebrow">Role</p>
+        <h3>Medic</h3>
+        <p>The Medic stands for the medical side of the work and the protocol. A Medic does not need a medical degree. Medics are trained by Doctor Toshkov's team.</p>
+        <span class="cert">Medic certified</span>
+      </div>
+    </div>
+    <p style="margin-top:24px">Each role has its own certificate. The path is reciprocal: graduates of one role can grow into the other, so that Coaches understand the medical side and Medics understand coaching.</p>
+  </div>
+</section>
+
+<section class="band" id="perspective">
+  <div class="wrap section">
+    <p class="eyebrow">After the Academy</p>
+    <h2>What graduates can build.</h2>
+    <ul class="ticks">
+      <li><strong>Clients through your own link.</strong> People who take the Priority Screen through your personal link become your clients.</li>
+      <li><strong>A practice that sustains you.</strong> Work that brings financial stability, and the deep satisfaction of watching your clients make real progress.</li>
+      <li><strong>A monthly Compass licence</strong> to run the Longevity Compass in your own practice.</li>
+      <li><strong>A franchise path</strong> for our top graduates.</li>
+      <li><strong>A stage for your diploma.</strong> Diplomas are presented at the Live On! Summit, March 2027.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="price">
+  <div class="wrap">
+    <p class="eyebrow">Price and enrolment</p>
+    <h2>Simple and clear.</h2>
+    <div class="price">
+      <div class="amount">&euro;1,500</div>
+      <p class="kicker" style="margin-bottom:14px">One payment, or three instalments of &euro;500.</p>
+      <div><span class="pill">Nine modules</span><span class="pill">Exams after each module</span><span class="pill">Practice at DetoxCenter</span></div>
+      <p style="margin-top:8px">Enrolment starts with a short conversation, so we can see together that the Academy fits you. Our opening day is Saturday 7 November 2026, 10:00, at DetoxCenter in Sofia.</p>
+      <div class="scholar" id="scholarship">
+        <h3>Strong motivation, but not financially ready?</h3>
+        <p>Write us a personal letter. Tell us your story and how you will use what you learn, and we will see whether you meet the conditions for our scholarship.</p>
+        <a class="cta ghost" href="mailto:doych@doychzone.com?subject=Longevity%20Compass%20Academy%20scholarship">Write us a personal letter <span class="arr">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing" id="enquire">
+  <div class="wrap">
+    <p class="q">Start where every client starts.</p>
+    <p class="invite">Step 1 is the Priority Screen. Take it yourself first, as a client, and feel what your future clients will feel. When you are ready, let us talk.</p>
+    <div class="ctarow">
+      <a class="cta" href="/priority-screen">Take the Priority Screen <span class="arr">&rarr;</span></a>
+      <a class="cta ghost" href="https://calendar.app.google/tp9ysP2bgJPLLSc48" target="_blank" rel="noopener">Request a conversation</a>
+    </div>
+    <p class="subcta">Under 10 minutes. Or write to <a href="mailto:doych@doychzone.com?subject=Longevity%20Compass%20Academy">doych@doychzone.com</a>.</p>
+    <p class="signoff">A Coach and a Medic. One client. One team.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wide foot">
+    <span class="tag">Longevity Compass Academy</span>
+    <a href="/making-sense-privacy.html">Privacy</a>
+    <span>Educational, not a medical diagnosis.</span>
+    <span class="sp">&copy; Doychin Karshovski</span>
+  </div>
+</footer>
+
+</body>
+</html>
