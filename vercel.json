@@ -67,6 +67,11 @@
       ],
       "destination": "https://www.doychin.com/making-sense",
       "permanent": true
+    },
+    {
+      "source": "/academy",
+      "destination": "/longevity-compass-academy",
+      "permanent": true
     }
   ],
   "headers": [
