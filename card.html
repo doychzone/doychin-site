@@ -38,7 +38,8 @@ h2{font-family:var(--display);font-weight:400;font-size:30px;line-height:1.05;te
 form{display:grid;gap:14px}
 label{display:grid;gap:6px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--graphite)}
 label em{font-style:normal;color:var(--ember)}
-input,textarea{font:inherit;font-size:17px;color:var(--ink);background:#FCFAF4;border:1px solid var(--line);border-radius:2px;padding:14px;width:100%;letter-spacing:0;text-transform:none}
+.lbl{display:block}
+input,textarea{font-family:var(--body);font-size:17px;color:var(--ink);background:#FCFAF4;border:1px solid var(--line);border-radius:2px;padding:14px;width:100%;letter-spacing:0;text-transform:none}
 textarea{min-height:110px;resize:vertical}
 input:focus,textarea:focus{outline:2px solid var(--ember);outline-offset:1px;border-color:var(--ember)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
@@ -82,7 +83,7 @@ footer{margin-top:44px;text-align:center;color:var(--muted)}
     <h2 id="leave">Leave me your details</h2>
     <p class="lead">So I can reach you after tonight.</p>
     <form id="cardForm" novalidate>
-      <label>Name <em>(required)</em><input name="name" required autocomplete="name" maxlength="200"></label>
+      <label><span class="lbl">Name <em>(required)</em></span><input name="name" required autocomplete="name" maxlength="200"></label>
       <label>Email<input name="email" type="email" autocomplete="email" inputmode="email" maxlength="200"></label>
       <label>Phone<input name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="60"></label>
       <label>Note<textarea name="note" maxlength="3000" placeholder="Where we met, what you are into"></textarea></label>
