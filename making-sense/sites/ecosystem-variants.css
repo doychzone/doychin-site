@@ -1,0 +1,271 @@
+/* Preview variants for the Where Making Sense lives section.
+   Prefixed with ms-eco-. Set data-current on .ms-eco to
+   doychin | doychzone | moytu | theagegames.
+   Not used on the live hub until a variant is chosen. */
+
+.eco-preview-bar{
+  background:#efede4;
+  color:#141714;
+  border-bottom:1px solid #dad7cc;
+  font-family:'Instrument Sans',system-ui,sans-serif;
+  font-size:14px;
+  line-height:1.4;
+}
+.eco-preview-bar-inner{
+  width:min(100% - 56px,1160px);
+  margin-inline:auto;
+  padding:10px 0;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px 24px;
+}
+.eco-preview-bar p{margin:0;color:#3c403c}
+.eco-preview-bar nav{display:flex;flex-wrap:wrap;gap:8px}
+.eco-preview-bar a{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;
+  font-size:11px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:#123f5c;
+  border:1px solid #123f5c;
+  padding:6px 10px;
+}
+.eco-preview-bar a:hover{background:#123f5c;color:#fff}
+.eco-preview-bar a[aria-current="page"]{background:#123f5c;color:#fff}
+@media(max-width:700px){
+  .eco-preview-bar-inner{width:min(100% - 36px,1160px)}
+}
+
+.ms-eco{
+  --ms-eco-ember:#b0551f;
+  --ms-eco-bone:#efede4;
+  --ms-eco-ink:#141714;
+  --ms-eco-card:#1b1e1b;
+  --ms-eco-line:#2e332e;
+  --ms-eco-muted:#d8d5cc;
+  --ms-eco-here-blue:#1a5fbf;
+  --ms-eco-serif:'Libre Baskerville',Georgia,'Times New Roman',serif;
+  --ms-eco-sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --ms-eco-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  box-sizing:border-box;
+  color:var(--ms-eco-bone);
+  font-family:var(--ms-eco-sans);
+  line-height:1.5;
+}
+.ms-eco *,.ms-eco *::before,.ms-eco *::after{box-sizing:border-box}
+.ms-eco-intro{margin:0 0 28px;max-width:740px}
+.ms-eco-kicker{font-family:var(--ms-eco-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ms-eco-ember);margin:0 0 12px}
+.ms-eco-heading{font-family:var(--ms-eco-serif);font-weight:400;font-size:clamp(28px,3.4vw,40px);line-height:1.15;color:var(--ms-eco-bone);margin:0 0 12px}
+.ms-eco-line{margin:0;font-size:clamp(17px,1.85vw,20px);line-height:1.5;color:var(--ms-eco-muted)}
+
+/* Destination cards: compact, separate places, not a glued grid */
+.ms-eco-card{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  width:100%;
+  max-width:320px;
+  text-decoration:none;
+  color:inherit;
+  background:var(--ms-eco-card);
+  border:1px solid var(--ms-eco-line);
+  box-shadow:0 10px 28px rgba(0,0,0,.28);
+  transition:border-color .15s,transform .15s,box-shadow .15s;
+  z-index:1;
+}
+.ms-eco-card:hover,.ms-eco-card:focus-visible{
+  border-color:var(--ms-eco-ember);
+  transform:translateY(-2px);
+  box-shadow:0 14px 32px rgba(0,0,0,.38);
+}
+.ms-eco-card picture{display:block;width:100%;background:#111}
+.ms-eco-card img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top center;background:#111}
+.ms-eco-body{padding:14px 16px 16px}
+.ms-eco-name{font-family:var(--ms-eco-mono);font-size:12px;letter-spacing:.08em;color:var(--ms-eco-ember);margin:0 0 6px}
+.ms-eco-body p{margin:0;font-size:14px;line-height:1.45;color:var(--ms-eco-muted)}
+
+/* You are here: white and blue speech bubble, outside the screenshot */
+.ms-eco-here{
+  display:none;
+  position:absolute;
+  left:10px;
+  bottom:calc(100% + 10px);
+  z-index:3;
+  align-items:center;
+  gap:7px;
+  background:#fff;
+  color:var(--ms-eco-here-blue);
+  border:2px solid var(--ms-eco-here-blue);
+  font-family:var(--ms-eco-mono);
+  font-size:11px;
+  letter-spacing:.04em;
+  line-height:1;
+  padding:8px 12px 8px 10px;
+  border-radius:18px;
+  box-shadow:0 6px 20px rgba(0,0,0,.35);
+  white-space:nowrap;
+  pointer-events:none;
+}
+.ms-eco-here svg{width:14px;height:14px;flex:0 0 auto;display:block}
+.ms-eco-here::after,
+.ms-eco-here::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  top:100%;
+  width:0;
+  height:0;
+  border:8px solid transparent;
+}
+.ms-eco-here::before{
+  border-top-color:var(--ms-eco-here-blue);
+  margin-top:0;
+  left:20px;
+  border-width:9px;
+}
+.ms-eco-here::after{
+  border-top-color:#fff;
+  margin-top:-2px;
+}
+.ms-eco[data-current="doychin"] .ms-eco-card[data-site="doychin"] .ms-eco-here,
+.ms-eco[data-current="doychzone"] .ms-eco-card[data-site="doychzone"] .ms-eco-here,
+.ms-eco[data-current="moytu"] .ms-eco-card[data-site="moytu"] .ms-eco-here,
+.ms-eco[data-current="theagegames"] .ms-eco-card[data-site="theagegames"] .ms-eco-here{
+  display:inline-flex;
+}
+
+.ms-eco-origin{
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  text-align:center;
+  color:var(--ms-eco-bone);
+  pointer-events:none;
+}
+.ms-eco-origin-mark{
+  width:86px;
+  height:86px;
+  border:1px solid rgba(176,85,31,.55);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at 50% 50%,rgba(176,85,31,.16),rgba(20,23,20,.9) 70%);
+  box-shadow:0 0 0 10px rgba(176,85,31,.06),0 0 0 20px rgba(176,85,31,.04);
+}
+.ms-eco-origin-mark svg{width:64px;height:28px;overflow:visible;color:var(--ms-eco-ember)}
+.ms-eco-origin-name{font-family:var(--ms-eco-serif);font-size:22px;line-height:1.2;color:var(--ms-eco-bone)}
+
+.ms-eco-stage{position:relative;z-index:0}
+.ms-eco-paths{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0;
+  overflow:visible;
+}
+
+/* Variant A: Map */
+.ms-eco-stage--map{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(180px,0.72fr) minmax(0,1fr);
+  grid-template-rows:auto auto auto;
+  gap:72px 80px;
+  align-items:center;
+  justify-items:center;
+  padding:64px 12px 36px;
+  min-height:620px;
+  background-color:transparent;
+  background-image:
+    radial-gradient(circle at 50% 50%,transparent 70px,rgba(239,237,228,.07) 71px,rgba(239,237,228,.07) 72px,transparent 73px),
+    radial-gradient(circle at 50% 50%,transparent 130px,rgba(239,237,228,.05) 131px,rgba(239,237,228,.05) 132px,transparent 133px),
+    radial-gradient(circle at 50% 50%,transparent 190px,rgba(239,237,228,.04) 191px,rgba(239,237,228,.04) 192px,transparent 193px),
+    linear-gradient(rgba(239,237,228,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(239,237,228,.045) 1px,transparent 1px);
+  background-size:auto,auto,auto,28px 28px,28px 28px;
+  background-position:center center;
+  outline:1px solid rgba(239,237,228,.08);
+  outline-offset:0;
+}
+.ms-eco-stage--map .ms-eco-card[data-site="doychin"]{grid-area:1/1;justify-self:start;margin-top:8px}
+.ms-eco-stage--map .ms-eco-card[data-site="doychzone"]{grid-area:1/3;justify-self:end;margin-top:36px}
+.ms-eco-stage--map .ms-eco-origin{grid-area:2/2}
+.ms-eco-stage--map .ms-eco-card[data-site="moytu"]{grid-area:3/1;justify-self:start;margin-bottom:20px}
+.ms-eco-stage--map .ms-eco-card[data-site="theagegames"]{grid-area:3/3;justify-self:end;margin-top:8px}
+
+/* Variant B: Tree */
+.ms-eco-stage--tree{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-template-rows:auto 170px auto;
+  column-gap:36px;
+  row-gap:0;
+  align-items:stretch;
+  justify-items:center;
+  padding:20px 0 12px;
+}
+.ms-eco-stage--tree .ms-eco-origin{grid-column:1/-1;grid-row:1}
+.ms-eco-stage--tree .ms-eco-fork{grid-column:1/-1;grid-row:2;width:100%;height:170px}
+.ms-eco-stage--tree .ms-eco-card{grid-row:3;max-width:none;height:100%}
+.ms-eco-stage--tree .ms-eco-origin-mark{box-shadow:none;border-color:rgba(176,85,31,.7)}
+
+@media(max-width:940px){
+  .ms-eco-stage--map{
+    gap:52px 36px;
+    padding:56px 8px 28px;
+    min-height:0;
+  }
+  .ms-eco-card{max-width:280px}
+  .ms-eco-stage--tree{column-gap:16px;grid-template-rows:auto 140px auto}
+  .ms-eco-stage--tree .ms-eco-fork{height:140px}
+  .ms-eco-body p{font-size:13px}
+}
+
+/* Mobile: vertical path / trunk, destinations stacked with air between them */
+@media(max-width:700px){
+  .ms-eco-intro{margin-bottom:22px}
+  .ms-eco-heading{font-size:28px}
+  .ms-eco-card{max-width:none}
+  .ms-eco-here{left:8px}
+
+  .ms-eco-stage--map,
+  .ms-eco-stage--tree{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:64px;
+    padding:16px 0 16px 32px;
+    min-height:0;
+    background-size:auto,auto,auto,28px 28px,28px 28px;
+    outline:0;
+  }
+  .ms-eco-stage--map .ms-eco-card,
+  .ms-eco-stage--tree .ms-eco-card{
+    grid-area:auto;
+    justify-self:stretch;
+    margin:0;
+    width:100%;
+  }
+  .ms-eco-stage--map .ms-eco-origin,
+  .ms-eco-stage--tree .ms-eco-origin{
+    align-self:center;
+    margin:0 0 8px -32px;
+    width:calc(100% + 32px);
+  }
+  .ms-eco-stage--tree .ms-eco-fork{display:none}
+  .ms-eco-stage--map{
+    background-image:
+      linear-gradient(rgba(239,237,228,.045) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(239,237,228,.045) 1px,transparent 1px);
+    background-size:28px 28px,28px 28px;
+  }
+}
