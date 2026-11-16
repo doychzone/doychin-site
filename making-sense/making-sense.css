@@ -168,3 +168,29 @@ a.nav-btn:hover,.nav-links a.nav-btn:hover{background:var(--ember-deep,#8f4316);
   .ecosystem-grid{grid-template-columns:1fr}
   .ecosystem-grid .issue-card h2{font-size:28px}
 }
+
+/* Philosophy lead line and the three site cards */
+.philosophy h1{margin:0 0 16px}
+.philosophy-lead{font-family:var(--serif);font-size:clamp(22px,2.55vw,30px);line-height:1.35;color:#fff;max-width:760px;margin:0 0 28px}
+.philosophy-sites{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:32px 0 36px;max-width:100%}
+.site-card{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#1b1e1b;border:1px solid var(--line-dark);overflow:hidden;transition:border-color .15s,background .15s}
+.site-card:hover,.site-card:focus-visible{border-color:var(--ember);background:#222622}
+.site-card picture{display:block;width:100%;background:#111}
+.site-card img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top center;background:#111}
+.site-card-body{padding:16px 16px 18px}
+.site-card-name{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ember);margin:0 0 8px}
+.site-card p{margin:0;font-size:15px;line-height:1.45;color:#d8d5cc}
+@media(max-width:940px){
+  .philosophy-sites{grid-template-columns:1fr;gap:14px;margin:28px 0 32px}
+  .site-card{flex-direction:row;align-items:stretch}
+  .site-card picture{flex:0 0 42%;max-width:42%}
+  .site-card img{height:100%;aspect-ratio:auto}
+  .site-card-body{padding:16px 16px;display:flex;flex-direction:column;justify-content:center}
+}
+@media(max-width:700px){
+  .philosophy-lead{margin-bottom:22px}
+  .philosophy-sites{grid-template-columns:1fr}
+  .site-card{flex-direction:column}
+  .site-card picture{flex:none;max-width:none}
+  .site-card img{aspect-ratio:16/10;height:auto}
+}
