@@ -1,0 +1,71 @@
+<!--
+  Making Sense ecosystem grid. Self contained, reusable across the family of sites.
+
+  How to use on another site (doychzone.com, moytu.com, theagegames.com):
+  1. Copy this markup plus ecosystem-snippet.css and ecosystem-snippet.js.
+     After these files are live you can also link them from
+     https://www.doychin.com/making-sense/sites/ instead of copying.
+  2. Set data-current on the .ms-eco element to the site you are on:
+       doychin | doychzone | moytu | theagegames
+  3. The current card gets a You are here badge and an orange border, and
+     the script points it to / in the same tab. The other three cards stay
+     links that open in a new tab.
+
+  Image URLs are absolute so the screenshots can load from any host.
+  Do not change this file's classes without updating the CSS.
+-->
+<link rel="stylesheet" href="ecosystem-snippet.css">
+<section class="ms-eco" data-current="doychin">
+  <div class="ms-eco-intro">
+    <div class="ms-eco-kicker">Built on Making Sense</div>
+    <h2 class="ms-eco-heading">Where Making Sense lives</h2>
+    <p class="ms-eco-line">Everything I build is woven from the same fabric. Each place applies it to a different part of life.</p>
+  </div>
+  <div class="ms-eco-grid">
+    <a class="ms-eco-card" data-site="doychin" href="/">
+      <span class="ms-eco-here">You are here</span>
+      <picture>
+        <source type="image/webp" srcset="https://www.doychin.com/making-sense/sites/doychin-com.webp">
+        <img src="https://www.doychin.com/making-sense/sites/doychin-com.jpg" alt="Homepage of doychin.com" width="960" height="600">
+      </picture>
+      <div class="ms-eco-body">
+        <div class="ms-eco-name">doychin.com</div>
+        <p>Personal work with individuals: coaching, Temeli, speaking and the Making Sense Newsletter.</p>
+      </div>
+    </a>
+    <a class="ms-eco-card" data-site="doychzone" href="https://www.doychzone.com/" target="_blank" rel="noopener">
+      <span class="ms-eco-here">You are here</span>
+      <picture>
+        <source type="image/webp" srcset="https://www.doychin.com/making-sense/sites/doychzone-com.webp">
+        <img src="https://www.doychin.com/making-sense/sites/doychzone-com.jpg" alt="Homepage of doychzone.com" width="960" height="600">
+      </picture>
+      <div class="ms-eco-body">
+        <div class="ms-eco-name">doychzone.com</div>
+        <p>Organizations: Corporate Programs and SenseMost™.</p>
+      </div>
+    </a>
+    <a class="ms-eco-card" data-site="moytu" href="https://www.moytu.com/" target="_blank" rel="noopener">
+      <span class="ms-eco-here">You are here</span>
+      <picture>
+        <source type="image/webp" srcset="https://www.doychin.com/making-sense/sites/moytu-com.webp">
+        <img src="https://www.doychin.com/making-sense/sites/moytu-com.jpg" alt="Homepage of moytu.com" width="960" height="600">
+      </picture>
+      <div class="ms-eco-body">
+        <div class="ms-eco-name">moytu.com</div>
+        <p>Technology that helps people turn good intentions into consistent action.</p>
+      </div>
+    </a>
+    <a class="ms-eco-card" data-site="theagegames" href="https://theagegames.com" target="_blank" rel="noopener">
+      <span class="ms-eco-here">You are here</span>
+      <picture>
+        <source type="image/webp" srcset="https://www.doychin.com/making-sense/sites/theagegames-com.webp">
+        <img src="https://www.doychin.com/making-sense/sites/theagegames-com.jpg" alt="Homepage of theagegames.com" width="960" height="600">
+      </picture>
+      <div class="ms-eco-body">
+        <div class="ms-eco-name">theagegames.com</div>
+        <p>Fitness games for 35+. Powered by Making Sense and partners.</p>
+      </div>
+    </a>
+  </div>
+</section>
+<script src="ecosystem-snippet.js"></script>

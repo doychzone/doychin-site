@@ -1,0 +1,61 @@
+/* Making Sense ecosystem grid. Prefixed with ms-eco- so it can be dropped onto other sites.
+   Set data-current on .ms-eco to one of: doychin, doychzone, moytu, theagegames. */
+
+.ms-eco{
+  --ms-eco-ember:#b0551f;
+  --ms-eco-ember-deep:#8e441a;
+  --ms-eco-bone:#efede4;
+  --ms-eco-ink:#141714;
+  --ms-eco-card:#1b1e1b;
+  --ms-eco-line:#2e332e;
+  --ms-eco-muted:#d8d5cc;
+  --ms-eco-serif:'Libre Baskerville',Georgia,'Times New Roman',serif;
+  --ms-eco-sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --ms-eco-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  box-sizing:border-box;
+  color:var(--ms-eco-bone);
+  font-family:var(--ms-eco-sans);
+  line-height:1.5;
+}
+.ms-eco *,.ms-eco *::before,.ms-eco *::after{box-sizing:border-box}
+.ms-eco-intro{margin:0 0 22px;max-width:740px}
+.ms-eco-kicker{font-family:var(--ms-eco-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ms-eco-ember);margin:0 0 12px}
+.ms-eco-heading{font-family:var(--ms-eco-serif);font-weight:400;font-size:clamp(28px,3.4vw,40px);line-height:1.15;color:var(--ms-eco-bone);margin:0 0 12px}
+.ms-eco-line{margin:0;font-size:clamp(17px,1.85vw,20px);line-height:1.5;color:var(--ms-eco-muted)}
+.ms-eco-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:0;max-width:100%}
+.ms-eco-card{position:relative;display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--ms-eco-card);border:1px solid var(--ms-eco-line);overflow:hidden;transition:border-color .15s,background .15s,box-shadow .15s}
+.ms-eco-card:hover,.ms-eco-card:focus-visible{border-color:var(--ms-eco-ember);background:#222622}
+.ms-eco-card picture{position:relative;display:block;width:100%;background:#111}
+.ms-eco-card img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top center;background:#111}
+.ms-eco-body{padding:16px 16px 18px}
+.ms-eco-name{font-family:var(--ms-eco-mono);font-size:12px;letter-spacing:.08em;color:var(--ms-eco-ember);margin:0 0 8px}
+.ms-eco-body p{margin:0;font-size:15px;line-height:1.45;color:var(--ms-eco-muted)}
+.ms-eco-here{display:none;position:absolute;top:10px;left:10px;z-index:2;background:var(--ms-eco-ember);color:#fff;font-family:var(--ms-eco-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;border-radius:999px;line-height:1;pointer-events:none;box-shadow:0 1px 4px rgba(0,0,0,.35)}
+.ms-eco[data-current="doychin"] .ms-eco-card[data-site="doychin"],
+.ms-eco[data-current="doychzone"] .ms-eco-card[data-site="doychzone"],
+.ms-eco[data-current="moytu"] .ms-eco-card[data-site="moytu"],
+.ms-eco[data-current="theagegames"] .ms-eco-card[data-site="theagegames"]{
+  border-color:var(--ms-eco-ember);
+  box-shadow:0 0 0 1px var(--ms-eco-ember);
+}
+.ms-eco[data-current="doychin"] .ms-eco-card[data-site="doychin"] .ms-eco-here,
+.ms-eco[data-current="doychzone"] .ms-eco-card[data-site="doychzone"] .ms-eco-here,
+.ms-eco[data-current="moytu"] .ms-eco-card[data-site="moytu"] .ms-eco-here,
+.ms-eco[data-current="theagegames"] .ms-eco-card[data-site="theagegames"] .ms-eco-here{
+  display:inline-flex;
+  align-items:center;
+}
+@media(max-width:940px){
+  .ms-eco-intro{margin-bottom:18px}
+  .ms-eco-grid{grid-template-columns:1fr;gap:14px}
+  .ms-eco-card{flex-direction:row;align-items:stretch}
+  .ms-eco-card picture{flex:0 0 42%;max-width:42%}
+  .ms-eco-card img{height:100%;aspect-ratio:auto}
+  .ms-eco-body{padding:16px;display:flex;flex-direction:column;justify-content:center}
+}
+@media(max-width:700px){
+  .ms-eco-heading{font-size:28px}
+  .ms-eco-card{flex-direction:column}
+  .ms-eco-card picture{flex:none;max-width:none}
+  .ms-eco-card img{aspect-ratio:16/10;height:auto}
+}
