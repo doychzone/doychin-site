@@ -224,3 +224,18 @@ a.nav-btn:hover,.nav-links a.nav-btn:hover{background:var(--ember-deep,#8f4316);
   .issue-row{flex-wrap:wrap;gap:4px 16px;padding:13px 0}
   .issue-row-date{white-space:normal}
 }
+
+/* Four site cards in a 2 by 2 grid, with a short intro above them */
+.sites-intro{margin:40px 0 22px;max-width:740px}
+.sites-intro .kicker{color:var(--ember);margin-bottom:12px}
+.sites-intro h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.4vw,40px);line-height:1.15;color:var(--bone);margin:0 0 12px}
+.sites-intro p{margin:0;font-size:clamp(17px,1.85vw,20px);line-height:1.5;color:#d8d5cc}
+.philosophy-sites{grid-template-columns:1fr 1fr}
+.ecosystem-grid{grid-template-columns:1fr 1fr}
+@media(max-width:940px){
+  .sites-intro{margin:32px 0 18px}
+  .philosophy-sites{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+  .sites-intro h2{font-size:28px}
+}
