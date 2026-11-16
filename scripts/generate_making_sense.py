@@ -138,14 +138,16 @@ def render_article(spec: dict, image_name: str, body_html: str) -> str:
 
 
 def render_featured(spec: dict) -> str:
-    return f'''<a class="featured-hero" href="/making-sense/{esc(spec['slug'])}" style="background-image:linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.16)),url('/making-sense/{esc(spec['slug'])}/{esc(spec['image_filename'])}')">
-  <div class="hero-copy hero-inner">
-    <div class="kicker">Latest · {esc(short_date(spec['publication_date']))}</div>
-    <h1>{esc(spec['title'])}</h1>
-    <p class="dek">{esc(spec['subtitle'])}</p>
-    <div class="meta"><span>{esc(spec['read_time'])} →</span></div>
-  </div>
-</a>'''
+    image_src = f"/making-sense/{esc(spec['slug'])}/{esc(spec['image_filename'])}"
+    return f'''<a class="featured-issue" href="/making-sense/{esc(spec['slug'])}">
+      <img src="{image_src}" alt="{esc(spec['image_alt'])}">
+      <div class="featured-issue-copy">
+        <div class="kicker">Latest · {esc(short_date(spec['publication_date']))}</div>
+        <h2>{esc(spec['title'])}</h2>
+        <p>{esc(spec['subtitle'])}</p>
+        <div class="read">{esc(spec['read_time'])} →</div>
+      </div>
+    </a>'''
 
 
 def archive_card_from_featured(featured: str) -> str:
@@ -157,17 +159,27 @@ def archive_card_from_featured(featured: str) -> str:
     kicker = extract(r'<div class="kicker">(.*?)</div>')
     kicker = re.sub(r"^Latest(?: issue)?\s*·\s*", "", kicker)
     kicker = re.sub(r"^Issue (?:Zero|\d+)\s*·\s*", "", kicker)
-    title = extract(r"<h1>(.*?)</h1>")
-    dek = extract(r'<p class="dek">(.*?)</p>')
-    read_time = extract(r'<div class="meta"><span>(.*?)</span>')
+    title = extract(r"<h2>(.*?)</h2>")
+    dek = extract(r'<div class="featured-issue-copy">.*?<p>(.*?)</p>')
+    read_time = extract(r'<div class="read">(.*?)</div>')
+    image_src = extract(r'<img[^>]+src="([^"]+)"')
+    image_alt = extract(r'<img[^>]+alt="([^"]*)"', default="")
     if not all((href, kicker, title, dek, read_time)):
         fail("Could not read the current featured issue from making-sense/index.html")
-    return f'      <a class="issue-card" href="{href}"><div class="issue-num">{kicker}</div><h2>{title}</h2><p>{dek}</p><div class="read">{read_time}</div></a>'
+    if image_src:
+        media = f'<img class="issue-card-image" src="{image_src}" alt="{image_alt}">'
+    else:
+        media = '<div class="issue-card-image text-only" aria-hidden="true"></div>'
+    return (
+        f'      <a class="issue-card" href="{href}">{media}'
+        f'<div class="issue-card-body"><div class="issue-num">{kicker}</div>'
+        f'<h2>{title}</h2><p>{dek}</p><div class="read">{read_time}</div></div></a>'
+    )
 
 
 def update_hub(hub_path: Path, spec: dict) -> None:
     hub = hub_path.read_text(encoding="utf-8")
-    match = re.search(r'<a class="featured-hero".*?</a>', hub, flags=re.DOTALL)
+    match = re.search(r'<a class="featured-issue".*?</a>', hub, flags=re.DOTALL)
     if not match:
         fail("Current featured issue was not found in making-sense/index.html")
     old_featured = match.group(0)

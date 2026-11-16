@@ -121,3 +121,50 @@ a.nav-btn:hover,.nav-links a.nav-btn:hover{background:var(--ember-deep,#8f4316);
 .nav-ms .ms-u{position:relative;display:inline-block;width:.9em;height:1em;align-self:center;margin-left:-.12em}
 .nav-ms .ms-u svg{position:absolute;width:9em;height:4em;left:50%;top:-1.7em;transform:translateX(-50%);overflow:visible}
 @media(max-width:940px){.nav-ms{margin:0 10px}}
+
+/* Hub: philosophy first, then newsletter, featured issue, and image cards */
+.philosophy{background:#141714;color:var(--bone);padding:88px 0 80px;border-bottom:1px solid var(--line-dark)}
+.philosophy .kicker{color:var(--ember);margin-bottom:18px}
+.philosophy h1{font-family:var(--serif);font-weight:400;font-size:clamp(52px,8.4vw,100px);line-height:.96;color:var(--bone);margin:0 0 28px}
+.philosophy > .wrap > p{font-size:clamp(18px,2.05vw,22px);line-height:1.55;color:#d8d5cc;max-width:720px;margin:0 0 18px}
+.philosophy > .wrap > p:last-of-type{margin-bottom:0}
+.philosophy-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
+.philosophy-pillars article{border-top:1px solid var(--ember);padding-top:16px}
+.philosophy-pillars .issue-num{color:#c4b4a6;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.philosophy-pillars h2{font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.2vw,28px);line-height:1.2;color:var(--bone);margin:12px 0 12px}
+.philosophy-pillars p{color:#c9c6bc;margin:0;font-size:16px;line-height:1.55}
+.newsletter-intro{margin:0 0 18px;color:var(--graphite)}
+.featured-issue{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:0;align-items:stretch;text-decoration:none;color:inherit;background:var(--ink);border:1px solid var(--line-dark);overflow:hidden}
+.featured-issue img{display:block;width:100%;height:100%;min-height:420px;max-height:560px;object-fit:cover;background:#1b1b1b}
+.featured-issue-copy{padding:42px 40px;display:flex;flex-direction:column;justify-content:center;color:var(--bone)}
+.featured-issue-copy .kicker{color:#f2d5c2;margin-bottom:14px}
+.featured-issue-copy h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4vw,52px);line-height:1.12;color:#fff;margin:0 0 16px;text-decoration:underline;text-decoration-color:var(--ember);text-decoration-thickness:2px;text-underline-offset:.16em}
+.featured-issue-copy p{font-family:var(--serif);font-size:clamp(18px,2vw,24px);line-height:1.4;color:#f4f1eb;margin:0}
+.featured-issue-copy .read{color:#c9c6bc;margin-top:22px}
+.featured-issue:hover{background:#1b1e1b}
+.issue-grid .issue-card{min-height:0;padding:0;background:var(--paper)}
+.issue-card-image{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;background:#1b1b1b}
+.issue-card-image.text-only{background:#365f73}
+.issue-card-body{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1 1 auto}
+.issue-grid .issue-card h2{margin:14px 0 12px;font-size:26px}
+.issue-grid .issue-card .read{margin-top:auto;padding-top:20px}
+.ecosystem-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.ecosystem-grid .issue-card{min-height:0;padding:0}
+.ecosystem-grid .issue-card-body{padding:30px 28px}
+.ecosystem-grid .issue-card h2{margin:18px 0 16px;font-size:31px}
+@media(max-width:940px){
+  .philosophy{padding:68px 0 60px}
+  .philosophy-pillars{grid-template-columns:1fr;gap:26px;margin-top:40px}
+  .featured-issue{grid-template-columns:1fr}
+  .featured-issue img{min-height:0;max-height:none;height:auto;aspect-ratio:16/9}
+  .featured-issue-copy{padding:28px 24px 32px}
+  .ecosystem-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .philosophy{padding:56px 0 48px}
+  .philosophy h1{margin-bottom:22px}
+  .featured-issue-copy h2{font-size:32px}
+  .issue-grid .issue-card h2{font-size:26px}
+  .ecosystem-grid{grid-template-columns:1fr}
+  .ecosystem-grid .issue-card h2{font-size:28px}
+}

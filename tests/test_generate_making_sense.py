@@ -7,11 +7,12 @@ from scripts.generate_making_sense import generate, load_spec
 
 
 HUB = '''<!doctype html><html><body>
-<a class="featured-hero" href="/making-sense/old-issue">
-  <div class="hero-copy hero-inner">
+<a class="featured-issue" href="/making-sense/old-issue">
+  <img src="/making-sense/old-issue/hero.jpg" alt="Old hero">
+  <div class="featured-issue-copy">
     <div class="kicker">Latest · September 23, 2026</div>
-    <h1>Old Issue</h1><p class="dek">Old subtitle.</p>
-    <div class="meta"><span>About a 4 minute read →</span></div>
+    <h2>Old Issue</h2><p>Old subtitle.</p>
+    <div class="read">About a 4 minute read →</div>
   </div>
 </a>
 <div class="section-label" id="archive-label">Previous articles</div>
