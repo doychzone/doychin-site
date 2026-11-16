@@ -239,3 +239,6 @@ a.nav-btn:hover,.nav-links a.nav-btn:hover{background:var(--ember-deep,#8f4316);
 @media(max-width:700px){
   .sites-intro h2{font-size:28px}
 }
+@media(max-width:700px){
+  .ecosystem-grid{grid-template-columns:1fr}
+}
