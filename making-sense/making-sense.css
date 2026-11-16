@@ -194,3 +194,33 @@ a.nav-btn:hover,.nav-links a.nav-btn:hover{background:var(--ember-deep,#8f4316);
   .site-card picture{flex:none;max-width:none}
   .site-card img{aspect-ratio:16/10;height:auto}
 }
+
+/* Hub issues: three compact recent cards, then a title and date list */
+.recent-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.recent-card{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid var(--line);overflow:hidden;transition:border-color .15s,background .15s}
+.recent-card:hover,.recent-card:focus-visible{border-color:var(--ember);background:#fffdf9}
+.recent-card-image{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:#1b1b1b}
+.recent-card-body{padding:16px 16px 18px;display:flex;flex-direction:column;flex:1 1 auto}
+.recent-card .issue-num{color:var(--muted);margin-bottom:6px}
+.recent-card h2{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.2;color:var(--sea);margin:0 0 8px}
+.recent-card p{margin:0;color:var(--graphite);font-size:15px;line-height:1.45}
+.issue-list{border-top:1px solid var(--line)}
+.issue-row{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:15px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit}
+.issue-row-title{font-family:var(--serif);font-size:21px;line-height:1.3;color:var(--sea)}
+.issue-row-date{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.issue-row:hover .issue-row-title,.issue-row:focus-visible .issue-row-title{color:var(--ember)}
+@media(max-width:940px){
+  .recent-grid{grid-template-columns:1fr;gap:12px}
+  .recent-card{flex-direction:row;align-items:stretch}
+  .recent-card-image{width:132px;flex:0 0 132px;aspect-ratio:1;height:auto;align-self:stretch}
+  .recent-card:not(:has(img)){flex-direction:row}
+  .recent-card-body{padding:14px 16px;justify-content:center}
+  .recent-card h2{font-size:19px;margin-bottom:6px}
+}
+@media(max-width:700px){
+  .recent-card-image{width:108px;flex:0 0 108px}
+  .recent-card h2{font-size:18px}
+  .recent-card p{font-size:14px}
+  .issue-row{flex-wrap:wrap;gap:4px 16px;padding:13px 0}
+  .issue-row-date{white-space:normal}
+}

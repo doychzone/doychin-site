@@ -150,7 +150,7 @@ def render_featured(spec: dict) -> str:
     </a>'''
 
 
-def archive_card_from_featured(featured: str) -> str:
+def recent_card_from_featured(featured: str) -> str:
     def extract(pattern: str, default: str = "") -> str:
         match = re.search(pattern, featured, flags=re.DOTALL)
         return match.group(1).strip() if match else default
@@ -161,20 +161,64 @@ def archive_card_from_featured(featured: str) -> str:
     kicker = re.sub(r"^Issue (?:Zero|\d+)\s*·\s*", "", kicker)
     title = extract(r"<h2>(.*?)</h2>")
     dek = extract(r'<div class="featured-issue-copy">.*?<p>(.*?)</p>')
-    read_time = extract(r'<div class="read">(.*?)</div>')
     image_src = extract(r'<img[^>]+src="([^"]+)"')
     image_alt = extract(r'<img[^>]+alt="([^"]*)"', default="")
-    if not all((href, kicker, title, dek, read_time)):
+    if not all((href, kicker, title, dek)):
         fail("Could not read the current featured issue from making-sense/index.html")
+    media = ""
     if image_src:
-        media = f'<img class="issue-card-image" src="{image_src}" alt="{image_alt}">'
-    else:
-        media = '<div class="issue-card-image text-only" aria-hidden="true"></div>'
+        media = f'<img class="recent-card-image" src="{image_src}" alt="{image_alt}">'
     return (
-        f'      <a class="issue-card" href="{href}">{media}'
-        f'<div class="issue-card-body"><div class="issue-num">{kicker}</div>'
-        f'<h2>{title}</h2><p>{dek}</p><div class="read">{read_time}</div></div></a>'
+        f'      <a class="recent-card" href="{href}">\n'
+        f'        {media}\n'
+        f'        <div class="recent-card-body">\n'
+        f'          <div class="issue-num">{kicker}</div>\n'
+        f'          <h2>{title}</h2>\n'
+        f'          <p>{dek}</p>\n'
+        f'        </div>\n'
+        f'      </a>'
     )
+
+
+def list_row_from_recent_card(card: str) -> str:
+    def extract(pattern: str, default: str = "") -> str:
+        match = re.search(pattern, card, flags=re.DOTALL)
+        return match.group(1).strip() if match else default
+
+    href = extract(r'href="([^"]+)"')
+    title = extract(r"<h2>(.*?)</h2>")
+    date = extract(r'<div class="issue-num">(.*?)</div>')
+    if not all((href, title, date)):
+        fail("Could not read a recent issue card from making-sense/index.html")
+    return (
+        f'      <a class="issue-row" href="{href}">'
+        f'<span class="issue-row-title">{title}</span>'
+        f'<span class="issue-row-date">{date}</span></a>'
+    )
+
+
+def _div_inner_span(html: str, class_name: str) -> tuple[int, int, int, int]:
+    open_tag = f'<div class="{class_name}">'
+    start = html.find(open_tag)
+    if start < 0:
+        fail(f"Could not find {class_name} in making-sense/index.html")
+    inner_start = start + len(open_tag)
+    depth = 1
+    i = inner_start
+    while i < len(html) and depth:
+        next_open = html.find("<div", i)
+        next_close = html.find("</div>", i)
+        if next_close < 0:
+            fail(f"Could not close {class_name} in making-sense/index.html")
+        if next_open != -1 and next_open < next_close:
+            depth += 1
+            i = next_open + 4
+        else:
+            depth -= 1
+            if depth == 0:
+                return start, next_close + len("</div>"), inner_start, next_close
+            i = next_close + 6
+    fail(f"Could not close {class_name} in making-sense/index.html")
 
 
 def update_hub(hub_path: Path, spec: dict) -> None:
@@ -187,14 +231,26 @@ def update_hub(hub_path: Path, spec: dict) -> None:
     if new_href in hub:
         fail(f"Hub already contains {new_href}")
     hub = hub[: match.start()] + render_featured(spec) + hub[match.end() :]
-    old_card = archive_card_from_featured(old_featured)
-    archive_marker = '<div class="section-label" id="archive-label">Previous articles</div>'
-    marker_pos = hub.find(archive_marker)
-    grid_pos = hub.find('<div class="issue-grid">', marker_pos)
-    if marker_pos < 0 or grid_pos < 0:
-        fail("Previous articles grid was not found in making-sense/index.html")
-    insert_at = grid_pos + len('<div class="issue-grid">')
-    hub = hub[:insert_at] + "\n" + old_card + hub[insert_at:]
+    new_recent = recent_card_from_featured(old_featured)
+
+    _, _, recent_inner_start, recent_inner_end = _div_inner_span(hub, "recent-grid")
+    recent_inner = hub[recent_inner_start:recent_inner_end]
+    recent_cards = re.findall(r'<a class="recent-card".*?</a>', recent_inner, flags=re.DOTALL)
+    recent_cards.insert(0, new_recent.strip())
+    overflow = recent_cards[3:]
+    recent_cards = recent_cards[:3]
+    new_recent_inner = "\n" + "\n".join(recent_cards) + "\n    "
+    hub = hub[:recent_inner_start] + new_recent_inner + hub[recent_inner_end:]
+
+    if overflow:
+        overflow_rows = [list_row_from_recent_card(card) for card in overflow]
+        _, _, list_inner_start, list_inner_end = _div_inner_span(hub, "issue-list")
+        list_inner = hub[list_inner_start:list_inner_end]
+        new_list_inner = "\n" + "\n".join(overflow_rows) + list_inner
+        if not list_inner.strip():
+            new_list_inner = "\n" + "\n".join(overflow_rows) + "\n    "
+        hub = hub[:list_inner_start] + new_list_inner + hub[list_inner_end:]
+
     hub_path.write_text(hub, encoding="utf-8")
 
 
