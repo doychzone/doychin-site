@@ -143,14 +143,6 @@
         }));
       }
     }
-    if (!isStacked(stage)) {
-      dots.appendChild(el("circle", {
-        cx: o.cx.toFixed(1),
-        cy: o.cy.toFixed(1),
-        r: "3",
-        fill: "#b0551f"
-      }));
-    }
   }
 
   function drawTree(stage, svg) {
