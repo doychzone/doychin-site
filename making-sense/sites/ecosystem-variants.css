@@ -1,7 +1,6 @@
-/* Preview variants for the Where Making Sense lives section.
-   Prefixed with ms-eco-. Set data-current on .ms-eco to
-   doychin | doychzone | moytu | theagegames.
-   Not used on the live hub until a variant is chosen. */
+/* Where Making Sense lives. Prefixed with ms-eco-.
+   Set data-current on .ms-eco to doychin | doychzone | moytu | theagegames.
+   The hub uses the map variant. eco-a and eco-b remain as comparison pages. */
 
 .eco-preview-bar{
   background:#efede4;
@@ -40,6 +39,10 @@
 }
 
 .ms-eco{
+  max-width:960px;
+  width:100%;
+  margin-inline:auto;
+  overflow:visible;
   --ms-eco-ember:#b0551f;
   --ms-eco-bone:#efede4;
   --ms-eco-ink:#141714;
@@ -56,7 +59,7 @@
   line-height:1.5;
 }
 .ms-eco *,.ms-eco *::before,.ms-eco *::after{box-sizing:border-box}
-.ms-eco-intro{margin:0 0 28px;max-width:740px}
+.ms-eco-intro{margin:0 auto 40px;max-width:34em;text-align:center}
 .ms-eco-kicker{font-family:var(--ms-eco-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ms-eco-ember);margin:0 0 12px}
 .ms-eco-heading{font-family:var(--ms-eco-serif);font-weight:400;font-size:clamp(28px,3.4vw,40px);line-height:1.15;color:var(--ms-eco-bone);margin:0 0 12px}
 .ms-eco-line{margin:0;font-size:clamp(17px,1.85vw,20px);line-height:1.5;color:var(--ms-eco-muted)}
@@ -163,7 +166,7 @@
 .ms-eco-origin-mark svg{width:64px;height:28px;overflow:visible;color:var(--ms-eco-ember)}
 .ms-eco-origin-name{font-family:var(--ms-eco-serif);font-size:22px;line-height:1.2;color:var(--ms-eco-bone)}
 
-.ms-eco-stage{position:relative;z-index:0}
+.ms-eco-stage{position:relative;z-index:0;overflow:visible}
 .ms-eco-paths{
   position:absolute;
   inset:0;
@@ -179,10 +182,10 @@
   display:grid;
   grid-template-columns:minmax(0,1fr) minmax(180px,0.72fr) minmax(0,1fr);
   grid-template-rows:auto auto auto;
-  gap:72px 80px;
+  gap:72px 64px;
   align-items:center;
   justify-items:center;
-  padding:64px 12px 36px;
+  padding:72px 32px 64px;
   min-height:620px;
   background-color:transparent;
   background-image:
@@ -220,8 +223,8 @@
 
 @media(max-width:940px){
   .ms-eco-stage--map{
-    gap:52px 36px;
-    padding:56px 8px 28px;
+    gap:52px 28px;
+    padding:64px 24px 52px;
     min-height:0;
   }
   .ms-eco-card{max-width:280px}
@@ -232,7 +235,7 @@
 
 /* Mobile: vertical path / trunk, destinations stacked with air between them */
 @media(max-width:700px){
-  .ms-eco-intro{margin-bottom:22px}
+  .ms-eco-intro{margin:0 auto 28px;padding-inline:4px}
   .ms-eco-heading{font-size:28px}
   .ms-eco-card{max-width:none}
   .ms-eco-here{left:8px}
@@ -243,7 +246,7 @@
     flex-direction:column;
     align-items:stretch;
     gap:64px;
-    padding:16px 0 16px 32px;
+    padding:28px 20px 48px 40px;
     min-height:0;
     background-size:auto,auto,auto,28px 28px,28px 28px;
     outline:0;
@@ -258,8 +261,8 @@
   .ms-eco-stage--map .ms-eco-origin,
   .ms-eco-stage--tree .ms-eco-origin{
     align-self:center;
-    margin:0 0 8px -32px;
-    width:calc(100% + 32px);
+    margin:0 20px 8px -40px;
+    width:calc(100% + 60px);
   }
   .ms-eco-stage--tree .ms-eco-fork{display:none}
   .ms-eco-stage--map{
@@ -268,4 +271,12 @@
       linear-gradient(90deg,rgba(239,237,228,.045) 1px,transparent 1px);
     background-size:28px 28px,28px 28px;
   }
+}
+
+.philosophy .ms-eco{margin:48px auto 80px}
+@media(max-width:940px){
+  .philosophy .ms-eco{margin:40px auto 64px}
+}
+@media(max-width:700px){
+  .philosophy .ms-eco{margin:32px auto 56px}
 }
